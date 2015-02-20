@@ -46,13 +46,21 @@ public class IMatFrame extends javax.swing.JFrame {
 
         searchField.setText("jTextField1");
 
-        returnButton.setText("jButton1");
+        returnButton.setText("returnButton");
+        returnButton.setToolTipText("Gå tillbaka till föregående sida");
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         searchButton.setText("Sök");
+        searchButton.setToolTipText("Klick för att söka");
+        searchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         profileButton.setText("jButton3");
+        profileButton.setToolTipText("Klicka för att komma åt din profil");
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        cartButton.setText("jButton4");
+        cartButton.setText("cartButton");
+        cartButton.setToolTipText("Klicka för att se kundvagnen");
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("kategori");

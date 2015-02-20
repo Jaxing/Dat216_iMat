@@ -58,16 +58,17 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="L&#xe4;gg till i:"/>
+        <Property name="toolTipText" type="java.lang.String" value="Kilcka f&#xf6;r att l&#xe4;gga till i vald lista"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Kundvagn"/>
-            <StringItem index="1" value="Ny lista"/>
+          <StringArray count="1">
+            <StringItem index="0" value="Ny lista"/>
           </StringArray>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att v&#xe4;lja lista att l&#xe4;gga till varorna i"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

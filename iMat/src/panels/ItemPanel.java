@@ -108,6 +108,7 @@ public class ItemPanel extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         addToButton.setText("Lägg till i:");
+        addToButton.setToolTipText("Klicka för att lägga till i vald lista");
         addToButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         amountLabel.setText("Antal:");
@@ -115,9 +116,11 @@ public class ItemPanel extends javax.swing.JPanel {
         amountSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         addToComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kundvagn", "Ny Inköpslista" }));
+        addToComboBox.setToolTipText("Välj lista att lägga till vara i");
         addToComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jToggleButton1.setText("jToggleButton1");
+        jToggleButton1.setToolTipText("Klick för att favorit markera vara");
         jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

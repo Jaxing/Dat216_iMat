@@ -101,22 +101,38 @@
         </Component>
         <Component class="javax.swing.JButton" name="returnButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="returnButton"/>
+            <Property name="toolTipText" type="java.lang.String" value="G&#xe5; tillbaka till f&#xf6;reg&#xe5;ende sida"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Handmark&#xf6;r"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="searchButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="S&#xf6;k"/>
+            <Property name="toolTipText" type="java.lang.String" value="Klick f&#xf6;r att s&#xf6;ka"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Handmark&#xf6;r"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="profileButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="jButton3"/>
+            <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att komma &#xe5;t din profil"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Handmark&#xf6;r"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="cartButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton4"/>
+            <Property name="text" type="java.lang.String" value="cartButton"/>
+            <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att se kundvagnen"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Handmark&#xf6;r"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
