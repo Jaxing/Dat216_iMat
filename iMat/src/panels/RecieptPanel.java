@@ -9,12 +9,12 @@ package panels;
  *
  * @author jesper
  */
-public class recieptPanel extends javax.swing.JPanel {
+public class RecieptPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form recieptPanel
      */
-    public recieptPanel() {
+    public RecieptPanel() {
         initComponents();
     }
 
