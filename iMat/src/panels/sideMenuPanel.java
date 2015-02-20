@@ -46,7 +46,7 @@ public class sideMenuPanel extends javax.swing.JPanel {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        MenuTree.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        MenuTree.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Hem");
         treeNode1.add(treeNode2);
