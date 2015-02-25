@@ -22,3 +22,5 @@ nb-configuration.xml
 # Misc #
 thumbs.db
 .DS_Store
+/iMat/src/Test/
+/iMat/src/ErikTest/
