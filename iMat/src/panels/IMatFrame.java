@@ -1,3 +1,5 @@
+package panels;
+
 
 
 /*
@@ -30,17 +32,17 @@ public class IMatFrame extends javax.swing.JFrame {
 
         jToggleButton1 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
-        searchField = new javax.swing.JTextField();
-        returnButton = new javax.swing.JButton();
-        searchButton = new javax.swing.JButton();
-        profileButton = new javax.swing.JButton();
-        cartButton = new javax.swing.JButton();
-        categoriPanel = new javax.swing.JLabel();
-        sideMenuPanel1 = new panels.sideMenuPanel();
-        MainpagePanel = new javax.swing.JPanel();
         firstpageCardPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         bannerJPanel1 = new panels.bannerJPanel();
+        sideMenuPanel1 = new panels.sideMenuPanel();
+        categoriPanel = new javax.swing.JLabel();
+        returnButton = new javax.swing.JButton();
+        searchField = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
+        profileButton = new javax.swing.JButton();
+        cartButton = new javax.swing.JButton();
+        MainpagePanel = new javax.swing.JPanel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -50,76 +52,97 @@ public class IMatFrame extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 640));
 
-        searchField.setText("jTextField1");
-        jPanel1.add(searchField);
-
-        returnButton.setText("returnButton");
-        returnButton.setToolTipText("Gå tillbaka till föregående sida");
-        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(returnButton);
-
-        searchButton.setText("Sök");
-        searchButton.setToolTipText("Klick för att söka");
-        searchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(searchButton);
-
-        profileButton.setText("jButton3");
-        profileButton.setToolTipText("Klicka för att komma åt din profil");
-        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(profileButton);
-
-        cartButton.setText("cartButton");
-        cartButton.setToolTipText("Klicka för att se kundvagnen");
-        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(cartButton);
-
-        categoriPanel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        categoriPanel.setText("kategori");
-        jPanel1.add(categoriPanel);
-        jPanel1.add(sideMenuPanel1);
-
-        MainpagePanel.setBackground(new java.awt.Color(204, 204, 204));
-        MainpagePanel.setLayout(new java.awt.CardLayout());
-
         firstpageCardPanel.setBackground(new java.awt.Color(204, 255, 204));
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.setLayout(new java.awt.GridLayout(0, 2, 4, 4));
 
+        categoriPanel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        categoriPanel.setText("kategori");
+
+        returnButton.setText("returnButton");
+        returnButton.setToolTipText("Gå tillbaka till föregående sida");
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        searchField.setText("jTextField1");
+
+        searchButton.setText("Sök");
+        searchButton.setToolTipText("Klick för att söka");
+        searchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        profileButton.setText("jButton3");
+        profileButton.setToolTipText("Klicka för att komma åt din profil");
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        cartButton.setText("cartButton");
+        cartButton.setToolTipText("Klicka för att se kundvagnen");
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout firstpageCardPanelLayout = new javax.swing.GroupLayout(firstpageCardPanel);
         firstpageCardPanel.setLayout(firstpageCardPanelLayout);
         firstpageCardPanelLayout.setHorizontalGroup(
             firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(firstpageCardPanelLayout.createSequentialGroup()
-                .addGroup(firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bannerJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 244, Short.MAX_VALUE))
+            .addGroup(firstpageCardPanelLayout.createSequentialGroup()
+                .addGroup(firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(firstpageCardPanelLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(sideMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(firstpageCardPanelLayout.createSequentialGroup()
+                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchButton)))
+                .addGroup(firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(firstpageCardPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(firstpageCardPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(categoriPanel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         firstpageCardPanelLayout.setVerticalGroup(
             firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(firstpageCardPanelLayout.createSequentialGroup()
-                .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(returnButton)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton)
+                    .addComponent(profileButton)
+                    .addComponent(cartButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(firstpageCardPanelLayout.createSequentialGroup()
+                        .addComponent(categoriPanel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(174, 174, 174)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        MainpagePanel.add(firstpageCardPanel, "card2");
+        jPanel1.add(firstpageCardPanel);
 
+        MainpagePanel.setBackground(new java.awt.Color(204, 204, 204));
+        MainpagePanel.setLayout(new java.awt.CardLayout());
         jPanel1.add(MainpagePanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 699, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1016, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
