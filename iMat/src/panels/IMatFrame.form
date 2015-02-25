@@ -33,117 +33,25 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-
           <Component id="jPanel1" alignment="0" pref="699" max="32767" attributes="0"/>
-
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-
           <Component id="jPanel1" alignment="0" pref="519" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
-
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[800, 640]"/>
         </Property>
       </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-
-                      <Group type="102" attributes="0">
-                          <Component id="returnButton" min="-2" pref="24" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="searchField" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="searchButton" min="-2" max="-2" attributes="0"/>
-                      </Group>
-
-                  <Component id="returnButton" min="-2" pref="24" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="searchField" min="-2" pref="180" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="searchButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="104" max="-2" attributes="0"/>
-                  <EmptySpace pref="260" max="32767" attributes="0"/>
-                  <Component id="cartButton" min="-2" pref="25" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="profileButton" min="-2" pref="25" max="-2" attributes="0"/>
-
-                      <Component id="sideMenuPanel1" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="categoriPanel" min="-2" pref="104" max="-2" attributes="0"/>
-                          <EmptySpace pref="258" max="32767" attributes="0"/>
-                          <Component id="cartButton" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="profileButton" min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="cardPanel" max="32767" attributes="0"/>
-                  </Group>
-
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="cartButton" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="profileButton" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="MainpagePanel" pref="775" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="profileButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cartButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Component id="categoriPanel" min="-2" pref="26" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cardPanel" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-
-              </Group>
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="returnButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="searchField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="searchButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="sideMenuPanel1" pref="490" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="searchField">
           <Properties>
@@ -199,7 +107,6 @@
         </Component>
         <Component class="panels.sideMenuPanel" name="sideMenuPanel1">
         </Component>
-
         <Container class="javax.swing.JPanel" name="MainpagePanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -263,23 +170,12 @@
                     <Property name="rows" type="int" value="0"/>
                     <Property name="verticalGap" type="int" value="4"/>
                   </Layout>
-                  <SubComponents>
-                    <Component class="panels.ItemPanel" name="itemPanel1">
-                    </Component>
-                    <Component class="panels.ItemPanel" name="itemPanel3">
-                    </Component>
-                    <Component class="panels.ItemPanel" name="itemPanel2">
-                    </Component>
-                    <Component class="panels.ItemPanel" name="itemPanel4">
-                    </Component>
-                  </SubComponents>
                 </Container>
                 <Component class="panels.bannerJPanel" name="bannerJPanel1">
                 </Component>
               </SubComponents>
             </Container>
           </SubComponents>
-
         </Container>
       </SubComponents>
     </Container>
