@@ -39,15 +39,7 @@ public class bannerJPanel extends javax.swing.JPanel {
         }
     };
     
-   /* public void setBannerValue(int i) throws IllegalArgumentException{
-        if(i > 3 || i < 1){
-            throw new IllegalArgumentException();
-        } else {
-            this.bannerValue = i;
-            this.scrollBaner.setValue(i);
-        }
-    } */
-    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

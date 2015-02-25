@@ -21,11 +21,14 @@ public class IMatFrame extends javax.swing.JFrame {
      * Creates new form IMatFrame
      */
     public IMatFrame() {
+        
+        
+        
         initComponents();
         //initBanners();
        // initBannerSlider();
     }
-    
+   
     /*public void initBanners(){
         fruitBanner.setTitle("Frukt och grönt!");
         meatBanner.setTitle("Kött och fläsk");
