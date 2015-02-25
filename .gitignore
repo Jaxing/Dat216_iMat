@@ -22,10 +22,8 @@ nb-configuration.xml
 # Misc #
 thumbs.db
 .DS_Store
-<<<<<<< HEAD
-/iMat/src/Test/
+
 /iMat/src/ErikTest/
-=======
+
 /iMat/src/test/
 iMat/src/test/TestFrame.java
->>>>>>> d7db176f4df29aa5b2affa025a3c1082cb643cce
