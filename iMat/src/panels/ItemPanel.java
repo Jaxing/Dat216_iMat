@@ -6,6 +6,9 @@
 
 package panels;
 
+import javax.swing.ImageIcon;
+import se.chalmers.ait.dat215.project.Product;
+
 /**
  *
  * @author jesper
@@ -183,7 +186,16 @@ public class ItemPanel extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void addItem(Product item)
+    { 
+       nameLabel.setText(item.getName());
+       iconLabel.setIcon(new ImageIcon("/../imat/images/"+item.getImageName()));
+       priceLabel.setText(item.getPrice()+" "+item.getUnit());
+       miscLabel2.setText(item.getCategory().toString());
+       miscLabel1.setText("Sweden");
+       
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToButton;
