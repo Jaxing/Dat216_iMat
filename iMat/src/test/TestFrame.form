@@ -6,6 +6,18 @@
     </Component>
     <Component class="cards.ItemCard" name="itemCard2">
     </Component>
+    <Component class="cards.ItemCard" name="itemCard3">
+    </Component>
+    <Component class="cards.ItemCard" name="itemCard4">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel1">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel2">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel4">
+    </Component>
+    <Component class="cards.ItemCard" name="itemCard5">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -30,23 +42,24 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="48" max="32767" attributes="0"/>
-              <Component id="itemCard3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <Component id="itemCard6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="itemCard3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="396" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+              <Component id="itemCard6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="194" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="cards.ItemCard" name="itemCard3">
+    <Component class="cards.ItemCard" name="itemCard6">
     </Component>
   </SubComponents>
 </Form>

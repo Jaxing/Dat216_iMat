@@ -30,6 +30,12 @@ public class TestFrame extends javax.swing.JFrame {
         itemCard1 = new cards.ItemCard();
         itemCard2 = new cards.ItemCard();
         itemCard3 = new cards.ItemCard();
+        itemCard4 = new cards.ItemCard();
+        itemPanel1 = new panels.ItemPanel();
+        itemPanel2 = new panels.ItemPanel();
+        itemPanel4 = new panels.ItemPanel();
+        itemCard5 = new cards.ItemCard();
+        itemCard6 = new cards.ItemCard();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,15 +44,16 @@ public class TestFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(itemCard3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(itemCard6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(itemCard3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 396, Short.MAX_VALUE))
+                .addGap(190, 190, 190)
+                .addComponent(itemCard6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,5 +98,11 @@ public class TestFrame extends javax.swing.JFrame {
     private cards.ItemCard itemCard1;
     private cards.ItemCard itemCard2;
     private cards.ItemCard itemCard3;
+    private cards.ItemCard itemCard4;
+    private cards.ItemCard itemCard5;
+    private cards.ItemCard itemCard6;
+    private panels.ItemPanel itemPanel1;
+    private panels.ItemPanel itemPanel2;
+    private panels.ItemPanel itemPanel4;
     // End of variables declaration//GEN-END:variables
 }

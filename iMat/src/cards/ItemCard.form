@@ -8,6 +8,24 @@
     </Component>
     <Component class="panels.ItemPanel" name="itemPanel6">
     </Component>
+    <Component class="panels.ItemPanel" name="itemPanel3">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel4">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel8">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel10">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel9">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel5">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel7">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel11">
+    </Component>
+    <Component class="panels.ItemPanel" name="itemPanel13">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -59,38 +77,42 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="itemPanel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemPanel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemPanel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemPanel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemPanel18" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemPanel19" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemPanel20" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemPanel21" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemPanel22" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="54" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="itemPanel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="itemPanel18" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="itemPanel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="itemPanel19" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="itemPanel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="itemPanel20" min="-2" pref="150" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="itemPanel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                      <Component id="itemPanel21" min="-2" pref="150" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="itemPanel22" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="panels.ItemPanel" name="itemPanel3">
+            <Component class="panels.ItemPanel" name="itemPanel18">
             </Component>
-            <Component class="panels.ItemPanel" name="itemPanel4">
+            <Component class="panels.ItemPanel" name="itemPanel19">
             </Component>
-            <Component class="panels.ItemPanel" name="itemPanel5">
+            <Component class="panels.ItemPanel" name="itemPanel20">
             </Component>
-            <Component class="panels.ItemPanel" name="itemPanel7">
+            <Component class="panels.ItemPanel" name="itemPanel21">
+            </Component>
+            <Component class="panels.ItemPanel" name="itemPanel22">
             </Component>
           </SubComponents>
         </Container>
