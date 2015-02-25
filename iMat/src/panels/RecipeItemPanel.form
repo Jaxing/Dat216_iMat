@@ -73,6 +73,10 @@
     <Component class="javax.swing.JButton" name="showButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Visa"/>
+        <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att de reciptet i detaljvy"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Handmark&#xf6;r"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

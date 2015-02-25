@@ -9,12 +9,12 @@ package panels;
  *
  * @author jesper
  */
-public class recieptPanel extends javax.swing.JPanel {
+public class RecieptPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form recieptPanel
      */
-    public recieptPanel() {
+    public RecieptPanel() {
         initComponents();
     }
 
@@ -37,8 +37,10 @@ public class recieptPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Lägg till i:");
+        jButton1.setToolTipText("Kilcka för att lägga till i vald lista");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kundvagn", "Ny lista" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ny lista" }));
+        jComboBox1.setToolTipText("Klicka för att välja lista att lägga till varorna i");
 
         jLabel1.setText("Total");
 

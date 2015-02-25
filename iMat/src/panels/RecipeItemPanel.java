@@ -42,6 +42,8 @@ public class RecipeItemPanel extends javax.swing.JPanel {
         nameLabel.setText("jLabel2");
 
         showButton.setText("Visa");
+        showButton.setToolTipText("Klicka för att de reciptet i detaljvy");
+        showButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

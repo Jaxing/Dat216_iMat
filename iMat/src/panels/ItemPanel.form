@@ -205,6 +205,7 @@
             <Component class="javax.swing.JButton" name="addToButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="L&#xe4;gg till i:"/>
+                <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att l&#xe4;gga till i vald lista"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Handmark&#xf6;r"/>
                 </Property>
@@ -230,6 +231,7 @@
                     <StringItem index="1" value="Ny Ink&#xf6;pslista"/>
                   </StringArray>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="V&#xe4;lj lista att l&#xe4;gga till vara i"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Handmark&#xf6;r"/>
                 </Property>
@@ -238,6 +240,7 @@
             <Component class="javax.swing.JToggleButton" name="jToggleButton1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jToggleButton1"/>
+                <Property name="toolTipText" type="java.lang.String" value="Klick f&#xf6;r att favorit markera vara"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Handmark&#xf6;r"/>
                 </Property>

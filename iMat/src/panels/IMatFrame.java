@@ -1,5 +1,6 @@
 package panels;
 
+
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -59,6 +60,7 @@ public class IMatFrame extends javax.swing.JFrame {
         searchButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
         cartButton = new javax.swing.JButton();
+
         sideMenuPanel1 = new panels.sideMenuPanel();
         MainpagePanel = new javax.swing.JPanel();
         firstpageCardPanel = new javax.swing.JPanel();
@@ -78,7 +80,9 @@ public class IMatFrame extends javax.swing.JFrame {
 
         searchField.setText("jTextField1");
 
-        returnButton.setText("jButton1");
+        returnButton.setText("returnButton");
+        returnButton.setToolTipText("Gå tillbaka till föregående sida");
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         searchButton.setText("Sök");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -86,10 +90,18 @@ public class IMatFrame extends javax.swing.JFrame {
                 searchButtonActionPerformed(evt);
             }
         });
+        searchButton.setToolTipText("Klicka för att söka");
+        searchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         profileButton.setText("jButton3");
+        profileButton.setToolTipText("Klicka för att komma åt din profil");
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        cartButton.setText("jButton4");
+        cartButton.setText("cartButton");
+        cartButton.setToolTipText("Klicka för att se kundvagnen");
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+      
 
         MainpagePanel.setBackground(new java.awt.Color(204, 204, 204));
         MainpagePanel.setLayout(new java.awt.CardLayout());
@@ -164,8 +176,7 @@ public class IMatFrame extends javax.swing.JFrame {
                     .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
                         .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(3, 3, 3))))
-        );
+                        .addGap(3, 3, 3))))        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
