@@ -5,6 +5,8 @@
  */
 package test;
 
+import se.chalmers.ait.dat215.project.Product;
+
 /**
  *
  * @author jesper
@@ -16,6 +18,7 @@ public class TestFrame extends javax.swing.JFrame {
      */
     public TestFrame() {
         initComponents();
+        itemPanel1.addItem(new Product());
     }
 
     /**
@@ -27,7 +30,16 @@ public class TestFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        recipeFullPanel1 = new panels.RecipeFullPanel();
+        itemCard1 = new cards.ItemCard();
+        itemCard2 = new cards.ItemCard();
+        itemCard3 = new cards.ItemCard();
+        itemCard4 = new cards.ItemCard();
+        itemPanel1 = new panels.ItemPanel();
+        itemPanel2 = new panels.ItemPanel();
+        itemPanel4 = new panels.ItemPanel();
+        itemCard5 = new cards.ItemCard();
+        itemCard6 = new cards.ItemCard();
+        itemPanel3 = new panels.ItemPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -35,17 +47,23 @@ public class TestFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addComponent(itemCard6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(recipeFullPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(itemPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(recipeFullPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(140, Short.MAX_VALUE)
+                .addComponent(itemPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(itemCard6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -87,6 +105,15 @@ public class TestFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private panels.RecipeFullPanel recipeFullPanel1;
+    private cards.ItemCard itemCard1;
+    private cards.ItemCard itemCard2;
+    private cards.ItemCard itemCard3;
+    private cards.ItemCard itemCard4;
+    private cards.ItemCard itemCard5;
+    private cards.ItemCard itemCard6;
+    private panels.ItemPanel itemPanel1;
+    private panels.ItemPanel itemPanel2;
+    private panels.ItemPanel itemPanel3;
+    private panels.ItemPanel itemPanel4;
     // End of variables declaration//GEN-END:variables
 }
