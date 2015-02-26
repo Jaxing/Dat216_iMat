@@ -6,13 +6,14 @@ package panels;
 
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Product;
-
+import customBackend.Lists;
 /**
  *
  * @author jesper
  */
 public class ItemPanel extends javax.swing.JPanel {
-
+    
+    
     /**
      * Creates new form ItemPanel
      */

@@ -66,17 +66,19 @@ public class bannerJPanel extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(255, 212, 200));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        cardLayoutPanel.setBackground(new java.awt.Color(255, 212, 200));
         cardLayoutPanel.setLayout(new java.awt.CardLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 212, 200));
         jPanel2.setToolTipText("Scroll banners");
         jPanel2.setPreferredSize(new java.awt.Dimension(750, 270));
 
         showOfferPanel.setBackground(new java.awt.Color(255, 255, 255));
         showOfferPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        showOfferPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         showOfferPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 showOfferPanelMouseEntered(evt);
@@ -133,8 +135,9 @@ public class bannerJPanel extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88)
                 .addComponent(showOfferPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,10 +145,11 @@ public class bannerJPanel extends javax.swing.JPanel {
 
         cardLayoutPanel.add(jPanel2, "card2");
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(255, 212, 200));
 
         showOfferPanel1.setBackground(new java.awt.Color(255, 255, 255));
         showOfferPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        showOfferPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         showOfferPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 showOfferPanelMouseEntered(evt);
@@ -210,10 +214,11 @@ public class bannerJPanel extends javax.swing.JPanel {
 
         cardLayoutPanel.add(jPanel4, "card2");
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 212, 200));
 
         showOfferPanel2.setBackground(new java.awt.Color(255, 255, 255));
         showOfferPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        showOfferPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         showOfferPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 showOfferPanelMouseEntered(evt);
@@ -282,9 +287,10 @@ public class bannerJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void showOfferPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanelMouseEntered
-        showOfferPanel.setBackground(Color.red);
-        showOfferPanel1.setBackground(Color.red);
-        showOfferPanel2.setBackground(Color.red);
+        Color red = new Color(255,102,102);
+        showOfferPanel.setBackground(red);
+        showOfferPanel1.setBackground(red);
+        showOfferPanel2.setBackground(red);
     }//GEN-LAST:event_showOfferPanelMouseEntered
 
     private void showOfferPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanelMouseExited

@@ -29,13 +29,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-
           <Group type="102" alignment="1" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" max="32767" attributes="0"/>
           </Group>
-
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -51,7 +49,6 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-
       </Properties>
 
       <Layout>
@@ -163,7 +160,6 @@
         </Property>
       </Properties>
 
-
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
@@ -180,7 +176,6 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="pricePerUnitLabel" alignment="0" pref="60" max="32767" attributes="0"/>
                               <Component id="priceLabel" alignment="0" max="32767" attributes="0"/>
-
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -191,7 +186,6 @@
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
-
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -208,7 +202,6 @@
                       <Group type="102" attributes="0">
                           <Component id="iconLabel" min="-2" pref="86" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-
                       </Group>
                   </Group>
                   <Component id="miscLabel1" max="32767" attributes="0"/>

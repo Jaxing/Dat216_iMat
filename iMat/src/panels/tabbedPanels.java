@@ -44,6 +44,10 @@ public class tabbedPanels extends javax.swing.JPanel {
         itemPanel11 = new panels.ItemPanel();
         itemPanel12 = new panels.ItemPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -76,6 +80,8 @@ public class tabbedPanels extends javax.swing.JPanel {
         );
 
         jTabbedPane1.addTab("Säsong", jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -110,6 +116,8 @@ public class tabbedPanels extends javax.swing.JPanel {
         );
 
         jTabbedPane1.addTab("Nyheter", jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
