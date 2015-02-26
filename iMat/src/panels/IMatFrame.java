@@ -1,6 +1,14 @@
-package panels;
+﻿package panels;
 
 
+
+
+
+
+import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,9 +26,31 @@ public class IMatFrame extends javax.swing.JFrame {
      * Creates new form IMatFrame
      */
     public IMatFrame() {
+        
+        
+        
         initComponents();
+        //initBanners();
+       // initBannerSlider();
     }
-
+   
+    /*public void initBanners(){
+        fruitBanner.setTitle("Frukt och grönt!");
+        meatBanner.setTitle("Kött och fläsk");
+        bananaBanner.setTitle("Bananer i pyjamas");
+    }*/
+    
+    /*public void initBannerSlider(){
+       timer = new Timer(3000,taskPerformer);
+       timer.start();
+    }
+    
+    ActionListener taskPerformer = new ActionListener() {
+        public void actionPerformed(ActionEvent evt) {
+              CardLayout theLayout = (CardLayout)bannerCardLayoutPanel.getLayout();
+              theLayout.next(bannerCardLayoutPanel);
+        }
+    };*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,17 +61,21 @@ public class IMatFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jToggleButton1 = new javax.swing.JToggleButton();
+<<<<<<< HEAD
         jPanel1 = new javax.swing.JPanel();
         MainpagePanel = new javax.swing.JPanel();
         cartButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
+
         returnButton = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
+
         sideMenuPanel1 = new panels.sideMenuPanel();
         categoriPanel = new javax.swing.JLabel();
         firstpageCardPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+
         bannerJPanel1 = new panels.bannerJPanel();
 
         jToggleButton1.setText("jToggleButton1");
@@ -51,6 +85,7 @@ public class IMatFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 640));
+
 
         MainpagePanel.setBackground(new java.awt.Color(204, 204, 204));
         MainpagePanel.setLayout(new java.awt.CardLayout());
@@ -63,18 +98,21 @@ public class IMatFrame extends javax.swing.JFrame {
         profileButton.setToolTipText("Klicka för att komma åt din profil");
         profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        returnButton.setText("returnButton");
-        returnButton.setToolTipText("Gå tillbaka till föregående sida");
-        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        returnButton.setText("jButton1");
 
         searchField.setText("jTextField1");
 
         searchButton.setText("Sök");
-        searchButton.setToolTipText("Klick för att söka");
-        searchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+
 
         categoriPanel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         categoriPanel.setText("kategori");
+
 
         firstpageCardPanel.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -86,13 +124,16 @@ public class IMatFrame extends javax.swing.JFrame {
         firstpageCardPanel.setLayout(firstpageCardPanelLayout);
         firstpageCardPanelLayout.setHorizontalGroup(
             firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
+
         );
         firstpageCardPanelLayout.setVerticalGroup(
             firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(firstpageCardPanelLayout.createSequentialGroup()
                 .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(462, Short.MAX_VALUE))
@@ -145,21 +186,28 @@ public class IMatFrame extends javax.swing.JFrame {
                     .addComponent(firstpageCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sideMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
+
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,11 +246,13 @@ public class IMatFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainpagePanel;
+
     private panels.bannerJPanel bannerJPanel1;
     private javax.swing.JButton cartButton;
     private javax.swing.JLabel categoriPanel;
     private javax.swing.JPanel firstpageCardPanel;
     private javax.swing.JPanel jPanel1;
+
     private javax.swing.JPanel jPanel4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton profileButton;
@@ -211,4 +261,6 @@ public class IMatFrame extends javax.swing.JFrame {
     private javax.swing.JTextField searchField;
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
+
+    Timer timer; 
 }
