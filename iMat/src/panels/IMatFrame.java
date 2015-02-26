@@ -1,12 +1,5 @@
 package panels;
 
-
-
-
-
-
-
-
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,67 +56,66 @@ public class IMatFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jToggleButton1 = new javax.swing.JToggleButton();
-        jPanel1 = new javax.swing.JPanel();
-        MainpagePanel = new javax.swing.JPanel();
-        cartButton = new javax.swing.JButton();
-        profileButton = new javax.swing.JButton();
-        returnButton = new javax.swing.JButton();
+        backgroundPanel = new javax.swing.JPanel();
         searchField = new javax.swing.JTextField();
+        returnButton = new javax.swing.JButton();
         searchButton = new javax.swing.JButton();
+        profileButton = new javax.swing.JButton();
+        cartButton = new javax.swing.JButton();
         sideMenuPanel1 = new panels.sideMenuPanel();
-        categoriPanel = new javax.swing.JLabel();
+        MainpagePanel = new javax.swing.JPanel();
         firstpageCardPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        itemPanel1 = new panels.ItemPanel();
+        itemPanel3 = new panels.ItemPanel();
+        itemPanel2 = new panels.ItemPanel();
+        itemPanel4 = new panels.ItemPanel();
         bannerJPanel1 = new panels.bannerJPanel();
 
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1000, 652));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 640));
-
-        MainpagePanel.setBackground(new java.awt.Color(204, 204, 204));
-        MainpagePanel.setLayout(new java.awt.CardLayout());
-
-        cartButton.setText("cartButton");
-        cartButton.setToolTipText("Klicka för att se kundvagnen");
-        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        profileButton.setText("jButton3");
-        profileButton.setToolTipText("Klicka för att komma åt din profil");
-        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        returnButton.setText("returnButton");
-        returnButton.setToolTipText("Gå tillbaka till föregående sida");
-        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backgroundPanel.setBackground(new java.awt.Color(204, 204, 255));
 
         searchField.setText("jTextField1");
 
-        searchButton.setText("Sök");
-        searchButton.setToolTipText("Klick för att söka");
-        searchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        returnButton.setText("jButton1");
 
-        categoriPanel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        categoriPanel.setText("kategori");
+        searchButton.setText("Sök");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+
+        profileButton.setText("jButton3");
+
+        cartButton.setText("jButton4");
+
+        MainpagePanel.setBackground(new java.awt.Color(204, 204, 204));
+        MainpagePanel.setLayout(new java.awt.CardLayout());
 
         firstpageCardPanel.setBackground(new java.awt.Color(204, 255, 204));
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel4.setLayout(new java.awt.GridLayout(0, 2, 4, 4));
+        jPanel4.add(itemPanel1);
+        jPanel4.add(itemPanel3);
+        jPanel4.add(itemPanel2);
+        jPanel4.add(itemPanel4);
 
         javax.swing.GroupLayout firstpageCardPanelLayout = new javax.swing.GroupLayout(firstpageCardPanel);
         firstpageCardPanel.setLayout(firstpageCardPanelLayout);
         firstpageCardPanelLayout.setHorizontalGroup(
             firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(firstpageCardPanelLayout.createSequentialGroup()
-                .addGroup(firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 52, Short.MAX_VALUE))
+                .addGroup(firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bannerJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         firstpageCardPanelLayout.setVerticalGroup(
             firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,69 +123,62 @@ public class IMatFrame extends javax.swing.JFrame {
                 .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(462, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(categoriPanel)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3176, 3176, 3176)
-                        .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(692, 692, 692)
-                        .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+        MainpagePanel.add(firstpageCardPanel, "card2");
+
+        javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
+        backgroundPanel.setLayout(backgroundPanelLayout);
+        backgroundPanelLayout.setHorizontalGroup(
+            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(sideMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(firstpageCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        backgroundPanelLayout.setVerticalGroup(
+            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(profileButton)
+                        .addComponent(cartButton))
+                    .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(returnButton)
                         .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchButton))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(profileButton)
-                            .addComponent(cartButton))
-                        .addComponent(categoriPanel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(firstpageCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(searchButton)))
+                .addGap(18, 18, 18)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(3, 3, 3))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -240,11 +225,14 @@ public class IMatFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainpagePanel;
+    private javax.swing.JPanel backgroundPanel;
     private panels.bannerJPanel bannerJPanel1;
     private javax.swing.JButton cartButton;
-    private javax.swing.JLabel categoriPanel;
     private javax.swing.JPanel firstpageCardPanel;
-    private javax.swing.JPanel jPanel1;
+    private panels.ItemPanel itemPanel1;
+    private panels.ItemPanel itemPanel2;
+    private panels.ItemPanel itemPanel3;
+    private panels.ItemPanel itemPanel4;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton profileButton;
@@ -253,6 +241,5 @@ public class IMatFrame extends javax.swing.JFrame {
     private javax.swing.JTextField searchField;
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
-
     Timer timer; 
 }
