@@ -64,13 +64,7 @@ public class IMatFrame extends javax.swing.JFrame {
         cartButton = new javax.swing.JButton();
         sideMenuPanel1 = new panels.sideMenuPanel();
         MainpagePanel = new javax.swing.JPanel();
-        firstpageCardPanel = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        itemPanel1 = new panels.ItemPanel();
-        itemPanel3 = new panels.ItemPanel();
-        itemPanel2 = new panels.ItemPanel();
-        itemPanel4 = new panels.ItemPanel();
-        bannerJPanel1 = new panels.bannerJPanel();
+        homeCard2 = new cards.HomeCard();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -94,39 +88,9 @@ public class IMatFrame extends javax.swing.JFrame {
 
         cartButton.setText("jButton4");
 
-        MainpagePanel.setBackground(new java.awt.Color(204, 204, 204));
+        MainpagePanel.setBackground(new java.awt.Color(255, 255, 255));
         MainpagePanel.setLayout(new java.awt.CardLayout());
-
-        firstpageCardPanel.setBackground(new java.awt.Color(204, 255, 204));
-
-        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel4.setLayout(new java.awt.GridLayout(0, 2, 4, 4));
-        jPanel4.add(itemPanel1);
-        jPanel4.add(itemPanel3);
-        jPanel4.add(itemPanel2);
-        jPanel4.add(itemPanel4);
-
-        javax.swing.GroupLayout firstpageCardPanelLayout = new javax.swing.GroupLayout(firstpageCardPanel);
-        firstpageCardPanel.setLayout(firstpageCardPanelLayout);
-        firstpageCardPanelLayout.setHorizontalGroup(
-            firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(firstpageCardPanelLayout.createSequentialGroup()
-                .addGroup(firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bannerJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        firstpageCardPanelLayout.setVerticalGroup(
-            firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(firstpageCardPanelLayout.createSequentialGroup()
-                .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        MainpagePanel.add(firstpageCardPanel, "card2");
+        MainpagePanel.add(homeCard2, "card2");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -166,7 +130,7 @@ public class IMatFrame extends javax.swing.JFrame {
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
                         .addGap(3, 3, 3))))
         );
 
@@ -226,14 +190,8 @@ public class IMatFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainpagePanel;
     private javax.swing.JPanel backgroundPanel;
-    private panels.bannerJPanel bannerJPanel1;
     private javax.swing.JButton cartButton;
-    private javax.swing.JPanel firstpageCardPanel;
-    private panels.ItemPanel itemPanel1;
-    private panels.ItemPanel itemPanel2;
-    private panels.ItemPanel itemPanel3;
-    private panels.ItemPanel itemPanel4;
-    private javax.swing.JPanel jPanel4;
+    private cards.HomeCard homeCard2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton profileButton;
     private javax.swing.JButton returnButton;
