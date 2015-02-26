@@ -6,7 +6,7 @@ package panels;
 
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Product;
-import customBackend.Lists;
+import se.chalmers.ait.dat215.project.Product;
 /**
  *
  * @author jesper
@@ -20,7 +20,12 @@ public class ItemPanel extends javax.swing.JPanel {
     public ItemPanel() {
         initComponents();
     }
-
+    
+    public void fill(Product product){
+        priceLabel.setText(Integer.toString((int) product.getPrice()));
+        nameLabel.setText(product.getName());
+        pricePerUnitLabel.setText(product.getUnit() + "/" + product.getUnitSuffix());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
