@@ -5,19 +5,36 @@
  */
 package panels;
 
+import customBackend.Lists;
+import java.util.List;
+import se.chalmers.ait.dat215.project.Product;
+
 /**
  *
  * @author Emil H
  */
 public class tabbedPanels extends javax.swing.JPanel {
 
+    List<Product> recommended;
+    List<Product> newProducts;
     /**
      * Creates new form tabbedPanels
      */
     public tabbedPanels() {
         initComponents();
+        Lists lists = Lists.getInstance();
+        recommended = lists.getRecommended();
+        newProducts = lists.getNewest();
+        //List<Product> random = lists.getRecommended();
+        fillSeasonPanels();
     }
-
+    
+    private void fillSeasonPanels(){
+        seasonPanel1.fill(recommended.get(0));
+        seasonPanel2.fill(recommended.get(1));
+        seasonPanel3.fill(recommended.get(2));
+        seasonPanel4.fill(recommended.get(3));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,10 +46,10 @@ public class tabbedPanels extends javax.swing.JPanel {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        itemPanel17 = new panels.ItemPanel();
-        itemPanel18 = new panels.ItemPanel();
-        itemPanel19 = new panels.ItemPanel();
-        itemPanel20 = new panels.ItemPanel();
+        seasonPanel1 = new panels.ItemPanel();
+        seasonPanel2 = new panels.ItemPanel();
+        seasonPanel4 = new panels.ItemPanel();
+        seasonPanel3 = new panels.ItemPanel();
         jPanel2 = new javax.swing.JPanel();
         itemPanel13 = new panels.ItemPanel();
         itemPanel14 = new panels.ItemPanel();
@@ -57,26 +74,26 @@ public class tabbedPanels extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(itemPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
+                    .addComponent(seasonPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(seasonPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                    .addComponent(itemPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(seasonPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                    .addComponent(seasonPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                    .addComponent(itemPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(seasonPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                    .addComponent(seasonPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(itemPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(seasonPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(itemPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(seasonPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
 
@@ -167,14 +184,14 @@ public class tabbedPanels extends javax.swing.JPanel {
     private panels.ItemPanel itemPanel14;
     private panels.ItemPanel itemPanel15;
     private panels.ItemPanel itemPanel16;
-    private panels.ItemPanel itemPanel17;
-    private panels.ItemPanel itemPanel18;
-    private panels.ItemPanel itemPanel19;
-    private panels.ItemPanel itemPanel20;
     private panels.ItemPanel itemPanel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private panels.ItemPanel seasonPanel1;
+    private panels.ItemPanel seasonPanel2;
+    private panels.ItemPanel seasonPanel3;
+    private panels.ItemPanel seasonPanel4;
     // End of variables declaration//GEN-END:variables
 }

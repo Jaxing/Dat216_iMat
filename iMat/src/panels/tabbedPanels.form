@@ -62,13 +62,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="itemPanel20" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="itemPanel17" alignment="0" pref="360" max="32767" attributes="0"/>
+                          <Component id="seasonPanel3" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="seasonPanel1" alignment="0" pref="360" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="itemPanel18" alignment="0" pref="360" max="32767" attributes="0"/>
-                          <Component id="itemPanel19" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="seasonPanel2" alignment="0" pref="360" max="32767" attributes="0"/>
+                          <Component id="seasonPanel4" alignment="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -78,16 +78,16 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="itemPanel18" alignment="0" pref="156" max="32767" attributes="0"/>
-                          <Component id="itemPanel17" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="seasonPanel2" alignment="0" pref="156" max="32767" attributes="0"/>
+                          <Component id="seasonPanel1" alignment="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="itemPanel19" min="-2" pref="156" max="-2" attributes="0"/>
+                              <Component id="seasonPanel4" min="-2" pref="156" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="itemPanel20" pref="0" max="32767" attributes="0"/>
+                          <Component id="seasonPanel3" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                   </Group>
@@ -95,13 +95,13 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="panels.ItemPanel" name="itemPanel17">
+            <Component class="panels.ItemPanel" name="seasonPanel1">
             </Component>
-            <Component class="panels.ItemPanel" name="itemPanel18">
+            <Component class="panels.ItemPanel" name="seasonPanel2">
             </Component>
-            <Component class="panels.ItemPanel" name="itemPanel19">
+            <Component class="panels.ItemPanel" name="seasonPanel4">
             </Component>
-            <Component class="panels.ItemPanel" name="itemPanel20">
+            <Component class="panels.ItemPanel" name="seasonPanel3">
             </Component>
           </SubComponents>
         </Container>

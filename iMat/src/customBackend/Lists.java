@@ -19,7 +19,7 @@ public class Lists {
  
 
     private Lists() {
-     
+        allProducts = handler.getProducts();
     }
     
     public static Lists getInstance(){
@@ -31,7 +31,7 @@ public class Lists {
     */
     public List<Product> getAllProducts(){
         //allProducts.clear();
-        allProducts = handler.getProducts();
+        
         return allProducts;
     }
     

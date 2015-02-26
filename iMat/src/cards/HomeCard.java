@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package cards;
+import customBackend.Lists;
+import java.util.List;
+import se.chalmers.ait.dat215.project.Product;
 /**
  *
  * @author jesper
@@ -15,8 +18,10 @@ public class HomeCard extends javax.swing.JPanel {
      */
     public HomeCard() {
         initComponents();
+        
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
