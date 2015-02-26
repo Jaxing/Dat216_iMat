@@ -4,6 +4,7 @@ package panels;
 
 
 
+import customBackend.Profile;
 import java.awt.CardLayout;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.User;
@@ -14,17 +15,14 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
  */
 public class loginFrame extends javax.swing.JFrame {
 
-    IMatDataHandler handler = IMatDataHandler.getInstance();
     /**
      * Creates new form loginFrame
      */
     public loginFrame() {
-        initComponents();
-        theUser = handler.getUser();
-        customer = handler.getCustomer();
-        
-        theUser.setPassword("0000");
-        theUser.setUserName("Jesper Jaxing");
+        initComponents();     
+        profile = new Profile();
+        profile.setPassword("0000");
+        profile.setUsername("Jesper Jaxing");
         
         cardLayout = (CardLayout)mainPanel.getLayout();
     }
@@ -74,7 +72,7 @@ public class loginFrame extends javax.swing.JFrame {
         newUserLabel1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         cardNumberTextField = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        ccvTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         cardTypeLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -84,12 +82,14 @@ public class loginFrame extends javax.swing.JFrame {
         expireDateDayCombobox = new javax.swing.JComboBox();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        addressTextField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        cityTextField = new javax.swing.JTextField();
         kreditInfoUserCard = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        zippCodeTextField = new javax.swing.JTextField();
         confirmPanel = new javax.swing.JPanel();
         registerCancelButton2 = new javax.swing.JButton();
         registerAcceptButton2 = new javax.swing.JButton();
@@ -383,9 +383,9 @@ public class loginFrame extends javax.swing.JFrame {
 
         jLabel11.setText("Stad");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        cityTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                cityTextFieldActionPerformed(evt);
             }
         });
 
@@ -408,6 +408,8 @@ public class loginFrame extends javax.swing.JFrame {
                 confirmLabelMouseClicked(evt);
             }
         });
+
+        jLabel12.setText("Postnummer");
 
         javax.swing.GroupLayout registerCardPanelLayout = new javax.swing.GroupLayout(registerCardPanel);
         registerCardPanel.setLayout(registerCardPanelLayout);
@@ -441,19 +443,24 @@ public class loginFrame extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cardTypeLabel)
-                        .addComponent(cardNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                        .addComponent(jTextField3)
-                        .addGroup(registerCardPanelLayout.createSequentialGroup()
-                            .addComponent(expireDateMonthComobox, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(expireDateDayCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jTextField1))
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cardTypeLabel)
+                    .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(registerCardPanelLayout.createSequentialGroup()
+                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ccvTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(expireDateMonthComobox, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(expireDateDayCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(registerCardPanelLayout.createSequentialGroup()
+                        .addComponent(cityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(zippCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addressTextField))
                 .addGap(119, 119, 119))
         );
         registerCardPanelLayout.setVerticalGroup(
@@ -484,15 +491,17 @@ public class loginFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ccvTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(zippCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerAcceptButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -510,7 +519,12 @@ public class loginFrame extends javax.swing.JFrame {
             }
         });
 
-        registerAcceptButton2.setText("Nästa");
+        registerAcceptButton2.setText("Bekräfta");
+        registerAcceptButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerAcceptButton2ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -570,7 +584,7 @@ public class loginFrame extends javax.swing.JFrame {
         );
         confirmPanelLayout.setVerticalGroup(
             confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmPanelLayout.createSequentialGroup()
+            .addGroup(confirmPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -613,7 +627,7 @@ public class loginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void registerPanelNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerPanelNextButtonActionPerformed
-        setUserValues();
+        
         openRegisterCardPanel();
     }//GEN-LAST:event_registerPanelNextButtonActionPerformed
 
@@ -624,6 +638,7 @@ public class loginFrame extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         checkData();
+        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void registerCancelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCancelButton1ActionPerformed
@@ -638,9 +653,9 @@ public class loginFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cardNumberTextFieldActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void cityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_cityTextFieldActionPerformed
 
     private void confirmUserLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmUserLabelMouseClicked
         openRegisterCard();
@@ -657,6 +672,12 @@ public class loginFrame extends javax.swing.JFrame {
     private void confirmLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmLabelMouseClicked
         openConfirmCard();
     }//GEN-LAST:event_confirmLabelMouseClicked
+
+    private void registerAcceptButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAcceptButton2ActionPerformed
+        setUserValues();
+        setCreditCardValues();
+        openLoginCard();
+    }//GEN-LAST:event_registerAcceptButton2ActionPerformed
     
     public void openRegisterCardPanel(){
         cardLayout.show(mainPanel, "kreditInfoCard");
@@ -664,16 +685,17 @@ public class loginFrame extends javax.swing.JFrame {
     }
     
     public void setUserValues(){
-        theUser.setUserName(registerUsernameTextField.getText());
+        if(!registerUsernameTextField.getText().equals(""))
+            profile.setUsername(registerUsernameTextField.getText());
         if(registerPasswordField.getText().equals(registerPasswordConfirmField.getText())){
-            theUser.setPassword(registerPasswordField.getText());
+            profile.setPassword(registerPasswordField.getText());
         } else {
             badMatchLabel.setText("Lösenorden matchar ej");
             openRegisterCard();
         }
         
         if(emailTextField.getText().equals(emailConfirmTextField.getText())){
-            customer.setEmail(emailTextField.getText());
+            profile.setEmail(emailTextField.getText());
         } else {
            badMatchLabel.setText("Email addressen matchar ej");
            openRegisterCard();
@@ -681,10 +703,10 @@ public class loginFrame extends javax.swing.JFrame {
     }
     
     public void checkData(){
-        if(loginUsernameTextField.getText().equals(theUser.getUserName()) && loginPasswordField.getText().equals(theUser.getPassword())){
+        if(loginUsernameTextField.getText().equals(profile.getUsername()) && loginPasswordField.getText().equals(profile.getPassword())){
             errorLabel.setText("Correct!");
             new IMatFrame().setVisible(true);
-            
+            this.setVisible(false);
         } else {
             errorLabel.setText("Fel lösenord eller användarnamn");
         }
@@ -704,6 +726,11 @@ public class loginFrame extends javax.swing.JFrame {
         cardLayout.show(mainPanel, "confirmCard");
     }
     
+    private void setCreditCardValues(){
+        profile.setPostCode(zippCodeTextField.getText());
+        profile.setAddress(addressTextField.getText()+" "+cityTextField.getText());
+    }
+
     
     /**
      * @param args the command line arguments
@@ -741,9 +768,12 @@ public class loginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField addressTextField;
     private javax.swing.JLabel badMatchLabel;
     private javax.swing.JTextField cardNumberTextField;
     private javax.swing.JLabel cardTypeLabel;
+    private javax.swing.JTextField ccvTextField;
+    private javax.swing.JTextField cityTextField;
     private javax.swing.JLabel confirmCardLabel;
     private javax.swing.JLabel confirmLabel;
     private javax.swing.JPanel confirmPanel;
@@ -758,6 +788,7 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
@@ -774,9 +805,6 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel kreditInfoUserCard;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginPanel;
@@ -803,12 +831,12 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel registerUsernameLabel;
     private javax.swing.JTextField registerUsernameTextField;
     private javax.swing.JLabel usernameLabel;
+    private javax.swing.JTextField zippCodeTextField;
     // End of variables declaration//GEN-END:variables
     private String password;
     private String username;
-    private User theUser;
-    private Customer customer;
-    CardLayout cardLayout;
+    private Profile profile;
+    private CardLayout cardLayout;
 
     
 }
