@@ -1,0 +1,51 @@
+﻿Merge branch 'master' of https://github.com/Jaxing/Dat216_iMat
+
+Conflicts:
+	iMat/nbproject/project.properties
+	iMat/src/test/TestFrame.form
+	iMat/src/test/TestFrame.java
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 2 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   .gitignore
+#	modified:   iMat/nbproject/build-impl.xml
+#	modified:   iMat/nbproject/genfiles.properties
+#	modified:   iMat/nbproject/project.properties
+#	modified:   iMat/nbproject/project.xml
+#	deleted:    iMat/src/RecipeItemPanel.form
+#	deleted:    iMat/src/RecipeItemPanel.java
+#	renamed:    iMat/src/CartPanel.form -> iMat/src/panels/CartPanel.form
+#	renamed:    iMat/src/CartPanel.java -> iMat/src/panels/CartPanel.java
+#	new file:   iMat/src/panels/IMatFrame.form
+#	new file:   iMat/src/panels/IMatFrame.java
+#	renamed:    iMat/src/ItemPanel.form -> iMat/src/panels/ItemPanel.form
+#	renamed:    iMat/src/ItemPanel.java -> iMat/src/panels/ItemPanel.java
+#	renamed:    iMat/src/RecipeFullPanel.form -> iMat/src/panels/RecipeFullPanel.form
+#	renamed:    iMat/src/RecipeFullPanel.java -> iMat/src/panels/RecipeFullPanel.java
+#	new file:   iMat/src/panels/bannerJPanel.form
+#	new file:   iMat/src/panels/bannerJPanel.java
+#	renamed:    iMat/src/recieptPanel.form -> iMat/src/panels/recieptPanel.form
+#	renamed:    iMat/src/recieptPanel.java -> iMat/src/panels/recieptPanel.java
+#	renamed:    iMat/src/sideMenuPanel.form -> iMat/src/panels/sideMenuPanel.form
+#	renamed:    iMat/src/sideMenuPanel.java -> iMat/src/panels/sideMenuPanel.java
+#
+# Untracked files:
+#	iMat/src/ErikTest/
+#	iMat/src/panels/RecipeItemPanel.form
+#	iMat/src/panels/RecipeItemPanel.java
+#
+
