@@ -2,6 +2,8 @@ package panels;
 
 
 
+
+
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -64,7 +66,6 @@ public class IMatFrame extends javax.swing.JFrame {
         searchButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
         cartButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         sideMenuPanel1 = new panels.sideMenuPanel();
         MainpagePanel = new javax.swing.JPanel();
         firstpageCardPanel = new javax.swing.JPanel();
@@ -84,13 +85,9 @@ public class IMatFrame extends javax.swing.JFrame {
 
         searchField.setText("jTextField1");
 
-        returnButton.setText("returnButton");
-        returnButton.setToolTipText("Gå tillbaka till föregående sida");
-        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        returnButton.setText("jButton1");
 
         searchButton.setText("Sök");
-        searchButton.setToolTipText("Klick för att söka");
-        searchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
@@ -98,15 +95,8 @@ public class IMatFrame extends javax.swing.JFrame {
         });
 
         profileButton.setText("jButton3");
-        profileButton.setToolTipText("Klicka för att komma åt din profil");
-        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        cartButton.setText("cartButton");
-        cartButton.setToolTipText("Klicka för att se kundvagnen");
-        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("kategori");
+        cartButton.setText("jButton4");
 
         MainpagePanel.setBackground(new java.awt.Color(204, 204, 204));
         MainpagePanel.setLayout(new java.awt.CardLayout());
@@ -136,8 +126,7 @@ public class IMatFrame extends javax.swing.JFrame {
             .addGroup(firstpageCardPanelLayout.createSequentialGroup()
                 .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))
         );
 
         MainpagePanel.add(firstpageCardPanel, "card2");
@@ -163,7 +152,7 @@ public class IMatFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
-                    .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,14 +167,10 @@ public class IMatFrame extends javax.swing.JFrame {
                         .addComponent(searchButton)))
                 .addGap(18, 18, 18)
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(3, 3, 3))))
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -251,7 +236,6 @@ public class IMatFrame extends javax.swing.JFrame {
     private panels.ItemPanel itemPanel2;
     private panels.ItemPanel itemPanel3;
     private panels.ItemPanel itemPanel4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton profileButton;
