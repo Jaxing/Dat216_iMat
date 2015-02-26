@@ -171,10 +171,8 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
-
             </Property>
           </Properties>
           <Constraints>
@@ -192,7 +190,6 @@
                       <Component id="registerAcceptButton" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
@@ -248,7 +245,6 @@
                           </Group>
                       </Group>
                       <EmptySpace min="94" pref="94" max="-2" attributes="0"/>
-
                   </Group>
               </Group>
             </DimensionLayout>
@@ -258,7 +254,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="newUserLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -299,7 +294,6 @@
                               <Component id="registerUsernameTextField" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-
                       </Group>
                   </Group>
               </Group>
@@ -387,7 +381,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerCancelButtonActionPerformed"/>
               </Events>
             </Component>
-
             <Component class="javax.swing.JLabel" name="badMatchLabel">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -408,7 +401,6 @@
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="text" type="java.lang.String" value="3.Bekr&#xe4;fta"/>
-
               </Properties>
             </Component>
           </SubComponents>
@@ -429,7 +421,6 @@
                       <Component id="registerAcceptButton1" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -459,7 +450,6 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="64" max="32767" attributes="0"/>
-
                   </Group>
               </Group>
             </DimensionLayout>
@@ -467,7 +457,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-
                       <Component id="newUserLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
@@ -495,7 +484,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="registerAcceptButton1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="registerCancelButton1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-
                       </Group>
                   </Group>
               </Group>
@@ -522,14 +510,11 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-
                 <Property name="text" type="java.lang.String" value="Kortnummer"/>
-
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField1">
               <Properties>
-
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
@@ -540,22 +525,17 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-
                 <Property name="text" type="java.lang.String" value="Korttyp"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-
                 <Property name="text" type="java.lang.String" value="jLabel3"/>
-
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
-
                 <Property name="text" type="java.lang.String" value="Utg&#xe5;ngsdatum"/>
-
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -563,9 +543,7 @@
                 <Property name="text" type="java.lang.String" value="jLabel5"/>
               </Properties>
             </Component>
-
             <Component class="javax.swing.JComboBox" name="expireDateMonthComobox">
-
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -582,9 +560,7 @@
                 <Property name="text" type="java.lang.String" value="/"/>
               </Properties>
             </Component>
-
             <Component class="javax.swing.JComboBox" name="expireDateDayCombobox">
-
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
@@ -596,11 +572,9 @@
                 </Property>
               </Properties>
             </Component>
-
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="confirmPanel">
-
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="card5"/>
@@ -612,9 +586,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="registerCancelButton2" min="-2" pref="100" max="-2" attributes="0"/>
-
                       <EmptySpace pref="250" max="32767" attributes="0"/>
-
                       <Component id="registerAcceptButton2" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -630,11 +602,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" pref="178" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="registerAcceptButton2" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="registerCancelButton2" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-
                       </Group>
                   </Group>
               </Group>
@@ -651,9 +621,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="registerAcceptButton2">
               <Properties>
-
                 <Property name="text" type="java.lang.String" value="N&#xe4;sta"/>
-
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -671,7 +639,6 @@
                 </Component>
               </SubComponents>
             </Container>
-
           </SubComponents>
         </Container>
       </SubComponents>
