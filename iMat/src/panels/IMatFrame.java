@@ -1,4 +1,6 @@
-﻿package panels;
+package panels;
+
+
 
 
 
@@ -61,21 +63,17 @@ public class IMatFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jToggleButton1 = new javax.swing.JToggleButton();
-<<<<<<< HEAD
         jPanel1 = new javax.swing.JPanel();
         MainpagePanel = new javax.swing.JPanel();
         cartButton = new javax.swing.JButton();
         profileButton = new javax.swing.JButton();
-
         returnButton = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
-
         sideMenuPanel1 = new panels.sideMenuPanel();
         categoriPanel = new javax.swing.JLabel();
         firstpageCardPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-
         bannerJPanel1 = new panels.bannerJPanel();
 
         jToggleButton1.setText("jToggleButton1");
@@ -85,7 +83,6 @@ public class IMatFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 640));
-
 
         MainpagePanel.setBackground(new java.awt.Color(204, 204, 204));
         MainpagePanel.setLayout(new java.awt.CardLayout());
@@ -98,21 +95,18 @@ public class IMatFrame extends javax.swing.JFrame {
         profileButton.setToolTipText("Klicka för att komma åt din profil");
         profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        returnButton.setText("jButton1");
+        returnButton.setText("returnButton");
+        returnButton.setToolTipText("Gå tillbaka till föregående sida");
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         searchField.setText("jTextField1");
 
         searchButton.setText("Sök");
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
-            }
-        });
-
+        searchButton.setToolTipText("Klick för att söka");
+        searchButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         categoriPanel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         categoriPanel.setText("kategori");
-
 
         firstpageCardPanel.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -124,16 +118,13 @@ public class IMatFrame extends javax.swing.JFrame {
         firstpageCardPanel.setLayout(firstpageCardPanelLayout);
         firstpageCardPanelLayout.setHorizontalGroup(
             firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
             .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
-
         );
         firstpageCardPanelLayout.setVerticalGroup(
             firstpageCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(firstpageCardPanelLayout.createSequentialGroup()
                 .addComponent(bannerJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(462, Short.MAX_VALUE))
@@ -186,20 +177,17 @@ public class IMatFrame extends javax.swing.JFrame {
                     .addComponent(firstpageCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sideMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
-
         );
 
         pack();
@@ -246,13 +234,11 @@ public class IMatFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainpagePanel;
-
     private panels.bannerJPanel bannerJPanel1;
     private javax.swing.JButton cartButton;
     private javax.swing.JLabel categoriPanel;
     private javax.swing.JPanel firstpageCardPanel;
     private javax.swing.JPanel jPanel1;
-
     private javax.swing.JPanel jPanel4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton profileButton;
