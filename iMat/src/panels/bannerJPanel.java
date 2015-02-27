@@ -179,7 +179,7 @@ public class bannerJPanel extends javax.swing.JPanel {
         );
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel24.setText("Knark");
+        jLabel24.setText("Glass");
 
         jLabel25.setText("pic here");
 
