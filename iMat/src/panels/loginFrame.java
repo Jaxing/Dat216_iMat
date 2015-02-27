@@ -95,8 +95,6 @@ public class loginFrame extends javax.swing.JFrame {
         confirmPanel = new javax.swing.JPanel();
         registerCancelButton2 = new javax.swing.JButton();
         registerAcceptButton2 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         confirmUserLabel = new javax.swing.JLabel();
         confirmCardLabel = new javax.swing.JLabel();
         confirmLabel = new javax.swing.JLabel();
@@ -104,6 +102,8 @@ public class loginFrame extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        infoList = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -349,7 +349,6 @@ public class loginFrame extends javax.swing.JFrame {
                                     .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(registerPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(registerPasswordLabel)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(registerPasswordConfirmField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(registerPasswordConfirmLabel))
@@ -565,10 +564,6 @@ public class loginFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
         confirmUserLabel.setText("1.Använd information");
         confirmUserLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         confirmUserLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -601,6 +596,13 @@ public class loginFrame extends javax.swing.JFrame {
             }
         });
 
+        infoList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Användare: ", "Email:", " ", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(infoList);
+
         javax.swing.GroupLayout confirmPanelLayout = new javax.swing.GroupLayout(confirmPanel);
         confirmPanel.setLayout(confirmPanelLayout);
         confirmPanelLayout.setHorizontalGroup(
@@ -613,7 +615,6 @@ public class loginFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator4)
-                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmPanelLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
@@ -622,8 +623,9 @@ public class loginFrame extends javax.swing.JFrame {
                         .addComponent(confirmCardLabel)
                         .addGap(18, 18, 18)
                         .addComponent(confirmLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel16)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addComponent(jLabel16))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
             .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmPanelLayout.createSequentialGroup()
@@ -636,9 +638,7 @@ public class loginFrame extends javax.swing.JFrame {
             .addGroup(confirmPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(confirmPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel16)
                     .addGroup(confirmPanelLayout.createSequentialGroup()
                         .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -646,13 +646,13 @@ public class loginFrame extends javax.swing.JFrame {
                             .addComponent(confirmCardLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(confirmLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(registerAcceptButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(registerCancelButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registerAcceptButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerCancelButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmPanelLayout.createSequentialGroup()
                     .addContainerGap(103, Short.MAX_VALUE)
@@ -721,6 +721,7 @@ public class loginFrame extends javax.swing.JFrame {
 
     private void registerAcceptButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAcceptButton1ActionPerformed
         openConfirmCard();
+        printInfo();
     }//GEN-LAST:event_registerAcceptButton1ActionPerformed
 
     private void confirmLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmLabelMouseClicked
@@ -745,12 +746,16 @@ public class loginFrame extends javax.swing.JFrame {
         openLoginCard();
     }//GEN-LAST:event_jLabel16MouseClicked
     
-    public void openRegisterCardPanel(){
+    private void printInfo(){
+        
+    }
+    
+    private void openRegisterCardPanel(){
         cardLayout.show(mainPanel, "kreditInfoCard");
         this.cardNumberTextField.requestFocus();
     }
     
-    public void setUserValues(){
+    private void setUserValues(){
         if(!registerUsernameTextField.getText().equals(""))
             profile.setUsername(registerUsernameTextField.getText());
         if(registerPasswordField.getText().equals(registerPasswordConfirmField.getText())){
@@ -768,7 +773,7 @@ public class loginFrame extends javax.swing.JFrame {
         }
     }
     
-    public void checkData(){
+    private void checkData(){
         if(loginUsernameTextField.getText().equals(profile.getUsername()) && loginPasswordField.getText().equals(profile.getPassword())){
             errorLabel.setText("Correct!");
             new IMatFrame().setVisible(true);
@@ -851,6 +856,7 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel errorLabel;
     private javax.swing.JComboBox expireDateDayCombobox;
     private javax.swing.JComboBox expireDateMonthComobox;
+    private javax.swing.JList infoList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -868,12 +874,11 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel kreditInfoUserCard;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginPanel;
