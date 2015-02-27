@@ -17,8 +17,8 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
  */
 public class ItemPanel extends javax.swing.JPanel {
     
-    private int imgWidth = 50;
-    private int imgHeight = 50;
+    private int imgWidth = 500;
+    private int imgHeight = 500;
     private IMatDataHandler handler;
     /**
      * Creates new form ItemPanel
@@ -29,17 +29,19 @@ public class ItemPanel extends javax.swing.JPanel {
     }
     
     public void fill(Product product){
-        priceLabel.setText(Integer.toString((int) product.getPrice()));
+        priceLabel.setText(Integer.toString((int) product.getPrice()) + " " + product.getUnit());
         nameLabel.setText(product.getName());
-        pricePerUnitLabel.setText(product.getUnit());
-        /*
+        miscLabel2.setText(product.getCategory().toString());
+        
+       /* 
         ImageIcon icon = handler.getImageIcon(product);
         Image image = icon.getImage();
         BufferedImage bi = new BufferedImage(image.getWidth(null),image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
         Graphics g = bi.createGraphics();
         g.drawImage(image,0,0,imgWidth,imgHeight,null);
         ImageIcon newIcon = new ImageIcon(bi);*/
-        iconLabel.setIcon((handler.getImageIcon(product)));
+        
+        iconLabel.setIcon(handler.getImageIcon(product));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,11 +60,10 @@ public class ItemPanel extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         iconLabel = new javax.swing.JLabel();
-        pricePerUnitLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
         miscLabel2 = new javax.swing.JLabel();
-        miscLabel1 = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -118,18 +119,13 @@ public class ItemPanel extends javax.swing.JPanel {
 
         iconLabel.setText("jLabel1");
 
-        pricePerUnitLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        pricePerUnitLabel.setText("jLabel2");
-
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         priceLabel.setText("jLabel3");
 
         miscLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         miscLabel2.setText("jLabel4");
 
-        miscLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        miscLabel1.setText("jLabel5");
-
+        nameLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nameLabel.setText("jLabel6");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -139,21 +135,18 @@ public class ItemPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
+                                .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(8, 8, 8)
                                 .addComponent(miscLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(miscLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(iconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pricePerUnitLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                            .addComponent(priceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(iconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,15 +154,13 @@ public class ItemPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pricePerUnitLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(priceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(52, 52, 52))
+                        .addGap(99, 99, 99))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(iconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)))
-                .addComponent(miscLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(miscLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -191,16 +182,7 @@ public class ItemPanel extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    
-    public void addItem(Product item)
-    { 
-       nameLabel.setText(item.getName());
-       iconLabel.setIcon(new ImageIcon("/../imat/images/"+item.getImageName()));
-       priceLabel.setText(item.getPrice()+" "+item.getUnit());
-       miscLabel2.setText(item.getCategory().toString());
-       miscLabel1.setText("Sweden");
-       
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToButton;
@@ -210,11 +192,10 @@ public class ItemPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JLabel miscLabel1;
     private javax.swing.JLabel miscLabel2;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel priceLabel;
-    private javax.swing.JLabel pricePerUnitLabel;
     // End of variables declaration//GEN-END:variables
 }
