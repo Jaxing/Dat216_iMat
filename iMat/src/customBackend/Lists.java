@@ -19,7 +19,16 @@ public class Lists {
  
 
     private Lists() {
-        allProducts = handler.getProducts();
+        this.allLists = new ArrayList();
+        //allProducts = ;
+       // private List<Product> allProducts;
+   // private List<Product> newest = new NamedList("newest");
+   // private List<Product> recommended = new NamedList("recommended");
+    //private List<Product> favourite = handler.favorites();
+        allLists.add((List) new NamedList("All products",handler.getProducts()));
+        allLists.add(allProducts);
+        allLists.add(recommended);
+        allLists.add(favourite);
     }
     
     public static Lists getInstance(){
@@ -84,6 +93,16 @@ public class Lists {
         return recommended;
     }
     
+    public void addToList(String listName){
+        if()
+    }
+    
+    private boolean listExists(String listName){
+        for(List list : allLists){
+            if()
+        }
+    }
+    
     public List<Product> getFavourit(){
         return favourite;
     }
@@ -101,8 +120,5 @@ public class Lists {
     }
     
     private IMatDataHandler handler = IMatDataHandler.getInstance();
-    private List<Product> allProducts;
-    private List<Product> newest = new ArrayList();
-    private List<Product> recommended = new ArrayList();
-    private List<Product> favourite = handler.favorites();
+    private List<List> allLists;
 }
