@@ -47,10 +47,25 @@ public class CartPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jList1);
 
         jButton1.setText("Köp");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Lägg till");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ny inköpslista" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Välj", "Ny inköpslista" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,6 +102,23 @@ public class CartPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       //TODO: Open a new frame to confirm your address and creditcard info
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
+            createNewList();
+        }
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
+            jComboBox1.addItem(creatNewList());
+        }
+        addToList(jComboBox1.getSelectedItem());
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
