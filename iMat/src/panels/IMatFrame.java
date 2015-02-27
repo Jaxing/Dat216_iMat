@@ -1,4 +1,5 @@
-﻿package panels;
+package panels;
+
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
