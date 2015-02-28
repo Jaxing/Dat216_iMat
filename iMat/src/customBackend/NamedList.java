@@ -153,5 +153,7 @@ public class NamedList<E> implements List<E>{
     public List<E> subList(int fromIndex, int toIndex) {
         return list.subList(fromIndex, toIndex);
     }  
-    
+    public List<E> getList(){
+        return list;
+    }
 }

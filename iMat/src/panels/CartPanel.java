@@ -5,6 +5,9 @@
  */
 package panels;
 
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jesper
@@ -109,13 +112,22 @@ public class CartPanel extends javax.swing.JPanel {
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
-          //  createNewList();
+           System.out.print("third");
+           String listName = (String)JOptionPane.showInputDialog(jComboBox1, "Ange nya listans namn:");
+            if(!customBackend.Lists.getInstance().creatNewList(listName)) {
+             JOptionPane.showConfirmDialog(jComboBox1, "Det namnen är inte tillgänligt.");
+           }
         }
+        
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
-           // jComboBox1.addItem(creatNewList());
+            System.out.print("first");
+            if(!customBackend.Lists.getInstance().creatNewList((String)JOptionPane.showInputDialog(jComboBox1, "Ange nya listans namn:"))) {
+              System.out.print("second");
+                JOptionPane.showConfirmDialog(jComboBox1, "Det namnen är inte tillgänligt.");
+            }
         }
         // addToList(jComboBox1.getSelectedItem());
     }//GEN-LAST:event_jButton2ActionPerformed

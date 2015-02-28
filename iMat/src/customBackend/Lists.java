@@ -16,7 +16,7 @@ import se.chalmers.ait.dat215.project.Order;
  */
 public class Lists {
     
- 
+ private static Lists lists = new Lists();
 
     private Lists() {
         this.allLists = new ArrayList();
@@ -25,10 +25,11 @@ public class Lists {
         allLists.add(new NamedList("Newest"));
         allLists.add(new NamedList("Recommended"));
         allLists.add(new NamedList("Favourite"));
+        allLists.add(new NamedList("Created list"));
     }
     
     public static Lists getInstance(){
-        return new Lists();
+        return lists;
     }
     
     /*
@@ -86,9 +87,19 @@ public class Lists {
             }
             i++;
         }
-        return recommended;
+        return recommended.getList();
     }
     
+   public boolean creatNewList(String listName){
+       for(NamedList list : allLists){
+            if(list.getName().equals(listName)){
+                return false;
+            }
+        }
+        allLists.add(new NamedList(listName));
+        return true;
+   }
+   
     /*public void addToList(String listName){
         if()
     }
@@ -99,7 +110,7 @@ public class Lists {
         }
     }*/
     
-    public List<Product> getList(String listName){
+    public List<NamedList> getList(String listName){
         for(NamedList list : allLists){
             if(list.getName().equals(listName)){
                 return list;
@@ -127,9 +138,10 @@ public class Lists {
     private IMatDataHandler handler = IMatDataHandler.getInstance();
 
     private List<NamedList> allLists;
-    private List<Product> allProducts = getList("All products");
-    private List<Product> newest = getList("Newest");
-    private List<Product> recommended = getList("Recommended");
-    private List<Product> favourite = getList("Favourite");
+    private List<NamedList> allProducts = getList("All products");
+    private List<NamedList> newest = getList("Newest");
+    private List<NamedList> recommended = getList("Recommended");
+    private List<NamedList> favourite = getList("Favourite");
+    private List<NamedList> createdLists = getList("Created list");
 }
 
