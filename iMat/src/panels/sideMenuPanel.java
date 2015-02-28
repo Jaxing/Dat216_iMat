@@ -150,9 +150,9 @@ public class sideMenuPanel extends javax.swing.JPanel {
         MenuTree.expandPath(path);
     }
     
-    /*private void closeNode(TreePath path){
+    private void closeNode(TreePath path){
         MenuTree.collapsePath(path);
-    }^*/
+    }
     
     private void notifyObserver(){
         observable= observer.getObserver();
