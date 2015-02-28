@@ -29,6 +29,7 @@ public class Lists {
         allLists.add(new NamedList("Favourite"));
         
         allProducts = getList("All products");
+        System.out.println(allProducts);
         newest = getList("Newest");
         recommended = getList("Recommended");
         favourite = getList("Favourite");

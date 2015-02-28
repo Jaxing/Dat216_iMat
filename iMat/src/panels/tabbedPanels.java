@@ -28,7 +28,7 @@ public class tabbedPanels extends javax.swing.JPanel {
     }
     
     private void fillSeasonPanels(){
-       seasonPanel1.fill(recommended.get(0));
+        seasonPanel1.fill(recommended.get(0));
         seasonPanel2.fill(recommended.get(1));
         seasonPanel3.fill(recommended.get(2));
         seasonPanel4.fill(recommended.get(3));

@@ -45,7 +45,6 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     private void initComponents() {
 
         jToggleButton1 = new javax.swing.JToggleButton();
-
         backgroundPanel = new javax.swing.JPanel();
         searchField = new javax.swing.JTextField();
         returnButton = new javax.swing.JButton();
@@ -86,8 +85,12 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         profileButton.setText("jButton3");
 
-
         cartButton.setText("jButton4");
+        cartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cartButtonActionPerformed(evt);
+            }
+        });
 
         sideMenuPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -208,6 +211,10 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         previousCard();
     }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void cartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cartButtonActionPerformed
     
     private void previousCard(){
         if(previousCards.size() > 1){

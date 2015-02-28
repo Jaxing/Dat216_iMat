@@ -134,6 +134,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="jButton4"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cartButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="panels.sideMenuPanel" name="sideMenuPanel1">
           <Events>
@@ -146,7 +149,6 @@
               <Color blue="ff" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
-
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
           <SubComponents>
