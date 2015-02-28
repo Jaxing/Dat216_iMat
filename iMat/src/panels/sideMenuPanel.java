@@ -17,7 +17,7 @@ import javax.swing.tree.TreeSelectionModel;
  *
  * @author Erik
  */
-public class sideMenuPanel extends javax.swing.JPanel implements Observer {
+public class sideMenuPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form sideMenuPanel
@@ -147,5 +147,5 @@ public class sideMenuPanel extends javax.swing.JPanel implements Observer {
     DefaultTreeCellRenderer renderer;
     private String selectedItem;
 
-    Observer observer = new IMatFrame();
+    //Observer observer = new IMatFrame();
 }

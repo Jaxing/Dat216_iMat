@@ -10,13 +10,14 @@ package customBackend;
  * @author Erik
  */
 public class Observable {
+    private static Observable observable = new Observable();
     
     private void Observable(){};
     
     private Observer theObserver;
     
-    public Observable getObservable(){
-        return this;
+    public Observable getInstance(){
+        return observable;
     }
     
     public void setObserver(Observer observer){

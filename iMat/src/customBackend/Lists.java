@@ -16,6 +16,7 @@ import se.chalmers.ait.dat215.project.Order;
  */
 public class Lists {
     
+    private static Lists lists = new Lists();
  
 
     private Lists() {
@@ -28,7 +29,7 @@ public class Lists {
     }
     
     public static Lists getInstance(){
-        return new Lists();
+        return lists;
     }
     
     /*
@@ -100,7 +101,7 @@ public class Lists {
     }*/
     
     public List<Product> getList(String listName){
-        for(NamedList list : allLists){
+        for(NamedList list: allLists){
             if(list.getName().equals(listName)){
                 return list;
             }

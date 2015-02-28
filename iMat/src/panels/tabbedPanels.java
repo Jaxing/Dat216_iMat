@@ -15,25 +15,26 @@ import se.chalmers.ait.dat215.project.Product;
  */
 public class tabbedPanels extends javax.swing.JPanel {
 
-    List<Product> recommended;
-    List<Product> newProducts;
+    private List<Product> recommended;
+    private List<Product> newProducts;
+    private static Lists lists;
     /**
      * Creates new form tabbedPanels
      */
     public tabbedPanels() {
         initComponents();
-       /* Lists lists = Lists.getInstance();
+      /*  lists = Lists.getInstance();
         recommended = lists.getRecommended();
-        newProducts = lists.getNewest();*/
+        newProducts = lists.getNewest();
         //List<Product> random = lists.getRecommended();
-        fillSeasonPanels();
+        fillSeasonPanels();*/
     }
     
     private void fillSeasonPanels(){
-      /*  seasonPanel1.fill(recommended.get(0));
+       seasonPanel1.fill(recommended.get(0));
         seasonPanel2.fill(recommended.get(1));
         seasonPanel3.fill(recommended.get(2));
-        seasonPanel4.fill(recommended.get(3));*/
+        seasonPanel4.fill(recommended.get(3));
     }
     /**
      * This method is called from within the constructor to initialize the form.
