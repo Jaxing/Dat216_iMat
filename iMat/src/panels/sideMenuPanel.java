@@ -7,7 +7,10 @@
 package panels;
 import javax.swing.ImageIcon;
 import javax.swing.JTree;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.TreeSelectionModel;
 /**
  *
  * @author Erik
@@ -20,10 +23,13 @@ public class sideMenuPanel extends javax.swing.JPanel {
     public sideMenuPanel() {
         initComponents();
         setIcons();
+        
+        MenuTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+        
     }
     
     public void setIcons(){
-        DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
+        renderer = new DefaultTreeCellRenderer();
         renderer.setLeafIcon(null);
         renderer.setClosedIcon(null);
         renderer.setOpenIcon(null);
@@ -81,6 +87,16 @@ public class sideMenuPanel extends javax.swing.JPanel {
         treeNode1.add(treeNode2);
         MenuTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         MenuTree.setRootVisible(false);
+        MenuTree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuTreeMouseClicked(evt);
+            }
+        });
+        MenuTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                MenuTreeValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(MenuTree);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -95,9 +111,36 @@ public class sideMenuPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void MenuTreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuTreeMouseClicked
+    
+    }//GEN-LAST:event_MenuTreeMouseClicked
+
+    private void MenuTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_MenuTreeValueChanged
+        //Returns the last path element of the selection.
+        //This method is useful only when the selection model allows a single selection.
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) MenuTree.getLastSelectedPathComponent();
+
+        if (node == null)
+        //Nothing is selected.  
+        return;
+
+        Object nodeInfo = node.getUserObject();
+
+        if (node.isLeaf()) {
+            System.out.println(nodeInfo);
+            //BookInfo book = (BookInfo) nodeInfo;
+            //displayURL(book.bookURL);
+        } else {
+            //displayURL(helpURL);
+        }
+    }//GEN-LAST:event_MenuTreeValueChanged
+ 
+
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTree MenuTree;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+    DefaultTreeCellRenderer renderer;
 }

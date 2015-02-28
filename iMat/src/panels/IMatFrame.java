@@ -65,6 +65,11 @@ public class IMatFrame extends javax.swing.JFrame {
         sideMenuPanel1 = new panels.sideMenuPanel();
         MainpagePanel = new javax.swing.JPanel();
         homeCard2 = new cards.HomeCard();
+        recipeCard1 = new cards.RecipeCard();
+        itemCard1 = new cards.ItemCard();
+        historyCard1 = new cards.HistoryCard();
+        listCard1 = new cards.ListCard();
+        offersCard1 = new cards.OffersCard();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -88,11 +93,58 @@ public class IMatFrame extends javax.swing.JFrame {
 
         cartButton.setText("jButton4");
 
+        sideMenuPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sideMenuPanel1MouseClicked(evt);
+            }
+        });
+
         MainpagePanel.setBackground(new java.awt.Color(204, 204, 255));
         MainpagePanel.setLayout(new java.awt.CardLayout());
 
         homeCard2.setBackground(new java.awt.Color(204, 204, 255));
         MainpagePanel.add(homeCard2, "card2");
+
+        javax.swing.GroupLayout recipeCard1Layout = new javax.swing.GroupLayout(recipeCard1);
+        recipeCard1.setLayout(recipeCard1Layout);
+        recipeCard1Layout.setHorizontalGroup(
+            recipeCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 764, Short.MAX_VALUE)
+        );
+        recipeCard1Layout.setVerticalGroup(
+            recipeCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 642, Short.MAX_VALUE)
+        );
+
+        MainpagePanel.add(recipeCard1, "card7");
+        MainpagePanel.add(itemCard1, "card4");
+
+        javax.swing.GroupLayout historyCard1Layout = new javax.swing.GroupLayout(historyCard1);
+        historyCard1.setLayout(historyCard1Layout);
+        historyCard1Layout.setHorizontalGroup(
+            historyCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 762, Short.MAX_VALUE)
+        );
+        historyCard1Layout.setVerticalGroup(
+            historyCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 642, Short.MAX_VALUE)
+        );
+
+        MainpagePanel.add(historyCard1, "card3");
+
+        javax.swing.GroupLayout listCard1Layout = new javax.swing.GroupLayout(listCard1);
+        listCard1.setLayout(listCard1Layout);
+        listCard1Layout.setHorizontalGroup(
+            listCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 762, Short.MAX_VALUE)
+        );
+        listCard1Layout.setVerticalGroup(
+            listCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 642, Short.MAX_VALUE)
+        );
+
+        MainpagePanel.add(listCard1, "card5");
+        MainpagePanel.add(offersCard1, "card7");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -115,7 +167,7 @@ public class IMatFrame extends javax.swing.JFrame {
                         .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE))))
+                        .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,11 +181,10 @@ public class IMatFrame extends javax.swing.JFrame {
                         .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(searchButton)))
                 .addGap(18, 18, 18)
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 628, Short.MAX_VALUE)
-                        .addGap(3, 3, 3))))
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,7 +195,7 @@ public class IMatFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 692, Short.MAX_VALUE)
         );
 
         pack();
@@ -153,6 +204,10 @@ public class IMatFrame extends javax.swing.JFrame {
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void sideMenuPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sideMenuPanel1MouseClicked
+        
+    }//GEN-LAST:event_sideMenuPanel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -193,9 +248,14 @@ public class IMatFrame extends javax.swing.JFrame {
     private javax.swing.JPanel MainpagePanel;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton cartButton;
+    private cards.HistoryCard historyCard1;
     private cards.HomeCard homeCard2;
+    private cards.ItemCard itemCard1;
     private javax.swing.JToggleButton jToggleButton1;
+    private cards.ListCard listCard1;
+    private cards.OffersCard offersCard1;
     private javax.swing.JButton profileButton;
+    private cards.RecipeCard recipeCard1;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchField;
