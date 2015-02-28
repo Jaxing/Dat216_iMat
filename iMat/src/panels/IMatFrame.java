@@ -1,5 +1,6 @@
 package panels;
 
+
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -61,6 +62,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     private void initComponents() {
 
         jToggleButton1 = new javax.swing.JToggleButton();
+
         backgroundPanel = new javax.swing.JPanel();
         searchField = new javax.swing.JTextField();
         returnButton = new javax.swing.JButton();
@@ -100,6 +102,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         });
 
         profileButton.setText("jButton3");
+
 
         cartButton.setText("jButton4");
 
