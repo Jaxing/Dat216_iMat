@@ -9,8 +9,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import se.chalmers.ait.dat215.project.Product;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.*;
 /**
  *
  * @author jesper
@@ -20,6 +19,7 @@ public class ItemPanel extends javax.swing.JPanel {
     //private int imgWidth = 50;
     //private int imgHeight = 50;
     private IMatDataHandler handler;
+    private Product product;
     /**
      * Creates new form ItemPanel
      */
@@ -28,11 +28,17 @@ public class ItemPanel extends javax.swing.JPanel {
         initComponents();
     }
     
+    public ItemPanel(Product p) {
+        handler = IMatDataHandler.getInstance();
+        initComponents();
+        fill(p);
+    }
+    
     public void fill(Product product){
         priceLabel.setText(Integer.toString((int) product.getPrice()) + " " + product.getUnit());
         nameLabel.setText(product.getName());
         miscLabel2.setText(product.getCategory().toString());
-        
+        this.product= product;
         /*
         ImageIcon icon = handler.getImageIcon(product);
         Image image = icon.getImage();
@@ -73,6 +79,11 @@ public class ItemPanel extends javax.swing.JPanel {
         addToButton.setText("Lägg till");
         addToButton.setToolTipText("Klicka för att lägga till i vald lista");
         addToButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addToButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToButtonActionPerformed(evt);
+            }
+        });
 
         amountLabel.setText("Antal:");
 
@@ -175,7 +186,14 @@ public class ItemPanel extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-    
+
+    private void addToButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToButtonActionPerformed
+        System.out.print("debugg");
+        ShoppingItem item = new ShoppingItem(product,(double)amountSpinner.getValue());
+        handler.getShoppingCart().addItem(item);
+        handler.getShoppingCart().fireShoppingCartChanged(item, true);
+    }//GEN-LAST:event_addToButtonActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

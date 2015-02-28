@@ -147,6 +147,7 @@
             </Property>
           </Properties>
 
+
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
           <SubComponents>
             <Component class="cards.HomeCard" name="homeCard2">

@@ -5,17 +5,29 @@
  */
 package panels;
 
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import customBackend.*;
+import javax.swing.DefaultListModel;
+import se.chalmers.ait.dat215.project.*;
 /**
  *
  * @author jesper
  */
-public class CartPanel extends javax.swing.JPanel {
-
+public class CartPanel extends javax.swing.JPanel implements ShoppingCartListener {
+    
+    private IMatDataHandler handler;
     /**
      * Creates new form CartPanel
      */
     public CartPanel() {
         initComponents();
+        handler=IMatDataHandler.getInstance();
+        handler.getShoppingCart().addShoppingCartListener(this);
+        
     }
 
     /**
@@ -109,18 +121,29 @@ public class CartPanel extends javax.swing.JPanel {
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
-          //  createNewList();
+           System.out.print("third");
+           String listName = (String)JOptionPane.showInputDialog(jComboBox1, "Ange nya listans namn:");
+            if(!customBackend.Lists.getInstance().creatNewList(listName)) {
+             JOptionPane.showConfirmDialog(jComboBox1, "Det namnen är inte tillgänligt.");
+           }
         }
+        
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
-           // jComboBox1.addItem(creatNewList());
+            System.out.print("first");
+            if(!customBackend.Lists.getInstance().creatNewList((String)JOptionPane.showInputDialog(jComboBox1, "Ange nya listans namn:"))) {
+              System.out.print("second");
+                JOptionPane.showConfirmDialog(jComboBox1, "Det namnen är inte tillgänligt.");
+            }
         }
-        // addToList(jComboBox1.getSelectedItem());
+        if(!productList.isEmpty()){
+            customBackend.Lists.getInstance().addToList((String)jComboBox1.getSelectedItem(),productList);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-
+    private List<Product> productList = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -129,4 +152,24 @@ public class CartPanel extends javax.swing.JPanel {
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void shoppingCartChanged(CartEvent ce) {
+        System.out.print("Cart1");
+        ShoppingItem item =ce.getShoppingItem();
+        Product p = item.getProduct();
+        productList.add(p);
+        addContentToList(item);
+    }
+    
+    private void addContentToList(ShoppingItem item){
+        System.out.print("Cart2");
+        DefaultListModel lm = new DefaultListModel();
+        for(int i = 0 ; i<jList1.getModel().getSize(); i++){
+            if(!jList1.getModel().getElementAt(0).toString().equals("Inga varor tillagda")){
+                lm.addElement(jList1.getModel().getElementAt(i));
+            }
+        }
+        jList1.setModel(lm);
+    }
 }

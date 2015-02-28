@@ -7,6 +7,7 @@ package customBackend;
 
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.ListModel;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Order;
@@ -18,10 +19,10 @@ public class Lists {
 
     private static Lists instance = new Lists();
     
-
     private Lists() {
         this.allLists = new ArrayList();
-
+        this.createdLists = new NamedList("Created list",new ArrayList<NamedList>());
+        
         allLists.add(new NamedList("All products",handler.getProducts()));
         allLists.add(new NamedList("Newest"));
         allLists.add(new NamedList("Recommended"));
@@ -35,6 +36,7 @@ public class Lists {
     }
     
     public static Lists getInstance(){
+
         return instance;
     }
     
@@ -96,15 +98,28 @@ public class Lists {
         return recommended;
     }
     
-    /*public void addToList(String listName){
-        if()
+   public boolean creatNewList(String listName){
+        if(listExists(listName)){
+        allLists.add(new NamedList(listName));
+        return true;
+        }
+        return false;
+   }
+   
+    public void addToList(String listName,List<Product> p){
+        if(listExists(listName)){
+            getList(listName).addAll(p);
+        }
     }
     
     private boolean listExists(String listName){
-        for(List list : allLists){
-            if()
+        for(NamedList list : allLists){
+            if(list.getName().equals(listName)){
+                return true;
+            }
         }
-    }*/
+        return false;
+    }
     
     public List<Product> getList(String listName){
         for(NamedList list: allLists){
@@ -138,5 +153,6 @@ public class Lists {
     private List<Product> newest;
     private List<Product> recommended;
     private List<Product> favourite;
+    private NamedList<NamedList> createdLists;
 }
 
