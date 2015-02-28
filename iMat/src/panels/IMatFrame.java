@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import customBackend.Observable;
 import customBackend.Observer;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.Timer;
 
 /*
@@ -20,6 +22,7 @@ import javax.swing.Timer;
 public class IMatFrame extends javax.swing.JFrame implements Observable{
     
     private static Observer observer = Observer.getInstance();
+    CardLayout mainCardlayout;
     /**
      * Creates new form IMatFrame
      */
@@ -27,7 +30,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         initComponents();
         observer.setObserver(this);
-        //initBanners();
+        mainCardlayout = (CardLayout)MainpagePanel.getLayout();
        // initBannerSlider();
     }
    
@@ -83,6 +86,11 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         searchField.setText("jTextField1");
 
         returnButton.setText("jButton1");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
 
         searchButton.setText("Sök");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -211,6 +219,10 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         
     }//GEN-LAST:event_sideMenuPanel1MouseClicked
 
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        //switchCard(OldCard);
+    }//GEN-LAST:event_returnButtonActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -267,8 +279,8 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     }
     
     private void switchCard(String card){
-        CardLayout layout = (CardLayout)MainpagePanel.getLayout();
-        layout.show(MainpagePanel, card);
+       // String currentCard = mainCardlayout.
+        mainCardlayout.show(MainpagePanel, card);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -289,8 +301,6 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
     Timer timer; 
-
-    
-
-    
+    List<String> previousCards = new ArrayList();
+ 
 }
