@@ -31,26 +31,9 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         initComponents();
         observer.setObserver(this);
         mainCardlayout = (CardLayout)MainpagePanel.getLayout();
-       // initBannerSlider();
+        previousCards.add("homeCard");
+       
     }
-   
-    /*public void initBanners(){
-        fruitBanner.setTitle("Frukt och grönt!");
-        meatBanner.setTitle("Kött och fläsk");
-        bananaBanner.setTitle("Bananer i pyjamas");
-    }*/
-    
-    /*public void initBannerSlider(){
-       timer = new Timer(3000,taskPerformer);
-       timer.start();
-    }
-    
-    ActionListener taskPerformer = new ActionListener() {
-        public void actionPerformed(ActionEvent evt) {
-              CardLayout theLayout = (CardLayout)bannerCardLayoutPanel.getLayout();
-              theLayout.next(bannerCardLayoutPanel);
-        }
-    };*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -220,9 +203,16 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     }//GEN-LAST:event_sideMenuPanel1MouseClicked
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        //switchCard(OldCard);
+        previousCard();
     }//GEN-LAST:event_returnButtonActionPerformed
     
+    private void previousCard(){
+        if(previousCards.size() > 1){
+            previousCards.remove(previousCards.size()-1);
+            mainCardlayout.show(MainpagePanel, previousCards.get(previousCards.size()-1));
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -273,14 +263,14 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
                         break;
             case("Mina inköpslistor"): switchCard("listCard");
                         break;
-            case("Mina Köp"): switchCard("historyCard");
+            case("Mina köp"): switchCard("historyCard");
                         break;
         }
     }
     
     private void switchCard(String card){
-       // String currentCard = mainCardlayout.
         mainCardlayout.show(MainpagePanel, card);
+        previousCards.add(card);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -300,7 +290,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     private javax.swing.JTextField searchField;
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
-    Timer timer; 
+    
     List<String> previousCards = new ArrayList();
  
 }
