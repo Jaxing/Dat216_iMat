@@ -19,7 +19,12 @@ public class Lists {
  
 
     private Lists() {
-        allProducts = handler.getProducts();
+        this.allLists = new ArrayList();
+
+        allLists.add(new NamedList("All products",handler.getProducts()));
+        allLists.add(new NamedList("Newest"));
+        allLists.add(new NamedList("Recommended"));
+        allLists.add(new NamedList("Favourite"));
     }
     
     public static Lists getInstance(){
@@ -49,7 +54,7 @@ public class Lists {
     /*
         Adds 10 products to recommended list
     */
-    public List<Product> getRecommended(){
+   public List<Product> getRecommended(){
         recommended.clear();
         if(favourite.size() != 0){
             for(int i = favourite.size(); i > 0; i--){
@@ -84,6 +89,25 @@ public class Lists {
         return recommended;
     }
     
+    /*public void addToList(String listName){
+        if()
+    }
+    
+    private boolean listExists(String listName){
+        for(List list : allLists){
+            if()
+        }
+    }*/
+    
+    public List<Product> getList(String listName){
+        for(NamedList list : allLists){
+            if(list.getName().equals(listName)){
+                return list;
+            }
+        }
+        return null;
+    }
+    
     public List<Product> getFavourit(){
         return favourite;
     }
@@ -101,8 +125,11 @@ public class Lists {
     }
     
     private IMatDataHandler handler = IMatDataHandler.getInstance();
-    private List<Product> allProducts;
-    private List<Product> newest = new ArrayList();
-    private List<Product> recommended = new ArrayList();
-    private List<Product> favourite = handler.favorites();
+
+    private List<NamedList> allLists;
+    private List<Product> allProducts = getList("All products");
+    private List<Product> newest = getList("Newest");
+    private List<Product> recommended = getList("Recommended");
+    private List<Product> favourite = getList("Favourite");
 }
+

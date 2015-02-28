@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -31,21 +31,12 @@ public class TestFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        MainpagePanel = new javax.swing.JPanel();
-        firstpageCardPanel1 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+
         itemPanel1 = new panels.ItemPanel();
         itemPanel2 = new panels.ItemPanel();
-        bannerJPanel2 = new panels.bannerJPanel();
-        itemCard1 = new cards.ItemCard();
-        cartButton = new javax.swing.JButton();
-        profileButton = new javax.swing.JButton();
-        returnButton = new javax.swing.JButton();
-        searchField = new javax.swing.JTextField();
-        searchButton = new javax.swing.JButton();
-        sideMenuPanel1 = new panels.sideMenuPanel();
-        categoriPanel = new javax.swing.JLabel();
+        itemPanel4 = new panels.ItemPanel();
+        itemPanel3 = new panels.ItemPanel();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,11 +157,19 @@ public class TestFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)
+
+            .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(itemPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(140, Short.MAX_VALUE)
+                .addComponent(itemPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
+
         );
 
         pack();
@@ -217,12 +216,7 @@ public class TestFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel MainpagePanel;
-    private panels.bannerJPanel bannerJPanel2;
-    private javax.swing.JButton cartButton;
-    private javax.swing.JLabel categoriPanel;
-    private javax.swing.JPanel firstpageCardPanel1;
-    private cards.ItemCard itemCard1;
+
     private panels.ItemPanel itemPanel1;
     private panels.ItemPanel itemPanel2;
     private javax.swing.JPanel jPanel1;

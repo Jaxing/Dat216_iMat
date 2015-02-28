@@ -58,6 +58,10 @@
             </Property>
             <Property name="rootVisible" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MenuTreeMouseClicked"/>
+            <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="MenuTreeValueChanged"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
