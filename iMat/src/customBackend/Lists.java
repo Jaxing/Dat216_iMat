@@ -17,7 +17,7 @@ import se.chalmers.ait.dat215.project.Order;
  */
 public class Lists {
     
- private static Lists lists = new Lists();
+ private static final Lists lists = new Lists();
 
     private Lists() {
         this.allLists = new ArrayList();

@@ -3,6 +3,7 @@ package test;
 
 
 
+import customBackend.Lists;
 import java.awt.CardLayout;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
@@ -18,10 +19,9 @@ public class TestFrame extends javax.swing.JFrame {
      */
     public TestFrame() {
         initComponents();
-        if(IMatDataHandler.getInstance()!=null){
-            System.out.print("Hej");
-            handler=IMatDataHandler.getInstance();
-        }
+       if(IMatDataHandler.getInstance()!=null){
+           System.out.print("Hej");
+       }
     }
 
     /**
@@ -74,7 +74,11 @@ public class TestFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        Product p = handler.getProduct(1);
+        Product p = new Product();
+        p.setName("Hej");
+        p.setPrice(56);
+        p.setUnit("kr/kg");
+        p.setImageName("product_1.jpg");
         itemPanel5.fill(p);
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
