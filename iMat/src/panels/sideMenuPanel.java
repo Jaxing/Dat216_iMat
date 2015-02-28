@@ -147,8 +147,5 @@ public class sideMenuPanel extends javax.swing.JPanel implements Observer {
     DefaultTreeCellRenderer renderer;
     private String selectedItem;
 
-    @Override
-    public void update(Observable o, Object arg) {
-        
-    }
+    Observer observer = new IMatFrame();
 }

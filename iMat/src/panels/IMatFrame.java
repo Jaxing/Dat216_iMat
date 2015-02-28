@@ -22,9 +22,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observer{
      * Creates new form IMatFrame
      */
     public IMatFrame() {
-        
-        
-        
+
         initComponents();
         //initBanners();
        // initBannerSlider();
@@ -253,8 +251,9 @@ public class IMatFrame extends javax.swing.JFrame implements Observer{
     public void selectCard(String listSelected){
         switch(listSelected){
             case("Hem"): switchCard("homeCard");
-                break;
-            
+                        break;
+            case("Varor"): switchCard("itemCard");
+                        break;
         }
     }
     
