@@ -18,7 +18,7 @@ public class Lists {
     
  
 
-    private Lists() {
+   /* private Lists() {
         this.allLists = new ArrayList();
         //allProducts = ;
        // private List<Product> allProducts;
@@ -38,7 +38,7 @@ public class Lists {
     /*
         Returns all products in the IMatDataHandler
     */
-    public List<Product> getAllProducts(){
+   /* public List<Product> getAllProducts(){
         //allProducts.clear();
         
         return allProducts;
@@ -47,7 +47,7 @@ public class Lists {
     /*
         Returns the 10 newest products added in IMatDataHandler
     */
-    public List<Product> getNewest(){
+   /* public List<Product> getNewest(){
         newest.clear();
         for(int i = 1; i<11; i++){
             newest.add(allProducts.get(allProducts.size()-i));
@@ -58,7 +58,7 @@ public class Lists {
     /*
         Adds 10 products to recommended list
     */
-    public List<Product> getRecommended(){
+  /*  public List<Product> getRecommended(){
         recommended.clear();
         if(favourite.size() != 0){
             for(int i = favourite.size(); i > 0; i--){
@@ -73,7 +73,7 @@ public class Lists {
                     /*avoids adding the same element twice in the recommended list, or adding
                     * a favourited element in the recommended list
                     */
-                    while(recommended.contains(tmpProd)||favourite.contains(tmpProd)){
+    /*                while(recommended.contains(tmpProd)||favourite.contains(tmpProd)){
                         tmpProd = handler.getProducts(favourite.get(i-1).getCategory()).get(n);
                         n++;
                     }
@@ -120,5 +120,5 @@ public class Lists {
     }
     
     private IMatDataHandler handler = IMatDataHandler.getInstance();
-    private List<List> allLists;
-}
+    private List<List> allLists;*/
+} 

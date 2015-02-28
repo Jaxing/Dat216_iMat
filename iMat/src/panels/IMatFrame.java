@@ -90,6 +90,8 @@ public class IMatFrame extends javax.swing.JFrame {
 
         MainpagePanel.setBackground(new java.awt.Color(204, 204, 255));
         MainpagePanel.setLayout(new java.awt.CardLayout());
+
+        homeCard2.setBackground(new java.awt.Color(204, 204, 255));
         MainpagePanel.add(homeCard2, "card2");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
@@ -97,23 +99,23 @@ public class IMatFrame extends javax.swing.JFrame {
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
                         .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchButton))
+                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE))))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +132,7 @@ public class IMatFrame extends javax.swing.JFrame {
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 575, Short.MAX_VALUE)
+                        .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 628, Short.MAX_VALUE)
                         .addGap(3, 3, 3))))
         );
 

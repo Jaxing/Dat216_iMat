@@ -22,18 +22,18 @@ public class tabbedPanels extends javax.swing.JPanel {
      */
     public tabbedPanels() {
         initComponents();
-        Lists lists = Lists.getInstance();
+       /* Lists lists = Lists.getInstance();
         recommended = lists.getRecommended();
-        newProducts = lists.getNewest();
+        newProducts = lists.getNewest();*/
         //List<Product> random = lists.getRecommended();
         fillSeasonPanels();
     }
     
     private void fillSeasonPanels(){
-        seasonPanel1.fill(recommended.get(0));
+      /*  seasonPanel1.fill(recommended.get(0));
         seasonPanel2.fill(recommended.get(1));
         seasonPanel3.fill(recommended.get(2));
-        seasonPanel4.fill(recommended.get(3));
+        seasonPanel4.fill(recommended.get(3));*/
     }
     /**
      * This method is called from within the constructor to initialize the form.

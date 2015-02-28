@@ -109,15 +109,15 @@ public class CartPanel extends javax.swing.JPanel {
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
-            createNewList();
+          //  createNewList();
         }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
-            jComboBox1.addItem(creatNewList());
+           // jComboBox1.addItem(creatNewList());
         }
-        addToList(jComboBox1.getSelectedItem());
+        // addToList(jComboBox1.getSelectedItem());
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
