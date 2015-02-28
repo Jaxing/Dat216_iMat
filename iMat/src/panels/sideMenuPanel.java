@@ -5,8 +5,8 @@
  */
 
 package panels;
-import java.util.Observable;
-import java.util.Observer;
+import customBackend.Observer;
+import customBackend.Observable;
 import javax.swing.ImageIcon;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
@@ -19,6 +19,8 @@ import javax.swing.tree.TreeSelectionModel;
  */
 public class sideMenuPanel extends javax.swing.JPanel {
 
+    private Observer observer = Observer.getInstance();
+    private Observable observable;
     /**
      * Creates new form sideMenuPanel
      */
@@ -131,13 +133,14 @@ public class sideMenuPanel extends javax.swing.JPanel {
         if (node.isLeaf()) {
             //bad coding level 9000
             selectedItem = nodeInfo.toString();
+            notifyObserver();
         }
     }//GEN-LAST:event_MenuTreeValueChanged
  
-    public String getSelectedItem(){
-        return selectedItem;
+    public void notifyObserver(){
+        observable= observer.getObserver();
+        observable.update(selectedItem);
     }
-
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

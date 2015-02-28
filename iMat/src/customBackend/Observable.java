@@ -9,22 +9,6 @@ package customBackend;
  *
  * @author Erik
  */
-public class Observable {
-    private static Observable observable = new Observable();
-    
-    private void Observable(){};
-    
-    private Observer theObserver;
-    
-    public Observable getInstance(){
-        return observable;
-    }
-    
-    public void setObserver(Observer observer){
-        this.theObserver = observer;
-    }
-    
-    public Observer getObserver(){
-        return this.theObserver;
-    }
+public interface Observable {
+    public void update(String selectedItem);
 }

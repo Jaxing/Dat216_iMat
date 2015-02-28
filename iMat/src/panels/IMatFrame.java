@@ -3,6 +3,7 @@ package panels;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import customBackend.Observable;
 import customBackend.Observer;
 import javax.swing.Timer;
 
@@ -16,14 +17,16 @@ import javax.swing.Timer;
  *
  * @author jesper
  */
-public class IMatFrame extends javax.swing.JFrame implements Observer{
-
+public class IMatFrame extends javax.swing.JFrame implements Observable{
+    
+    private static Observer observer = Observer.getInstance();
     /**
      * Creates new form IMatFrame
      */
     public IMatFrame() {
 
         initComponents();
+        observer.setObserver(this);
         //initBanners();
        // initBannerSlider();
     }
@@ -252,7 +255,13 @@ public class IMatFrame extends javax.swing.JFrame implements Observer{
         switch(listSelected){
             case("Hem"): switchCard("homeCard");
                         break;
-            case("Varor"): switchCard("itemCard");
+            case("Erbjudande"): switchCard("offersCard");
+                        break;
+            case("Recept"): switchCard("recipeCard");
+                        break;
+            case("Mina inköpslistor"): switchCard("listCard");
+                        break;
+            case("Mina Köp"): switchCard("historyCard");
                         break;
         }
     }

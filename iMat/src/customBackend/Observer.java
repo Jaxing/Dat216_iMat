@@ -9,6 +9,20 @@ package customBackend;
  *
  * @author Erik
  */
-public interface Observer {
-    public void update(String selectedItem);
+public class Observer {
+    private static Observer observable = new Observer();
+    
+    private Observable theObserver;
+    
+    public static Observer getInstance(){
+        return observable;
+    }
+    
+    public void setObserver(Observable observer){
+        this.theObserver = observer;
+    }
+    
+    public Observable getObserver(){
+        return this.theObserver;
+    }
 }
