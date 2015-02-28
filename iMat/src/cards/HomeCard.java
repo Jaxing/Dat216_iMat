@@ -38,7 +38,7 @@ public class HomeCard extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(418, 455));
 
-        firstpageCardPanel.setBackground(new java.awt.Color(255, 255, 255));
+        firstpageCardPanel.setBackground(new java.awt.Color(204, 204, 255));
 
         javax.swing.GroupLayout firstpageCardPanelLayout = new javax.swing.GroupLayout(firstpageCardPanel);
         firstpageCardPanel.setLayout(firstpageCardPanelLayout);

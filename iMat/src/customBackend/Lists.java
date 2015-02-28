@@ -20,11 +20,7 @@ public class Lists {
 
     private Lists() {
         this.allLists = new ArrayList();
-        //allProducts = ;
-       // private List<Product> allProducts;
-   // private List<Product> newest = new NamedList("newest");
-   // private List<Product> recommended = new NamedList("recommended");
-    //private List<Product> favourite = handler.favorites();
+
         allLists.add(new NamedList("All products",handler.getProducts()));
         allLists.add(new NamedList("Newest"));
         allLists.add(new NamedList("Recommended"));
@@ -58,7 +54,7 @@ public class Lists {
     /*
         Adds 10 products to recommended list
     */
-    public List<Product> getRecommended(){
+   public List<Product> getRecommended(){
         recommended.clear();
         if(favourite.size() != 0){
             for(int i = favourite.size(); i > 0; i--){
@@ -129,9 +125,11 @@ public class Lists {
     }
     
     private IMatDataHandler handler = IMatDataHandler.getInstance();
+
     private List<NamedList> allLists;
     private List<Product> allProducts = getList("All products");
     private List<Product> newest = getList("Newest");
     private List<Product> recommended = getList("Recommended");
     private List<Product> favourite = getList("Favourite");
 }
+
