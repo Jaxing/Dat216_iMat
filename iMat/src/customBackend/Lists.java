@@ -16,7 +16,7 @@ import se.chalmers.ait.dat215.project.Order;
  */
 public class Lists {
 
-    public static Lists instance = new Lists();
+    private static Lists instance = new Lists();
     
 
     private Lists() {
