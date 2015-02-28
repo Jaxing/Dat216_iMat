@@ -3,6 +3,7 @@ package panels;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import customBackend.Observer;
 import javax.swing.Timer;
 
 /*
@@ -15,7 +16,7 @@ import javax.swing.Timer;
  *
  * @author jesper
  */
-public class IMatFrame extends javax.swing.JFrame {
+public class IMatFrame extends javax.swing.JFrame implements Observer{
 
     /**
      * Creates new form IMatFrame
@@ -103,7 +104,7 @@ public class IMatFrame extends javax.swing.JFrame {
         MainpagePanel.setLayout(new java.awt.CardLayout());
 
         homeCard2.setBackground(new java.awt.Color(204, 204, 255));
-        MainpagePanel.add(homeCard2, "card2");
+        MainpagePanel.add(homeCard2, "homeCard");
 
         javax.swing.GroupLayout recipeCard1Layout = new javax.swing.GroupLayout(recipeCard1);
         recipeCard1.setLayout(recipeCard1Layout);
@@ -116,8 +117,8 @@ public class IMatFrame extends javax.swing.JFrame {
             .addGap(0, 642, Short.MAX_VALUE)
         );
 
-        MainpagePanel.add(recipeCard1, "card7");
-        MainpagePanel.add(itemCard1, "card4");
+        MainpagePanel.add(recipeCard1, "recipeCard");
+        MainpagePanel.add(itemCard1, "itemCard");
 
         javax.swing.GroupLayout historyCard1Layout = new javax.swing.GroupLayout(historyCard1);
         historyCard1.setLayout(historyCard1Layout);
@@ -130,7 +131,7 @@ public class IMatFrame extends javax.swing.JFrame {
             .addGap(0, 642, Short.MAX_VALUE)
         );
 
-        MainpagePanel.add(historyCard1, "card3");
+        MainpagePanel.add(historyCard1, "historyCard");
 
         javax.swing.GroupLayout listCard1Layout = new javax.swing.GroupLayout(listCard1);
         listCard1.setLayout(listCard1Layout);
@@ -143,8 +144,8 @@ public class IMatFrame extends javax.swing.JFrame {
             .addGap(0, 642, Short.MAX_VALUE)
         );
 
-        MainpagePanel.add(listCard1, "card5");
-        MainpagePanel.add(offersCard1, "card7");
+        MainpagePanel.add(listCard1, "listCard");
+        MainpagePanel.add(offersCard1, "offersCard");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -243,6 +244,24 @@ public class IMatFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    @Override
+    public void update(String selectedItem) {
+        selectCard(selectedItem);
+    }
+    
+    public void selectCard(String listSelected){
+        switch(listSelected){
+            case("Hem"): switchCard("homeCard");
+                break;
+            
+        }
+    }
+    
+    private void switchCard(String card){
+        CardLayout layout = (CardLayout)MainpagePanel.getLayout();
+        layout.show(MainpagePanel, card);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainpagePanel;
@@ -262,4 +281,8 @@ public class IMatFrame extends javax.swing.JFrame {
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
     Timer timer; 
+
+    
+
+    
 }

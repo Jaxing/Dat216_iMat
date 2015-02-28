@@ -5,6 +5,8 @@
  */
 
 package panels;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.ImageIcon;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
@@ -15,7 +17,7 @@ import javax.swing.tree.TreeSelectionModel;
  *
  * @author Erik
  */
-public class sideMenuPanel extends javax.swing.JPanel {
+public class sideMenuPanel extends javax.swing.JPanel implements Observer {
 
     /**
      * Creates new form sideMenuPanel
@@ -127,14 +129,14 @@ public class sideMenuPanel extends javax.swing.JPanel {
         Object nodeInfo = node.getUserObject();
 
         if (node.isLeaf()) {
-            System.out.println(nodeInfo);
-            //BookInfo book = (BookInfo) nodeInfo;
-            //displayURL(book.bookURL);
-        } else {
-            //displayURL(helpURL);
+            //bad coding level 9000
+            selectedItem = nodeInfo.toString();
         }
     }//GEN-LAST:event_MenuTreeValueChanged
  
+    public String getSelectedItem(){
+        return selectedItem;
+    }
 
         
 
@@ -143,4 +145,10 @@ public class sideMenuPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
     DefaultTreeCellRenderer renderer;
+    private String selectedItem;
+
+    @Override
+    public void update(Observable o, Object arg) {
+        
+    }
 }
