@@ -17,8 +17,8 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
  */
 public class ItemPanel extends javax.swing.JPanel {
     
-    private int imgWidth = 50;
-    private int imgHeight = 50;
+    //private int imgWidth = 50;
+    //private int imgHeight = 50;
     private IMatDataHandler handler;
     /**
      * Creates new form ItemPanel

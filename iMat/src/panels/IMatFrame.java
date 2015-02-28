@@ -69,7 +69,7 @@ public class IMatFrame extends javax.swing.JFrame {
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         backgroundPanel.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -88,7 +88,7 @@ public class IMatFrame extends javax.swing.JFrame {
 
         cartButton.setText("jButton4");
 
-        MainpagePanel.setBackground(new java.awt.Color(255, 255, 255));
+        MainpagePanel.setBackground(new java.awt.Color(204, 204, 255));
         MainpagePanel.setLayout(new java.awt.CardLayout());
         MainpagePanel.add(homeCard2, "card2");
 
@@ -130,7 +130,7 @@ public class IMatFrame extends javax.swing.JFrame {
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addComponent(MainpagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                        .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 575, Short.MAX_VALUE)
                         .addGap(3, 3, 3))))
         );
 
