@@ -23,11 +23,11 @@ public class tabbedPanels extends javax.swing.JPanel {
      */
     public tabbedPanels() {
         initComponents();
-      /*  lists = Lists.getInstance();
+        lists = Lists.getInstance();
         recommended = lists.getRecommended();
         newProducts = lists.getNewest();
         //List<Product> random = lists.getRecommended();
-        fillSeasonPanels();*/
+        fillSeasonPanels();
     }
     
     private void fillSeasonPanels(){

@@ -15,9 +15,9 @@ import se.chalmers.ait.dat215.project.Order;
  * @author Erik
  */
 public class Lists {
+
+    public static Lists instance = new Lists();
     
-    private static Lists lists = new Lists();
- 
 
     private Lists() {
         this.allLists = new ArrayList();
@@ -26,10 +26,16 @@ public class Lists {
         allLists.add(new NamedList("Newest"));
         allLists.add(new NamedList("Recommended"));
         allLists.add(new NamedList("Favourite"));
+        
+        allProducts = getList("All products");
+        newest = getList("Newest");
+        recommended = getList("Recommended");
+        favourite = getList("Favourite");
+        
     }
     
     public static Lists getInstance(){
-        return lists;
+        return instance;
     }
     
     /*
@@ -128,9 +134,9 @@ public class Lists {
     private IMatDataHandler handler = IMatDataHandler.getInstance();
 
     private List<NamedList> allLists;
-    private List<Product> allProducts = getList("All products");
-    private List<Product> newest = getList("Newest");
-    private List<Product> recommended = getList("Recommended");
-    private List<Product> favourite = getList("Favourite");
+    private List<Product> allProducts;
+    private List<Product> newest;
+    private List<Product> recommended;
+    private List<Product> favourite;
 }
 
