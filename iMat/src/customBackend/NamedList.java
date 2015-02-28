@@ -156,4 +156,5 @@ public class NamedList<E> implements List<E>{
     public List<E> getList(){
         return list;
     }
+    
 }

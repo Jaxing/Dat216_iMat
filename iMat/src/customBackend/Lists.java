@@ -7,6 +7,7 @@ package customBackend;
 
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.ListModel;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Order;
@@ -20,12 +21,14 @@ public class Lists {
 
     private Lists() {
         this.allLists = new ArrayList();
-
+        this.createdLists = new NamedList("Created list",new ArrayList<NamedList>());
+        
         allLists.add(new NamedList("All products",handler.getProducts()));
-        allLists.add(new NamedList("Newest"));
-        allLists.add(new NamedList("Recommended"));
-        allLists.add(new NamedList("Favourite"));
-        allLists.add(new NamedList("Created list"));
+        allLists.add(new NamedList("Newest",new ArrayList<Product>()));
+        allLists.add(new NamedList("Recommended",new ArrayList<Product>()));
+        allLists.add(new NamedList("Favourite",new ArrayList<Product>()));
+        allLists.add(createdLists);
+        
     }
     
     public static Lists getInstance(){
@@ -87,30 +90,33 @@ public class Lists {
             }
             i++;
         }
-        return recommended.getList();
+        return recommended;
     }
     
    public boolean creatNewList(String listName){
-       for(NamedList list : allLists){
-            if(list.getName().equals(listName)){
-                return false;
-            }
-        }
+        if(listExists(listName)){
         allLists.add(new NamedList(listName));
         return true;
+        }
+        return false;
    }
    
-    /*public void addToList(String listName){
-        if()
+    public void addToList(String listName,List<Product> p){
+        if(listExists(listName)){
+            getList(listName).addAll(p);
+        }
     }
     
     private boolean listExists(String listName){
-        for(List list : allLists){
-            if()
+        for(NamedList list : allLists){
+            if(list.getName().equals(listName)){
+                return true;
+            }
         }
-    }*/
+        return false;
+    }
     
-    public List<NamedList> getList(String listName){
+    public List<Product> getList(String listName){
         for(NamedList list : allLists){
             if(list.getName().equals(listName)){
                 return list;
@@ -138,10 +144,10 @@ public class Lists {
     private IMatDataHandler handler = IMatDataHandler.getInstance();
 
     private List<NamedList> allLists;
-    private List<NamedList> allProducts = getList("All products");
-    private List<NamedList> newest = getList("Newest");
-    private List<NamedList> recommended = getList("Recommended");
-    private List<NamedList> favourite = getList("Favourite");
-    private List<NamedList> createdLists = getList("Created list");
+    private List<Product> allProducts = getList("All products");
+    private List<Product> newest = getList("Newest");
+    private List<Product> recommended = getList("Recommended");
+    private List<Product> favourite = getList("Favourite");
+    private NamedList<NamedList> createdLists;
 }
 
