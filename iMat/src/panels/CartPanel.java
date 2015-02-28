@@ -18,12 +18,16 @@ import se.chalmers.ait.dat215.project.*;
  * @author jesper
  */
 public class CartPanel extends javax.swing.JPanel implements ShoppingCartListener {
-
+    
+    private IMatDataHandler handler;
     /**
      * Creates new form CartPanel
      */
     public CartPanel() {
         initComponents();
+        handler=IMatDataHandler.getInstance();
+        handler.getShoppingCart().addShoppingCartListener(this);
+        
     }
 
     /**
@@ -151,6 +155,7 @@ public class CartPanel extends javax.swing.JPanel implements ShoppingCartListene
 
     @Override
     public void shoppingCartChanged(CartEvent ce) {
+        System.out.print("Cart1");
         ShoppingItem item =ce.getShoppingItem();
         Product p = item.getProduct();
         productList.add(p);
@@ -158,6 +163,7 @@ public class CartPanel extends javax.swing.JPanel implements ShoppingCartListene
     }
     
     private void addContentToList(ShoppingItem item){
+        System.out.print("Cart2");
         DefaultListModel lm = new DefaultListModel();
         for(int i = 0 ; i<jList1.getModel().getSize(); i++){
             if(!jList1.getModel().getElementAt(0).toString().equals("Inga varor tillagda")){
