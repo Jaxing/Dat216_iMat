@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package panels;
+package cards;
 
 
 import java.util.ArrayList;
@@ -14,18 +14,19 @@ import customBackend.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import javax.swing.DefaultListModel;
+import panels.CartItem;
 import se.chalmers.ait.dat215.project.*;
 /**
  *
  * @author jesper
  */
-public class CartPanel extends javax.swing.JPanel implements ShoppingCartListener, PropertyChangeListener {
+public class CartCard extends javax.swing.JPanel implements ShoppingCartListener, PropertyChangeListener {
     
     private IMatDataHandler handler;
     /**
      * Creates new form CartPanel
      */
-    public CartPanel() {
+    public CartCard() {
         initComponents();
         handler=IMatDataHandler.getInstance();
         handler.getShoppingCart().addShoppingCartListener(this);
@@ -103,7 +104,7 @@ public class CartPanel extends javax.swing.JPanel implements ShoppingCartListene
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 551, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,7 +128,7 @@ public class CartPanel extends javax.swing.JPanel implements ShoppingCartListene
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(clearButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -187,20 +188,10 @@ public class CartPanel extends javax.swing.JPanel implements ShoppingCartListene
         ShoppingItem item =ce.getShoppingItem();
         Product p = item.getProduct();
         productList.add(p);
-        addContentToList(item);
+        jList1.add(new CartItem(item,this));
     }
     
-    private void addContentToList(ShoppingItem item){
-        System.out.print("Cart2");
-        DefaultListModel lm = new DefaultListModel();
-        for(int i = 0 ; i<jList1.getModel().getSize()-1; i++){
-            if(!jList1.getModel().getElementAt(i).toString().equals("Inga varor tillagda")){
-                lm.addElement(jList1.getModel().getElementAt(i));
-            }
-        }
-        lm.addElement(new CartItem(item,this));
-        jList1.setModel(lm);
-    }
+    
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
