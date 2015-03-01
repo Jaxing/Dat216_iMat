@@ -51,9 +51,19 @@ public class CartPanel extends javax.swing.JPanel implements ShoppingCartListene
         clearButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                formMouseExited(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("x");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Inga varor tillagda" };
@@ -168,6 +178,14 @@ public class CartPanel extends javax.swing.JPanel implements ShoppingCartListene
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         handler.getShoppingCart().clear();
     }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
+        //this.setVisible(false);
+    }//GEN-LAST:event_formMouseExited
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     private List<Product> productList = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
