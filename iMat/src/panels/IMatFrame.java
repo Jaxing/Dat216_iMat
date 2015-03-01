@@ -54,12 +54,12 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         cartButton = new javax.swing.JButton();
         sideMenuPanel1 = new panels.sideMenuPanel();
         MainpagePanel = new javax.swing.JPanel();
-        homeCard2 = new cards.HomeCard();
         recipeCard1 = new cards.RecipeCard();
         itemCard1 = new cards.ItemCard();
         historyCard1 = new cards.HistoryCard();
         listCard1 = new cards.ListCard();
         offersCard1 = new cards.OffersCard();
+        homeCard2 = new cards.HomeCard();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -73,6 +73,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         returnButton.setBorder(null);
         returnButton.setBorderPainted(false);
         returnButton.setContentAreaFilled(false);
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
@@ -88,10 +89,12 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon.png"))); // NOI18N
         profileButton.setContentAreaFilled(false);
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
 
         cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/cart.png"))); // NOI18N
         cartButton.setContentAreaFilled(false);
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cartButtonActionPerformed(evt);
@@ -106,9 +109,6 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         MainpagePanel.setBackground(new java.awt.Color(204, 204, 255));
         MainpagePanel.setLayout(new java.awt.CardLayout());
-
-        homeCard2.setBackground(new java.awt.Color(204, 204, 255));
-        MainpagePanel.add(homeCard2, "homeCard");
 
         javax.swing.GroupLayout recipeCard1Layout = new javax.swing.GroupLayout(recipeCard1);
         recipeCard1.setLayout(recipeCard1Layout);
@@ -150,6 +150,9 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         MainpagePanel.add(listCard1, "listCard");
         MainpagePanel.add(offersCard1, "offersCard");
+
+        homeCard2.setBackground(new java.awt.Color(204, 204, 255));
+        MainpagePanel.add(homeCard2, "homeCard");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -200,7 +203,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 692, Short.MAX_VALUE)
         );
 
         pack();

@@ -4,6 +4,7 @@ package panels;
 
 
 
+import customBackend.Lists;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -20,11 +21,13 @@ public class ItemPanel extends javax.swing.JPanel {
     //private int imgHeight = 50;
     private IMatDataHandler handler;
     private Product product;
+    private Lists lists;
     /**
      * Creates new form ItemPanel
      */
     public ItemPanel() {
         handler = IMatDataHandler.getInstance();
+        lists = Lists.getInstance();
         initComponents();
     }
     
@@ -94,6 +97,11 @@ public class ItemPanel extends javax.swing.JPanel {
         jToggleButton1.setContentAreaFilled(false);
         jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jToggleButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/goldStar.png"))); // NOI18N
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -196,6 +204,10 @@ public class ItemPanel extends javax.swing.JPanel {
         handler.getShoppingCart().addItem(item);
         handler.getShoppingCart().fireShoppingCartChanged(item, true);
     }//GEN-LAST:event_addToButtonActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
    
 
