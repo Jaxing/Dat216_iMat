@@ -45,6 +45,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     private void initComponents() {
 
         jToggleButton1 = new javax.swing.JToggleButton();
+        jMenu1 = new javax.swing.JMenu();
         backgroundPanel = new javax.swing.JPanel();
         searchField = new javax.swing.JTextField();
         returnButton = new javax.swing.JButton();
@@ -62,6 +63,8 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         searchCard1 = new cards.SearchCard();
 
         jToggleButton1.setText("jToggleButton1");
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -314,6 +317,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     private cards.HistoryCard historyCard1;
     private cards.HomeCard homeCard2;
     private cards.ItemCard itemCard1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JToggleButton jToggleButton1;
     private cards.ListCard listCard1;
     private cards.OffersCard offersCard1;
