@@ -144,7 +144,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
-           System.out.print("third");
+           
            String listName = (String)JOptionPane.showInputDialog(jComboBox1, "Ange nya listans namn:");
             if(!customBackend.Lists.getInstance().creatNewList(listName)) {
              JOptionPane.showConfirmDialog(jComboBox1, "Det namnen är inte tillgänligt.");
@@ -155,9 +155,9 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(jComboBox1.getSelectedItem().equals("Ny inköpslista")){
-            System.out.print("first");
+            
             if(!customBackend.Lists.getInstance().creatNewList((String)JOptionPane.showInputDialog(jComboBox1, "Ange nya listans namn:"))) {
-              System.out.print("second");
+             
                 JOptionPane.showConfirmDialog(jComboBox1, "Det namnen är inte tillgänligt.");
             }
         }
@@ -188,6 +188,11 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         ShoppingItem item =ce.getShoppingItem();
         Product p = item.getProduct();
         productList.add(p);
+        jList1.setSelectedIndex(0);
+        if(jList1.getSelectedValue().equals("Inga varor tillagda")){
+            System.out.print("remove");
+            jList1.removeAll();
+        }
         jList1.add(new CartItem(item,this));
     }
     

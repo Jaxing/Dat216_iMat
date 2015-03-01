@@ -123,7 +123,9 @@ public class ItemCard extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 
+
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+
 
         );
     }// </editor-fold>//GEN-END:initComponents

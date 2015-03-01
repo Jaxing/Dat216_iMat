@@ -15,16 +15,16 @@ import se.chalmers.ait.dat215.project.Product;
  * @author Erik
  */
 public class Lists {
+
+
+    private static Lists instance = new Lists();
     
-
-    private static Lists lists = new Lists();
- 
-
     private Lists() {
         this.allLists = new ArrayList();
         this.createdLists = new NamedList("Created list",new ArrayList<NamedList>());
         
         allLists.add(new NamedList("All products",handler.getProducts()));
+
         allLists.add(new NamedList("Newest",new ArrayList<Product>()));
         allLists.add(new NamedList("Recommended",new ArrayList<Product>()));
         allLists.add(new NamedList("Favourite",new ArrayList<Product>()));
@@ -33,10 +33,12 @@ public class Lists {
         newest = getList("Newest");
         recommended = getList("Recommended");
         favourite = getList("Favourite");
+
     }
     
     public static Lists getInstance(){
-        return lists;
+
+        return instance;
     }
     
     /*
@@ -130,8 +132,12 @@ public class Lists {
         return null;
     }
     
-    public List<Product> getFavourit(){
+    public List<Product> getFavourites(){
         return favourite;
+    }
+    
+    public List<Product> search(String search){
+        return handler.findProducts(search);
     }
     
     public void addFavourite(Product p){
