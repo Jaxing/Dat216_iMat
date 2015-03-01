@@ -16,26 +16,33 @@ import se.chalmers.ait.dat215.project.Product;
  *
  * @author jesper
  */
-public class FavouriteCard extends javax.swing.JPanel {
+public class SearchCard extends javax.swing.JPanel {
     Lists lists;
-    List<Product> favProducts; 
+    List<Product> searched = null; 
     List<ItemPanel> itemPanels = new ArrayList();
     /**
      * Creates new form ItemCard
      */
-    public FavouriteCard() {
+    public SearchCard() {
         lists = Lists.getInstance();
-        favProducts = lists.getFavourites();
         initComponents();
         createPanels();
     }
     
+    public void setSearchList(List<Product> searchedList){
+        this.searched = searchedList;
+        createPanels();
+    }
+    
     private void createPanels(){
-        for(Product p: favProducts){
-            ItemPanel panel = new ItemPanel(p);
-            panel.setSize(376, 200);
-            gridPanel.add(panel);
-        } 
+        gridPanel.removeAll();
+        if(searched != null){
+            for(Product p: searched){
+                ItemPanel panel = new ItemPanel(p);
+                panel.setSize(376, 200);
+                gridPanel.add(panel);
+            } 
+        }
     }
 
     /**

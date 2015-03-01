@@ -136,6 +136,10 @@ public class Lists {
         return favourite;
     }
     
+    public List<Product> search(String search){
+        return handler.findProducts(search);
+    }
+    
     public void addFavourite(Product p){
         handler.addFavorite(p);
         favourite.add(p);

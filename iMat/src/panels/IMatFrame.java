@@ -3,14 +3,12 @@ package panels;
 
 
 import cards.FavouriteCard;
+import customBackend.Lists;
 import java.awt.CardLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import customBackend.Observable;
 import customBackend.Observer;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.Timer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -61,6 +59,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         historyCard1 = new cards.HistoryCard();
         listCard1 = new cards.ListCard();
         offersCard1 = new cards.OffersCard();
+        searchCard1 = new cards.SearchCard();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -154,6 +153,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         MainpagePanel.add(listCard1, "listCard");
         MainpagePanel.add(offersCard1, "offersCard");
+        MainpagePanel.add(searchCard1, "searchCard");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -211,7 +211,8 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        // TODO add your handling code here:
+        searchCard1.setSearchList(lists.search(searchField.getText()));
+        switchCard("searchCard");
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void sideMenuPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sideMenuPanel1MouseClicked
@@ -320,10 +321,12 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     private cards.RecipeCard recipeCard1;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton searchButton;
+    private cards.SearchCard searchCard1;
     private javax.swing.JTextField searchField;
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
     
     List<String> previousCards = new ArrayList();
     FavouriteCard favouriteCard; 
+    Lists lists = Lists.getInstance();
 }
