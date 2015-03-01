@@ -55,12 +55,12 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         cartButton = new javax.swing.JButton();
         sideMenuPanel1 = new panels.sideMenuPanel();
         MainpagePanel = new javax.swing.JPanel();
+        homeCard2 = new cards.HomeCard();
         recipeCard1 = new cards.RecipeCard();
         itemCard1 = new cards.ItemCard();
         historyCard1 = new cards.HistoryCard();
         listCard1 = new cards.ListCard();
         offersCard1 = new cards.OffersCard();
-        homeCard2 = new cards.HomeCard();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -111,6 +111,9 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         MainpagePanel.setBackground(new java.awt.Color(204, 204, 255));
         MainpagePanel.setLayout(new java.awt.CardLayout());
 
+        homeCard2.setBackground(new java.awt.Color(204, 204, 255));
+        MainpagePanel.add(homeCard2, "homeCard");
+
         javax.swing.GroupLayout recipeCard1Layout = new javax.swing.GroupLayout(recipeCard1);
         recipeCard1.setLayout(recipeCard1Layout);
         recipeCard1Layout.setHorizontalGroup(
@@ -151,9 +154,6 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         MainpagePanel.add(listCard1, "listCard");
         MainpagePanel.add(offersCard1, "offersCard");
-
-        homeCard2.setBackground(new java.awt.Color(204, 204, 255));
-        MainpagePanel.add(homeCard2, "homeCard");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
