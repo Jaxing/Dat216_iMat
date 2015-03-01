@@ -132,7 +132,7 @@ public class Lists {
         return null;
     }
     
-    public List<Product> getFavourit(){
+    public List<Product> getFavourites(){
         return favourite;
     }
     

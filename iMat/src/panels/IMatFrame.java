@@ -2,6 +2,7 @@ package panels;
 
 
 
+import cards.FavouriteCard;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,6 +74,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         returnButton.setBorder(null);
         returnButton.setBorderPainted(false);
         returnButton.setContentAreaFilled(false);
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
@@ -88,10 +90,12 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon.png"))); // NOI18N
         profileButton.setContentAreaFilled(false);
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
 
         cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/cart.png"))); // NOI18N
         cartButton.setContentAreaFilled(false);
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cartButtonActionPerformed(evt);
@@ -200,7 +204,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 692, Short.MAX_VALUE)
         );
 
         pack();
@@ -269,7 +273,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         selectCard(selectedItem);
     }
     
-    public void selectCard(String listSelected){
+    private void selectCard(String listSelected){
         switch(listSelected){
             case("Hem"): switchCard("homeCard");
                         break;
@@ -281,7 +285,20 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
                         break;
             case("Mina köp"): switchCard("historyCard");
                         break;
+            case("Favoritprodukter"): createFavourite();
+                        break;
         }
+    }
+    
+    private void createFavourite(){
+        if(favouriteCard != null){
+            mainCardlayout.removeLayoutComponent(favouriteCard);
+            MainpagePanel.remove(favouriteCard);
+        }
+        favouriteCard = new FavouriteCard();
+        MainpagePanel.add(favouriteCard);
+        mainCardlayout.addLayoutComponent("favouriteCard", favouriteCard);
+        mainCardlayout.show(MainpagePanel, "favouriteCard");
     }
     
     private void switchCard(String card){
@@ -308,5 +325,5 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     // End of variables declaration//GEN-END:variables
     
     List<String> previousCards = new ArrayList();
- 
+    FavouriteCard favouriteCard; 
 }

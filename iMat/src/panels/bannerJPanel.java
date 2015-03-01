@@ -1,11 +1,24 @@
 package panels;
 
 
+import customBackend.Lists;
+import java.awt.AlphaComposite;
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
+import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,13 +31,20 @@ import javax.swing.Timer;
  * @author Erik
  */
 public class bannerJPanel extends javax.swing.JPanel {
-
+    int imgWidth = 800;
+    int imgHeight = 200;
+    IMatDataHandler handler = IMatDataHandler.getInstance();
+    Lists lists = Lists.getInstance();
+    List<Product> allProducts;
     /**
      * Creates new form banneJpanel
      */
     public bannerJPanel() {
         initComponents();
         initBannerSlider();
+        allProducts = lists.getAllProducts();
+        initBanner1(allProducts.get(32));
+        
     }
     
     public void initBannerSlider(){
@@ -39,6 +59,31 @@ public class bannerJPanel extends javax.swing.JPanel {
         }
     };
     
+    public void initBanner1(Product p){
+        Image image = handler.getImageIcon(p).getImage();
+        Image rezized = rezize(image);
+        ImageIcon newImage = new ImageIcon(rezized);
+        backGround.setIcon(newImage);
+    }
+    
+   private Image rezize(Image image) {
+        int type = BufferedImage.TYPE_INT_ARGB;
+
+
+        BufferedImage resizedImage = new BufferedImage(imgWidth, imgHeight, type);
+        Graphics2D g = resizedImage.createGraphics();
+
+        g.setComposite(AlphaComposite.Src);
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        g.drawImage(image, 0, 0, imgWidth, imgHeight, this);
+        g.dispose();
+
+
+        return resizedImage;
+    }
    
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,13 +93,14 @@ public class bannerJPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         cardLayoutPanel = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        bannerPanel1 = new ImagePanel();
+        jPanel1 = new javax.swing.JPanel();
         showOfferPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        backGround = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         showOfferPanel2 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
@@ -66,15 +112,18 @@ public class bannerJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 212, 200));
+        setBackground(new java.awt.Color(153, 153, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cardLayoutPanel.setBackground(new java.awt.Color(255, 212, 200));
         cardLayoutPanel.setPreferredSize(new java.awt.Dimension(750, 200));
         cardLayoutPanel.setLayout(new java.awt.CardLayout());
 
-        jPanel4.setBackground(new java.awt.Color(255, 212, 200));
-        jPanel4.setPreferredSize(new java.awt.Dimension(750, 0));
+        bannerPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        bannerPanel1.setPreferredSize(new java.awt.Dimension(750, 0));
+        bannerPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jPanel1.setOpaque(false);
 
         showOfferPanel1.setBackground(new java.awt.Color(255, 255, 255));
         showOfferPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -95,55 +144,59 @@ public class bannerJPanel extends javax.swing.JPanel {
         showOfferPanel1.setLayout(showOfferPanel1Layout);
         showOfferPanel1Layout.setHorizontalGroup(
             showOfferPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(showOfferPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showOfferPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         showOfferPanel1Layout.setVerticalGroup(
             showOfferPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(showOfferPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel5.setText("Kött och blåbär");
-
-        jLabel22.setText("pic here");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showOfferPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(showOfferPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jLabel22)))
-                .addContainerGap(441, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addComponent(jLabel22)
-                .addGap(0, 0, 0)
-                .addComponent(showOfferPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel4)
+                .addContainerGap())
         );
 
-        cardLayoutPanel.add(jPanel4, "card2");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(604, Short.MAX_VALUE)
+                .addComponent(showOfferPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(150, Short.MAX_VALUE)
+                .addComponent(showOfferPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
-        jPanel3.setBackground(new java.awt.Color(255, 212, 200));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 578;
+        gridBagConstraints.ipady = 112;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        bannerPanel1.add(jPanel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 13, 0);
+        bannerPanel1.add(backGround, gridBagConstraints);
+
+        cardLayoutPanel.add(bannerPanel1, "card2");
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(750, 200));
 
         showOfferPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -213,7 +266,7 @@ public class bannerJPanel extends javax.swing.JPanel {
 
         cardLayoutPanel.add(jPanel3, "card2");
 
-        jPanel2.setBackground(new java.awt.Color(255, 212, 200));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setToolTipText("Scroll banners");
         jPanel2.setPreferredSize(new java.awt.Dimension(750, 200));
 
@@ -306,19 +359,19 @@ public class bannerJPanel extends javax.swing.JPanel {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backGround;
+    private javax.swing.JPanel bannerPanel1;
     private javax.swing.JPanel cardLayoutPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel showOfferPanel;
     private javax.swing.JPanel showOfferPanel1;
     private javax.swing.JPanel showOfferPanel2;
