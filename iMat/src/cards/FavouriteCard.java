@@ -31,46 +31,11 @@ public class FavouriteCard extends javax.swing.JPanel {
     }
     
     private void createPanels(){
-            for(Product p: favProducts){
-                ItemPanel panel = new ItemPanel(p);
-                panel.setSize(376, 200);
-                gridPanel.add(panel);
-            }
-       // int nbrOfLeftPanels = favProducts.size()/2 + favProducts.size()%2;
-       // mainPanel.setSize(nbrOfLeftPanels*376, mainPanel.getWidth());
-        /*int nbrOfRightPanels;
-        if(favProducts.size()%2 == 0){
-            nbrOfRightPanels = nbrOfLeftPanels;
-        } else {
-            nbrOfRightPanels = nbrOfLeftPanels -1;
-        }
-        
-        System.out.println("nbrOfLeft: " + nbrOfLeftPanels);
-        System.out.println("nbrOfRight: " + nbrOfRightPanels);
-        if(!favProducts.isEmpty()){
-            System.out.println("first");
-           // leftColumn.remove(noFavouriteLabel);
-            List<Product> favProdCopy = new ArrayList(favProducts);
-            for(int i = 0; i< nbrOfLeftPanels; i++){
-                Product p = favProdCopy.get(i);
-                //favProdCopy.remove(0);
-                ItemPanel itemPanel = new ItemPanel(p);
-                itemPanel.setSize(376, 200);
-                leftColumn.add(itemPanel);
-            }
-
-            for(int i = 0; i< nbrOfRightPanels; i++){
-                Product p = favProdCopy.get(favProdCopy.size()-1-i);
-                //favProdCopy.remove(favProdCopy.size()-1);
-                ItemPanel itemPanel = new ItemPanel(p);
-                itemPanel.setSize(376, 200);
-                rightColumn.add(itemPanel);
-            }
-            leftColumn.setSize(nbrOfLeftPanels*376, leftColumn.getWidth());
-            rightColumn.setSize(nbrOfLeftPanels*376, leftColumn.getWidth());
-           
-        }*/
-        
+        for(Product p: favProducts){
+            ItemPanel panel = new ItemPanel(p);
+            panel.setSize(376, 200);
+            gridPanel.add(panel);
+        } 
     }
 
     /**
@@ -105,22 +70,22 @@ public class FavouriteCard extends javax.swing.JPanel {
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setBackground(new java.awt.Color(102, 102, 255));
 
         sizePanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        gridPanel.setBackground(new java.awt.Color(255, 255, 255));
+        gridPanel.setBackground(new java.awt.Color(102, 102, 255));
         gridPanel.setLayout(new java.awt.GridLayout(0, 2, 5, 5));
 
         javax.swing.GroupLayout sizePanelLayout = new javax.swing.GroupLayout(sizePanel);
         sizePanel.setLayout(sizePanelLayout);
         sizePanelLayout.setHorizontalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
+            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
         );
         sizePanelLayout.setVerticalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -131,7 +96,9 @@ public class FavouriteCard extends javax.swing.JPanel {
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(mainPanel);

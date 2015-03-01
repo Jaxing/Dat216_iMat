@@ -48,10 +48,12 @@ public class ItemPanel extends javax.swing.JPanel {
         miscLabel2.setText(product.getCategory().toString());
         this.product= product;
         
-        Image image = handler.getImageIcon(product).getImage();
-        Image newImage = rezize(image);
-        ImageIcon icon = new ImageIcon(newImage);
-        iconLabel.setIcon(icon);
+        if(handler.hasImage(product)){
+            Image image = handler.getImageIcon(product).getImage();
+            Image newImage = rezize(image);
+            ImageIcon icon = new ImageIcon(newImage);
+            iconLabel.setIcon(icon);
+        }
     }
     
     private Image rezize(Image image) {
