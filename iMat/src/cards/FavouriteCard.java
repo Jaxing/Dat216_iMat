@@ -17,17 +17,19 @@ import se.chalmers.ait.dat215.project.Product;
  */
 public class FavouriteCard extends javax.swing.JPanel {
     Lists lists;
-    List<Product> favProducts = lists.getFavourit();
+    List<Product> favProducts; 
     List<ItemPanel> itemPanels = new ArrayList();
     /**
      * Creates new form ItemCard
      */
     public FavouriteCard() {
         lists = Lists.getInstance();
+        favProducts = lists.getFavourites();
         initComponents();
+        createPanels();
     }
     
-    public void createPanels(){
+    private void createPanels(){
         if(favProducts != null){
             mainPanel.remove(noFavouriteLabel);
             for(Product p: favProducts){

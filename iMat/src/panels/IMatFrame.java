@@ -2,6 +2,7 @@ package panels;
 
 
 
+import cards.FavouriteCard;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -272,7 +273,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         selectCard(selectedItem);
     }
     
-    public void selectCard(String listSelected){
+    private void selectCard(String listSelected){
         switch(listSelected){
             case("Hem"): switchCard("homeCard");
                         break;
@@ -284,7 +285,20 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
                         break;
             case("Mina köp"): switchCard("historyCard");
                         break;
+            case("Favoritprodukter"): createFavourite();
+                        break;
         }
+    }
+    
+    private void createFavourite(){
+        if(favouriteCard != null){
+            mainCardlayout.removeLayoutComponent(favouriteCard);
+            MainpagePanel.remove(favouriteCard);
+        }
+        favouriteCard = new FavouriteCard();
+        MainpagePanel.add(favouriteCard);
+        mainCardlayout.addLayoutComponent("favouriteCard", favouriteCard);
+        mainCardlayout.show(MainpagePanel, "favouriteCard");
     }
     
     private void switchCard(String card){
@@ -311,5 +325,5 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     // End of variables declaration//GEN-END:variables
     
     List<String> previousCards = new ArrayList();
- 
+    FavouriteCard favouriteCard; 
 }
