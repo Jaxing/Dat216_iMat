@@ -5,8 +5,11 @@ package panels;
 
 
 import customBackend.Lists;
+import java.awt.AlphaComposite;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -17,8 +20,8 @@ import se.chalmers.ait.dat215.project.*;
  */
 public class ItemPanel extends javax.swing.JPanel {
     
-    //private int imgWidth = 50;
-    //private int imgHeight = 50;
+    private int imgWidth = 200;
+    private int imgHeight = 100;
     private IMatDataHandler handler;
     private Product product;
     private Lists lists;
@@ -33,6 +36,7 @@ public class ItemPanel extends javax.swing.JPanel {
     
     public ItemPanel(Product p) {
         handler = IMatDataHandler.getInstance();
+        lists = Lists.getInstance();
         initComponents();
         fill(p);
     }
@@ -42,14 +46,30 @@ public class ItemPanel extends javax.swing.JPanel {
         nameLabel.setText(product.getName());
         miscLabel2.setText(product.getCategory().toString());
         this.product= product;
-        /*
-        ImageIcon icon = handler.getImageIcon(product);
-        Image image = icon.getImage();
-        BufferedImage bi = new BufferedImage(image.getWidth(null),image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-        Graphics g = bi.createGraphics();
-        g.drawImage(image,0,0,imgWidth,imgHeight,null);
-        ImageIcon newIcon = new ImageIcon(bi);*/
-        iconLabel.setIcon((handler.getImageIcon(product)));
+        
+        Image image = handler.getImageIcon(product).getImage();
+        Image newImage = rezize(image);
+        ImageIcon icon = new ImageIcon(newImage);
+        iconLabel.setIcon(icon);
+    }
+    
+    private Image rezize(Image image) {
+        int type = BufferedImage.TYPE_INT_ARGB;
+
+
+        BufferedImage resizedImage = new BufferedImage(imgWidth, imgHeight, type);
+        Graphics2D g = resizedImage.createGraphics();
+
+        g.setComposite(AlphaComposite.Src);
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        g.drawImage(image, 0, 0, imgWidth, imgHeight, this);
+        g.dispose();
+
+
+        return resizedImage;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,7 +84,7 @@ public class ItemPanel extends javax.swing.JPanel {
         addToButton = new javax.swing.JButton();
         amountLabel = new javax.swing.JLabel();
         amountSpinner = new javax.swing.JSpinner();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        favouriteButton = new javax.swing.JToggleButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         iconLabel = new javax.swing.JLabel();
@@ -92,14 +112,14 @@ public class ItemPanel extends javax.swing.JPanel {
 
         amountSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/star.png"))); // NOI18N
-        jToggleButton1.setToolTipText("Klick för att favorit markera vara");
-        jToggleButton1.setContentAreaFilled(false);
-        jToggleButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jToggleButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/goldStar.png"))); // NOI18N
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        favouriteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/star.png"))); // NOI18N
+        favouriteButton.setToolTipText("Klick för att favoritmarkera vara");
+        favouriteButton.setContentAreaFilled(false);
+        favouriteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        favouriteButton.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/goldStar.png"))); // NOI18N
+        favouriteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                favouriteButtonActionPerformed(evt);
             }
         });
 
@@ -118,14 +138,14 @@ public class ItemPanel extends javax.swing.JPanel {
                         .addComponent(amountLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(favouriteButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(amountSpinner, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jToggleButton1)
+                .addComponent(favouriteButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,9 +225,13 @@ public class ItemPanel extends javax.swing.JPanel {
         handler.getShoppingCart().fireShoppingCartChanged(item, true);
     }//GEN-LAST:event_addToButtonActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void favouriteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favouriteButtonActionPerformed
+        if(favourited){
+            lists.removeFavourite(product);
+        } else {
+            lists.addFavourite(product);
+        }
+    }//GEN-LAST:event_favouriteButtonActionPerformed
 
    
 
@@ -215,14 +239,18 @@ public class ItemPanel extends javax.swing.JPanel {
     private javax.swing.JButton addToButton;
     private javax.swing.JLabel amountLabel;
     private javax.swing.JSpinner amountSpinner;
+    private javax.swing.JToggleButton favouriteButton;
     private javax.swing.JLabel iconLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel miscLabel2;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel priceLabel;
     // End of variables declaration//GEN-END:variables
+    
+    private boolean favourited = false;
+    
+
 }
