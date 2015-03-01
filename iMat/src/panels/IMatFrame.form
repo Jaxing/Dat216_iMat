@@ -138,7 +138,6 @@
               <Image iconType="3" name="/imat/images/profile-icon.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
-            <Property name="label" type="java.lang.String" value=""/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imat/images/profile-icon2.png"/>
             </Property>
@@ -150,7 +149,6 @@
               <Image iconType="3" name="/imat/images/cart.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
-            <Property name="label" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="panels.sideMenuPanel" name="sideMenuPanel1">

@@ -1,6 +1,7 @@
 package panels;
 
 
+import cards.CartCard;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -104,12 +105,10 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon.png"))); // NOI18N
         profileButton.setContentAreaFilled(false);
-        profileButton.setLabel("");
         profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
 
         cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/cart.png"))); // NOI18N
         cartButton.setContentAreaFilled(false);
-        cartButton.setLabel("");
 
         sideMenuPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
