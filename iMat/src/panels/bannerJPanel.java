@@ -43,7 +43,7 @@ public class bannerJPanel extends javax.swing.JPanel {
         initComponents();
         initBannerSlider();
         allProducts = lists.getAllProducts();
-        initBanner1(allProducts.get(148));
+        initBanner1(allProducts.get(32));
         
     }
     
