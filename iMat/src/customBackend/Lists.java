@@ -7,10 +7,9 @@ package customBackend;
 
 import java.util.List;
 import java.util.ArrayList;
-import javax.swing.ListModel;
-import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.Order;
+import se.chalmers.ait.dat215.project.Product;
+
 /**
  *
  * @author Erik
@@ -30,7 +29,10 @@ public class Lists {
         allLists.add(new NamedList("Recommended",new ArrayList<Product>()));
         allLists.add(new NamedList("Favourite",new ArrayList<Product>()));
         allLists.add(createdLists);
-        
+        allProducts = getList("All products");
+        newest = getList("Newest");
+        recommended = getList("Recommended");
+        favourite = getList("Favourite");
     }
     
     public static Lists getInstance(){
@@ -97,8 +99,8 @@ public class Lists {
     
    public boolean creatNewList(String listName){
         if(listExists(listName)){
-        allLists.add(new NamedList(listName));
-        return true;
+            allLists.add(new NamedList(listName));
+            return true;
         }
         return false;
    }
@@ -121,6 +123,7 @@ public class Lists {
     public List<Product> getList(String listName){
         for(NamedList list: allLists){
             if(list.getName().equals(listName)){
+
                 return list;
             }
         }
@@ -146,10 +149,10 @@ public class Lists {
     private IMatDataHandler handler = IMatDataHandler.getInstance();
 
     private List<NamedList> allLists;
-    private List<Product> allProducts = getList("All products");
-    private List<Product> newest = getList("Newest");
-    private List<Product> recommended = getList("Recommended");
-    private List<Product> favourite = getList("Favourite");
+    private List<Product> allProducts;
+    private List<Product> newest;
+    private List<Product> recommended;
+    private List<Product> favourite;
     private NamedList<NamedList> createdLists;
 }
 

@@ -74,12 +74,8 @@ public class TestFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        Product p = new Product();
-        p.setName("Hej");
-        p.setPrice(56);
-        p.setUnit("kr/kg");
-        p.setImageName("product_1.jpg");
-        itemPanel5.fill(p);
+        Lists lists = Lists.getInstance();
+        itemPanel5.fill(lists.getAllProducts().get(0));
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
