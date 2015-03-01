@@ -1,6 +1,7 @@
 package panels;
 
 
+
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -67,9 +68,11 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         backgroundPanel.setBackground(new java.awt.Color(204, 204, 255));
 
-        searchField.setText("jTextField1");
-
-        returnButton.setText("jButton1");
+        returnButton.setBackground(new java.awt.Color(255, 255, 255));
+        returnButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/backIcon.png"))); // NOI18N
+        returnButton.setBorder(null);
+        returnButton.setBorderPainted(false);
+        returnButton.setContentAreaFilled(false);
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
@@ -83,9 +86,12 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
             }
         });
 
-        profileButton.setText("jButton3");
+        profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon.png"))); // NOI18N
+        profileButton.setContentAreaFilled(false);
+        profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
 
-        cartButton.setText("jButton4");
+        cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/cart.png"))); // NOI18N
+        cartButton.setContentAreaFilled(false);
         cartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cartButtonActionPerformed(evt);
@@ -108,7 +114,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         recipeCard1.setLayout(recipeCard1Layout);
         recipeCard1Layout.setHorizontalGroup(
             recipeCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 764, Short.MAX_VALUE)
+            .addGap(0, 775, Short.MAX_VALUE)
         );
         recipeCard1Layout.setVerticalGroup(
             recipeCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +128,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         historyCard1.setLayout(historyCard1Layout);
         historyCard1Layout.setHorizontalGroup(
             historyCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 762, Short.MAX_VALUE)
+            .addGap(0, 775, Short.MAX_VALUE)
         );
         historyCard1Layout.setVerticalGroup(
             historyCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +141,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         listCard1.setLayout(listCard1Layout);
         listCard1Layout.setHorizontalGroup(
             listCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 762, Short.MAX_VALUE)
+            .addGap(0, 775, Short.MAX_VALUE)
         );
         listCard1Layout.setVerticalGroup(
             listCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,13 +178,13 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(profileButton)
-                        .addComponent(cartButton))
-                    .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(returnButton)
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchButton)))
+                    .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cartButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(profileButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchButton)))
+                    .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,7 +200,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 692, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
         );
 
         pack();

@@ -7,15 +7,15 @@ package customBackend;
 
 import java.util.List;
 import java.util.ArrayList;
-import javax.swing.ListModel;
-import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.Order;
+import se.chalmers.ait.dat215.project.Product;
+
 /**
  *
  * @author Erik
  */
 public class Lists {
+
 
     private static Lists instance = new Lists();
     
@@ -24,16 +24,16 @@ public class Lists {
         this.createdLists = new NamedList("Created list",new ArrayList<NamedList>());
         
         allLists.add(new NamedList("All products",handler.getProducts()));
-        allLists.add(new NamedList("Newest"));
-        allLists.add(new NamedList("Recommended"));
-        allLists.add(new NamedList("Favourite"));
-        
+
+        allLists.add(new NamedList("Newest",new ArrayList<Product>()));
+        allLists.add(new NamedList("Recommended",new ArrayList<Product>()));
+        allLists.add(new NamedList("Favourite",new ArrayList<Product>()));
+        allLists.add(createdLists);
         allProducts = getList("All products");
-        System.out.println(allProducts);
         newest = getList("Newest");
         recommended = getList("Recommended");
         favourite = getList("Favourite");
-        
+
     }
     
     public static Lists getInstance(){
@@ -101,8 +101,8 @@ public class Lists {
     
    public boolean creatNewList(String listName){
         if(listExists(listName)){
-        allLists.add(new NamedList(listName));
-        return true;
+            allLists.add(new NamedList(listName));
+            return true;
         }
         return false;
    }
@@ -125,6 +125,7 @@ public class Lists {
     public List<Product> getList(String listName){
         for(NamedList list: allLists){
             if(list.getName().equals(listName)){
+
                 return list;
             }
         }
