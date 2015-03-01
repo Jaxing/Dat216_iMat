@@ -11,6 +11,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.*;
@@ -226,8 +227,13 @@ public class ItemPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_addToButtonActionPerformed
 
     private void favouriteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_favouriteButtonActionPerformed
-        if(favourited){
-            lists.removeFavourite(product);
+        if(lists.getFavourites() != null){
+            favourited = lists.getFavourites();
+            if(favourited.contains(product)){
+                lists.removeFavourite(product);
+            } else {
+                lists.addFavourite(product);
+            }
         } else {
             lists.addFavourite(product);
         }
@@ -250,7 +256,7 @@ public class ItemPanel extends javax.swing.JPanel {
     private javax.swing.JLabel priceLabel;
     // End of variables declaration//GEN-END:variables
     
-    private boolean favourited = false;
     
+    List<Product> favourited; 
 
 }
