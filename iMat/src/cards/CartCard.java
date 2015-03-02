@@ -138,6 +138,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
 
         jScrollPane2.setViewportView(fullPanel);
 
+        listPanel.setBackground(new java.awt.Color(255, 255, 255));
         listPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cardPanel.setLayout(new java.awt.CardLayout());
@@ -153,7 +154,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -179,7 +180,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -194,11 +195,6 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
 
         cardPanel.add(jPanel4, "newList");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
         jButton2.setText("Lägg till");
