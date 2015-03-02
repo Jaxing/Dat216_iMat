@@ -10,8 +10,8 @@ import cards.FavouriteCard;
 import customBackend.Lists;
 
 import java.awt.CardLayout;
-import customBackend.Observable;
-import customBackend.Observer;
+import customBackend.EventListener;
+import customBackend.EventHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +25,9 @@ import java.util.List;
  *
  * @author jesper
  */
-public class IMatFrame extends javax.swing.JFrame implements Observable{
+public class IMatFrame extends javax.swing.JFrame implements EventListener{
     
-    private static Observer observer = Observer.getInstance();
+    private static EventHandler observer = EventHandler.getInstance();
     CardLayout mainCardlayout;
     /**
      * Creates new form IMatFrame
@@ -66,6 +66,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         offersCard1 = new cards.OffersCard();
         searchCard1 = new cards.SearchCard();
         cartCard1 = new cards.CartCard();
+        buyCard1 = new cards.BuyCard();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -161,6 +162,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         MainpagePanel.add(offersCard1, "offersCard");
         MainpagePanel.add(searchCard1, "searchCard");
         MainpagePanel.add(cartCard1, "cartCard");
+        MainpagePanel.add(buyCard1, "buyCard");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -285,6 +287,10 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         selectCard(selectedItem);
     }
     
+    public void update(){
+        previousCard();
+    }
+    
     private void selectCard(String listSelected){
         switch(listSelected){
             case("Hem"): switchCard("homeCard");
@@ -298,6 +304,8 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
             case("Mina köp"): switchCard("historyCard");
                         break;
             case("Favoritprodukter"): createFavourite();
+                        break;
+            case("buyCard"): switchCard("buyCard");
                         break;
         }
     }
@@ -322,6 +330,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainpagePanel;
     private javax.swing.JPanel backgroundPanel;
+    private cards.BuyCard buyCard1;
     private javax.swing.JButton cartButton;
     private cards.CartCard cartCard1;
     private cards.HistoryCard historyCard1;

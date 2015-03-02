@@ -24,7 +24,7 @@ import se.chalmers.ait.dat215.project.*;
 public class CartCard extends javax.swing.JPanel implements ShoppingCartListener, PropertyChangeListener {
     
     private IMatDataHandler handler;
-    private Observer observer;
+    private EventHandler observer;
     /**
      * Creates new form CartPanel
      */
@@ -32,7 +32,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         initComponents();
         handler=IMatDataHandler.getInstance();
         handler.getShoppingCart().addShoppingCartListener(this);
-        observer = Observer.getInstance();
+        observer = EventHandler.getInstance();
     }
 
     /**
@@ -176,7 +176,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       //TODO: Open a new frame to confirm your address and creditcard info
+       observer.getObserver().update("buyCard");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
@@ -228,10 +228,18 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     @Override
     public void shoppingCartChanged(CartEvent ce) {
         System.out.print("Cart1");
-        ShoppingItem item =ce.getShoppingItem();
-        Product p = item.getProduct();
-        productList.add(p);
-        gridPanel.add(new CartItem(item,this));
+        if(ce.isAddEvent()){
+            ShoppingItem item =ce.getShoppingItem();
+            Product p = item.getProduct();
+            productList.add(p);
+            gridPanel.add(new CartItem(item,this));
+        }else{
+            gridPanel.removeAll();
+            List<ShoppingItem> list = handler.getShoppingCart().getItems();
+            for(ShoppingItem item : list){
+                gridPanel.add(new CartItem(item,this));
+            }
+        }
     }
     
     
