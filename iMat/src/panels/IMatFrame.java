@@ -12,6 +12,7 @@ import customBackend.Lists;
 import java.awt.CardLayout;
 import customBackend.EventListener;
 import customBackend.EventHandler;
+import customBackend.Profile;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import java.util.List;
 public class IMatFrame extends javax.swing.JFrame implements EventListener{
     
     private static EventHandler observer = EventHandler.getInstance();
+    private Profile profile = Profile.getInstance();
     CardLayout mainCardlayout;
     /**
      * Creates new form IMatFrame
@@ -305,8 +307,14 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
                         break;
             case("Favoritprodukter"): createFavourite();
                         break;
-            case("buyCard"): switchCard("buyCard");
-                        break;
+            case("buyCard"): 
+                if(profile.isLoggedIn()){
+                    switchCard("buyCard");
+                }else{
+                    new loginFrame().setVisible(true);
+                    this.setVisible(false);
+                }
+                break;
         }
     }
     
