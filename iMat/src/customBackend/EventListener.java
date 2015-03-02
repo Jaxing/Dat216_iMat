@@ -9,7 +9,9 @@ package customBackend;
  *
  * @author Erik
  */
-public interface Observable {
+public interface EventListener {
     public void update(String selectedItem);
+    public void update();
     public void closeCartCard();
+    
 }

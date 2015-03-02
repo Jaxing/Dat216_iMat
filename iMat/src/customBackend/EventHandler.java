@@ -9,20 +9,20 @@ package customBackend;
  *
  * @author Erik
  */
-public class Observer {
-    private static Observer observable = new Observer();
+public class EventHandler {
+    private static EventHandler observable = new EventHandler();
     
-    private Observable theObserver;
+    private EventListener theObserver;
     
-    public static Observer getInstance(){
+    public static EventHandler getInstance(){
         return observable;
     }
     
-    public void setObserver(Observable observer){
+    public void setObserver(EventListener observer){
         this.theObserver = observer;
     }
     
-    public Observable getObserver(){
+    public EventListener getObserver(){
         return this.theObserver;
     }
 }

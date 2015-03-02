@@ -5,8 +5,8 @@
  */
 
 package panels;
-import customBackend.Observer;
-import customBackend.Observable;
+import customBackend.EventHandler;
+import customBackend.EventListener;
 import javax.swing.ImageIcon;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
@@ -20,8 +20,8 @@ import javax.swing.tree.TreeSelectionModel;
  */
 public class sideMenuPanel extends javax.swing.JPanel {
 
-    private Observer observer = Observer.getInstance();
-    private Observable observable;
+    private EventHandler observer = EventHandler.getInstance();
+    private EventListener observable;
     /**
      * Creates new form sideMenuPanel
      */
