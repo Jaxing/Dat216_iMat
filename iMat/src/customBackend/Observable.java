@@ -12,4 +12,5 @@ package customBackend;
 public interface Observable {
     public void update(String selectedItem);
     public void closeCartCard();
+    public void addToSideMenu(String name);
 }

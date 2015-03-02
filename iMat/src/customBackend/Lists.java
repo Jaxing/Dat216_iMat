@@ -98,17 +98,21 @@ public class Lists {
         }
         return recommended;
     }
-    
-   public boolean creatNewList(String listName){
+   
+   public List<Product> createNewList(String listName){
         if(listExists(listName)){
-            allLists.add(new NamedList(listName));
-            return true;
+            NamedList<Product> newList = new NamedList(listName);
+            allLists.add(newList);
+            return newList;
         }
-        return false;
+        return null;
    }
    
     public void addToList(String listName,List<Product> p){
         if(listExists(listName)){
+            getList(listName).addAll(p);
+        } else {
+            createNewList(listName);
             getList(listName).addAll(p);
         }
     }

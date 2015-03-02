@@ -347,4 +347,9 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     public void closeCartCard() {
         previousCard();
     }
+
+    @Override
+    public void addToSideMenu(String name) {
+        
+    }
 }
