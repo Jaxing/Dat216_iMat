@@ -16,6 +16,7 @@ import se.chalmers.ait.dat215.project.CreditCard;
 public class Profile {
     
     private static Profile instance = new Profile();
+    private boolean isLoggedIn = false;
     
     private Profile(){
         
@@ -24,6 +25,15 @@ public class Profile {
     public static Profile getInstance(){
         return instance;
     }
+    
+    public boolean isLoggedIn(){
+        return isLoggedIn;
+    }
+    
+    public void setLoggedIn(boolean b){
+        isLoggedIn=b;
+    }
+    
     public String getPassword(){
         return user.getPassword();
     }

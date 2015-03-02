@@ -38,8 +38,11 @@ public class sideMenuPanel extends javax.swing.JPanel {
     public void addMenuItem(String name){
         DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(name);
         DefaultTreeModel thisModel = (DefaultTreeModel)MenuTree.getModel();
-        DefaultMutableTreeNode parent = (DefaultMutableTreeNode)thisModel.getChild(MenuTree, 6);
-        thisModel.insertNodeInto(parent, newNode, index);
+        DefaultMutableTreeNode parent = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 5);
+        System.out.println(newNode);
+        System.out.println(parent);
+        thisModel.insertNodeInto(newNode, parent, index);
+        MenuTree.updateUI();
         index++;
     }
     

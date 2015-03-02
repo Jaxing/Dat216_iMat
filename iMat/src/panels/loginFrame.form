@@ -60,13 +60,9 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="registerButton" min="-2" pref="100" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="loginButton" min="-2" pref="100" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="registerButton" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
                               <Component id="errorLabel" min="-2" max="-2" attributes="0"/>
@@ -84,10 +80,12 @@
                                       <Component id="loginUsernameTextField" max="32767" attributes="0"/>
                                       <Component id="loginPasswordField" min="-2" pref="133" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="168" max="32767" attributes="0"/>
+                      <EmptySpace pref="68" max="32767" attributes="0"/>
+                      <Component id="loginButton" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -112,6 +110,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="loginButton" pref="50" max="32767" attributes="0"/>
                           <Component id="registerButton" max="32767" attributes="0"/>
+                          <Component id="jButton1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -163,6 +162,14 @@
             <Component class="javax.swing.JPasswordField" name="loginPasswordField">
             </Component>
             <Component class="javax.swing.JLabel" name="errorLabel">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logga in senare"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
