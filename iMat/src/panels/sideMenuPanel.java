@@ -12,6 +12,7 @@ import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 /**
@@ -33,7 +34,16 @@ public class sideMenuPanel extends javax.swing.JPanel {
         
     }
     
-    public void setIcons(){
+    private int index = 0;
+    public void addMenuItem(String name){
+        DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(name);
+        DefaultTreeModel thisModel = (DefaultTreeModel)MenuTree.getModel();
+        DefaultMutableTreeNode parent = (DefaultMutableTreeNode)thisModel.getChild(MenuTree, 6);
+        thisModel.insertNodeInto(parent, newNode, index);
+        index++;
+    }
+    
+    private void setIcons(){
         renderer = new DefaultTreeCellRenderer();
         renderer.setLeafIcon(null);
         renderer.setClosedIcon(null);

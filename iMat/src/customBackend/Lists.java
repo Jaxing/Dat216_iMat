@@ -100,8 +100,8 @@ public class Lists {
     }
    
    public List<Product> createNewList(String listName){
-        if(listExists(listName)){
-            NamedList<Product> newList = new NamedList(listName);
+        if(!listExists(listName)){
+            NamedList<Product> newList = new NamedList(listName, new ArrayList());
             allLists.add(newList);
             return newList;
         }
@@ -113,9 +113,12 @@ public class Lists {
             getList(listName).addAll(p);
         } else {
             createNewList(listName);
+            
             getList(listName).addAll(p);
         }
     }
+    
+    
     
     private boolean listExists(String listName){
         for(NamedList list : allLists){
@@ -128,8 +131,9 @@ public class Lists {
     
     public List<Product> getList(String listName){
         for(NamedList list: allLists){
+            //System.out.println(list.getName());
             if(list.getName().equals(listName)){
-
+                System.out.println("test i getList");
                 return list;
             }
         }

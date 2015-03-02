@@ -350,6 +350,6 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
     @Override
     public void addToSideMenu(String name) {
-        
+        sideMenuPanel1.addMenuItem(name);
     }
 }

@@ -353,7 +353,6 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     
     @Override
     public void shoppingCartChanged(CartEvent ce) {
-        System.out.print("Cart1");
         ShoppingItem item =ce.getShoppingItem();
         Product p = item.getProduct();
         productList.add(p);

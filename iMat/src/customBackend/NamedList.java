@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import se.chalmers.ait.dat215.project.Product;
 
 /**
  *
@@ -34,6 +35,8 @@ public class NamedList<E> implements List<E>{
     public String getName(){
         return name;
     }
+    
+    
     
  /*   public List getList(){
         return list;
