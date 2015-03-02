@@ -13,5 +13,6 @@ public interface EventListener {
     public void update(String selectedItem);
     public void update();
     public void closeCartCard();
-    
+    public void addToSideMenu(String name);
+
 }

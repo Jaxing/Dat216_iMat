@@ -98,20 +98,27 @@ public class Lists {
         }
         return recommended;
     }
-    
-   public boolean creatNewList(String listName){
-        if(listExists(listName)){
-            allLists.add(new NamedList(listName));
-            return true;
+   
+   public List<Product> createNewList(String listName){
+        if(!listExists(listName)){
+            NamedList<Product> newList = new NamedList(listName, new ArrayList());
+            allLists.add(newList);
+            return newList;
         }
-        return false;
+        return null;
    }
    
     public void addToList(String listName,List<Product> p){
         if(listExists(listName)){
             getList(listName).addAll(p);
+        } else {
+            createNewList(listName);
+            
+            getList(listName).addAll(p);
         }
     }
+    
+    
     
     private boolean listExists(String listName){
         for(NamedList list : allLists){
@@ -124,8 +131,9 @@ public class Lists {
     
     public List<Product> getList(String listName){
         for(NamedList list: allLists){
+            //System.out.println(list.getName());
             if(list.getName().equals(listName)){
-
+                System.out.println("test i getList");
                 return list;
             }
         }

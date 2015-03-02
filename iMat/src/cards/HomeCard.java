@@ -21,7 +21,14 @@ public class HomeCard extends javax.swing.JPanel {
         
     }
     
+    public void startBanner(){
+        bannerJPanel1.startBannerSlider();
+    }
     
+    
+    public void stopBanner(){
+        bannerJPanel1.stopBannerSlider();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -356,4 +356,9 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
     public void closeCartCard() {
         previousCard();
     }
+
+    @Override
+    public void addToSideMenu(String name) {
+        sideMenuPanel1.addMenuItem(name);
+    }
 }

@@ -41,15 +41,18 @@ public class bannerJPanel extends javax.swing.JPanel {
      */
     public bannerJPanel() {
         initComponents();
-        initBannerSlider();
+        startBannerSlider();
         allProducts = lists.getAllProducts();
-        initBanner1(allProducts.get(32));
-        
+        initBanner1(allProducts.get(32)); 
     }
     
-    public void initBannerSlider(){
+    public void startBannerSlider(){
        timer = new Timer(3000,taskPerformer);
        timer.start();
+    }
+    
+    public void stopBannerSlider(){
+        timer.stop();
     }
     
     ActionListener taskPerformer = new ActionListener() {
