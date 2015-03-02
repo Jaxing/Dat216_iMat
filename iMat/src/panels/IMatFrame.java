@@ -231,7 +231,11 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void cartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartButtonActionPerformed
-        switchCard("cartCard");
+        if(!previousCards.get(previousCards.size()-1).equals("cartCard")){
+            switchCard("cartCard");
+        }else{
+            previousCard();
+        }
     }//GEN-LAST:event_cartButtonActionPerformed
     
     private void previousCard(){
@@ -307,6 +311,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         MainpagePanel.add(favouriteCard);
         mainCardlayout.addLayoutComponent("favouriteCard", favouriteCard);
         mainCardlayout.show(MainpagePanel, "favouriteCard");
+        previousCards.add("favouriteCard");
     }
     
     private void switchCard(String card){
@@ -337,4 +342,9 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     List<String> previousCards = new ArrayList();
     FavouriteCard favouriteCard; 
     Lists lists = Lists.getInstance();
+
+    @Override
+    public void closeCartCard() {
+        previousCard();
+    }
 }
