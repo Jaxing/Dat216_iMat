@@ -24,6 +24,7 @@ import se.chalmers.ait.dat215.project.*;
 public class CartCard extends javax.swing.JPanel implements ShoppingCartListener, PropertyChangeListener {
     
     private IMatDataHandler handler;
+    private Observer observer;
     /**
      * Creates new form CartPanel
      */
@@ -31,7 +32,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         initComponents();
         handler=IMatDataHandler.getInstance();
         handler.getShoppingCart().addShoppingCartListener(this);
-        
+        observer = Observer.getInstance();
     }
 
     /**
@@ -43,7 +44,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        closeLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
@@ -55,9 +56,17 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         gridPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setFocusCycleRoot(true);
+        setOpaque(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("x");
+        closeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        closeLabel.setText("x");
+        closeLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeLabelMouseClicked(evt);
+            }
+        });
 
         jButton1.setText("Köp");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +146,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
+                        .addComponent(closeLabel))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(clearButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 537, Short.MAX_VALUE)
@@ -148,7 +157,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(closeLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -198,15 +207,19 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         handler.getShoppingCart().clear();
     }//GEN-LAST:event_clearButtonActionPerformed
 
+    private void closeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeLabelMouseClicked
+        observer.getObserver().closeCartCard();
+    }//GEN-LAST:event_closeLabelMouseClicked
+
     private List<Product> productList = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearButton;
+    private javax.swing.JLabel closeLabel;
     private javax.swing.JPanel fullPanel;
     private javax.swing.JPanel gridPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel sizePanel;
