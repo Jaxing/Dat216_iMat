@@ -106,7 +106,7 @@ public class CartItem extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         handler.getShoppingCart().removeItem(item);
-        //pcs.fireIndexedPropertyChange("deleted", 0, null, this);
+        pcs.fireIndexedPropertyChange("deleted", 0, null, this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void increseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increseButtonActionPerformed
@@ -115,8 +115,10 @@ public class CartItem extends javax.swing.JPanel {
     }//GEN-LAST:event_increseButtonActionPerformed
 
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
-        item.setAmount(item.getAmount()-1);
-        amountLabel.setText(item.getAmount()+"");
+        if(item.getAmount()>0){
+            item.setAmount(item.getAmount()-1);
+            amountLabel.setText(item.getAmount()+"");
+        }
     }//GEN-LAST:event_decreseButtonActionPerformed
 
 

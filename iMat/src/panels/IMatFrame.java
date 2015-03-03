@@ -7,11 +7,11 @@ import cards.CartCard;
 
 
 import cards.FavouriteCard;
-<<<<<<< HEAD
+
 import cards.HistoryCard;
-=======
+
 import cards.GroceryListCard;
->>>>>>> Erik
+
 import customBackend.Lists;
 
 import java.awt.CardLayout;
