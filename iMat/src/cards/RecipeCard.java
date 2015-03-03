@@ -5,17 +5,51 @@
  */
 package cards;
 
+import java.util.List;
+import customBackend.Recipe;
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Random;
+
 /**
  *
  * @author jesper
  */
-public class RecipeCard extends javax.swing.JPanel {
+public class RecipeCard extends javax.swing.JPanel implements Observer {
 
     /**
      * Creates new form RecipeCard
      */
     public RecipeCard() {
         initComponents();
+        //List<Recipe> recipelist = new ArrayList<Recipe>();
+        //recipelist.add(new Recipe());
+        //this.loadRecipes();
+    }
+    
+    private static final int RECIPE_LIST_ITEM_PADDING = 5;
+    
+    public void loadRecipes(List<Recipe> recipes){
+        
+        
+        
+        
+        
+        
+    }
+    
+    public void openRecipe(Recipe r) {
+        //
+    }
+    
+    @Override
+    public void update(Observable o, Object arg) {
+        Recipe r;
+        if (arg.getClass().equals(Recipe.class)){
+            r = (Recipe)arg;
+            this.openRecipe(r);
+        }
     }
 
     /**
@@ -27,32 +61,152 @@ public class RecipeCard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        recipeListPanel = new javax.swing.JPanel();
+        recipeItemPanel8 = new panels.RecipeItemPanel();
+        recipeItemPanel2 = new panels.RecipeItemPanel();
+        recipeItemPanel3 = new panels.RecipeItemPanel();
+        recipeItemPanel4 = new panels.RecipeItemPanel();
+        recipeItemPanel5 = new panels.RecipeItemPanel();
+        recipeItemPanel6 = new panels.RecipeItemPanel();
+        recipeItemPanel7 = new panels.RecipeItemPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("RecipeCard");
+        recipeListPanel.setMaximumSize(new java.awt.Dimension(280, 1050));
+        recipeListPanel.setMinimumSize(new java.awt.Dimension(280, 1050));
+        recipeListPanel.setLayout(new java.awt.GridLayout(7, 1));
+        recipeListPanel.add(recipeItemPanel8);
+        recipeListPanel.add(recipeItemPanel2);
+        recipeListPanel.add(recipeItemPanel3);
+        recipeListPanel.add(recipeItemPanel4);
+        recipeListPanel.add(recipeItemPanel5);
+        recipeListPanel.add(recipeItemPanel6);
+        recipeListPanel.add(recipeItemPanel7);
+
+        jScrollPane1.setViewportView(recipeListPanel);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Tacopaj");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Ingredienser:\n500g blandfärs\n2 pkt tacokrydda\n2.5 dl vetemjöl\n1 dl olivolja\n2 tomater\nSalt\n");
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jButton1.setText("Lägg till alla");
+
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(4), Integer.valueOf(1), null, Integer.valueOf(1)));
+
+        jLabel3.setText("Portioner:");
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+        jScrollPane3.setViewportView(jTextArea2);
+
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+
+        jLabel2.setText("iconLabel");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel2)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(430, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private panels.RecipeItemPanel recipeItemPanel2;
+    private panels.RecipeItemPanel recipeItemPanel3;
+    private panels.RecipeItemPanel recipeItemPanel4;
+    private panels.RecipeItemPanel recipeItemPanel5;
+    private panels.RecipeItemPanel recipeItemPanel6;
+    private panels.RecipeItemPanel recipeItemPanel7;
+    private panels.RecipeItemPanel recipeItemPanel8;
+    private javax.swing.JPanel recipeListPanel;
     // End of variables declaration//GEN-END:variables
+
+    
 }

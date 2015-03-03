@@ -84,7 +84,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
         returnButton.setBorder(null);
         returnButton.setBorderPainted(false);
         returnButton.setContentAreaFilled(false);
-        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
@@ -100,12 +100,12 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
 
         profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon.png"))); // NOI18N
         profileButton.setContentAreaFilled(false);
-        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
 
         cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/cart.png"))); // NOI18N
         cartButton.setContentAreaFilled(false);
-        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cartButtonActionPerformed(evt);
