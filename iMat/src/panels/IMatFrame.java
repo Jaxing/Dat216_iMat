@@ -1,14 +1,22 @@
 package panels;
 
 
+
+
+import cards.CartCard;
+
+
+import cards.FavouriteCard;
+import cards.HistoryCard;
+import cards.GroceryListCard;
+import customBackend.Lists;
+
 import java.awt.CardLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import customBackend.Observable;
-import customBackend.Observer;
+import customBackend.EventListener;
+import customBackend.EventHandler;
+import customBackend.Profile;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.Timer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,9 +28,10 @@ import javax.swing.Timer;
  *
  * @author jesper
  */
-public class IMatFrame extends javax.swing.JFrame implements Observable{
+public class IMatFrame extends javax.swing.JFrame implements EventListener{
     
-    private static Observer observer = Observer.getInstance();
+    private static EventHandler observer = EventHandler.getInstance();
+    private Profile profile = Profile.getInstance();
     CardLayout mainCardlayout;
     /**
      * Creates new form IMatFrame
@@ -32,26 +41,9 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         initComponents();
         observer.setObserver(this);
         mainCardlayout = (CardLayout)MainpagePanel.getLayout();
-       // initBannerSlider();
+        previousCards.add("homeCard");
+       
     }
-   
-    /*public void initBanners(){
-        fruitBanner.setTitle("Frukt och grönt!");
-        meatBanner.setTitle("Kött och fläsk");
-        bananaBanner.setTitle("Bananer i pyjamas");
-    }*/
-    
-    /*public void initBannerSlider(){
-       timer = new Timer(3000,taskPerformer);
-       timer.start();
-    }
-    
-    ActionListener taskPerformer = new ActionListener() {
-        public void actionPerformed(ActionEvent evt) {
-              CardLayout theLayout = (CardLayout)bannerCardLayoutPanel.getLayout();
-              theLayout.next(bannerCardLayoutPanel);
-        }
-    };*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,6 +68,9 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         historyCard1 = new cards.HistoryCard();
         listCard1 = new cards.ListCard();
         offersCard1 = new cards.OffersCard();
+        searchCard1 = new cards.SearchCard();
+        cartCard1 = new cards.CartCard();
+        buyCard1 = new cards.BuyCard();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -89,6 +84,7 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         returnButton.setBorder(null);
         returnButton.setBorderPainted(false);
         returnButton.setContentAreaFilled(false);
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
@@ -104,12 +100,17 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon.png"))); // NOI18N
         profileButton.setContentAreaFilled(false);
-        profileButton.setLabel("");
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
 
         cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/cart.png"))); // NOI18N
         cartButton.setContentAreaFilled(false);
-        cartButton.setLabel("");
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cartButtonActionPerformed(evt);
+            }
+        });
 
         sideMenuPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -163,6 +164,9 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
 
         MainpagePanel.add(listCard1, "listCard");
         MainpagePanel.add(offersCard1, "offersCard");
+        MainpagePanel.add(searchCard1, "searchCard");
+        MainpagePanel.add(cartCard1, "cartCard");
+        MainpagePanel.add(buyCard1, "buyCard");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -220,7 +224,8 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        // TODO add your handling code here:
+        searchCard1.setSearchList(lists.search(searchField.getText()));
+        switchCard("searchCard");
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void sideMenuPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sideMenuPanel1MouseClicked
@@ -228,9 +233,24 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     }//GEN-LAST:event_sideMenuPanel1MouseClicked
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        //switchCard(OldCard);
+        previousCard();
     }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void cartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartButtonActionPerformed
+        if(!previousCards.get(previousCards.size()-1).equals("cartCard")){
+            switchCard("cartCard");
+        }else{
+            previousCard();
+        }
+    }//GEN-LAST:event_cartButtonActionPerformed
     
+    private void previousCard(){
+        if(previousCards.size() > 1){
+            previousCards.remove(previousCards.size()-1);
+            mainCardlayout.show(MainpagePanel, previousCards.get(previousCards.size()-1));
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -271,7 +291,11 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
         selectCard(selectedItem);
     }
     
-    public void selectCard(String listSelected){
+    public void update(){
+        previousCard();
+    }
+    
+    private void selectCard(String listSelected){
         switch(listSelected){
             case("Hem"): switchCard("homeCard");
                         break;
@@ -281,20 +305,56 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
                         break;
             case("Mina inköpslistor"): switchCard("listCard");
                         break;
-            case("Mina Köp"): switchCard("historyCard");
+            case("Mina köp"): createHistory();
                         break;
+            case("Favoritprodukter"): createFavourite();
+                        break;
+            case("buyCard"): 
+                if(profile.isLoggedIn()){
+                    switchCard("buyCard");
+                }else{
+                    new loginFrame().setVisible(true);
+                    this.setVisible(false);
+                }
+                break;
         }
+    }
+    private void createHistory(){
+        if(historyCard1 != null){
+            mainCardlayout.removeLayoutComponent(historyCard1);
+            MainpagePanel.remove(historyCard1);
+        }
+        historyCard1 = new HistoryCard();
+        MainpagePanel.add(historyCard1);
+        mainCardlayout.addLayoutComponent("historyCard", historyCard1);
+        mainCardlayout.show(MainpagePanel, "historyCard");
+        previousCards.add("historyCard");
+    }
+    
+    
+    private void createFavourite(){
+        if(favouriteCard != null){
+            mainCardlayout.removeLayoutComponent(favouriteCard);
+            MainpagePanel.remove(favouriteCard);
+        }
+        favouriteCard = new FavouriteCard();
+        MainpagePanel.add(favouriteCard);
+        mainCardlayout.addLayoutComponent("favouriteCard", favouriteCard);
+        mainCardlayout.show(MainpagePanel, "favouriteCard");
+        previousCards.add("favouriteCard");
     }
     
     private void switchCard(String card){
-       // String currentCard = mainCardlayout.
         mainCardlayout.show(MainpagePanel, card);
+        previousCards.add(card);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainpagePanel;
     private javax.swing.JPanel backgroundPanel;
+    private cards.BuyCard buyCard1;
     private javax.swing.JButton cartButton;
+    private cards.CartCard cartCard1;
     private cards.HistoryCard historyCard1;
     private cards.HomeCard homeCard2;
     private cards.ItemCard itemCard1;
@@ -305,10 +365,30 @@ public class IMatFrame extends javax.swing.JFrame implements Observable{
     private cards.RecipeCard recipeCard1;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton searchButton;
+    private cards.SearchCard searchCard1;
     private javax.swing.JTextField searchField;
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
-    Timer timer; 
+    
     List<String> previousCards = new ArrayList();
- 
+    FavouriteCard favouriteCard; 
+    Lists lists = Lists.getInstance();
+
+    @Override
+    public void closeCartCard() {
+        previousCard();
+    }
+
+    @Override
+    public void addToSideMenu(String name) {
+        sideMenuPanel1.addMenuItem(name);
+    }
+
+    @Override
+    public void grocerySubNodeSelected(String selectedItem) {
+        GroceryListCard groceryListCard = new GroceryListCard(selectedItem);
+        MainpagePanel.add(groceryListCard);
+        mainCardlayout.addLayoutComponent(groceryListCard, selectedItem);
+        switchCard(selectedItem);
+    }
 }

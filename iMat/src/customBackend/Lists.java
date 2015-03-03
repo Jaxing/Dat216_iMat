@@ -15,28 +15,30 @@ import se.chalmers.ait.dat215.project.Product;
  * @author Erik
  */
 public class Lists {
+
+
+    private static Lists instance = new Lists();
     
-
-    private static Lists lists = new Lists();
- 
-
     private Lists() {
         this.allLists = new ArrayList();
-        this.createdLists = new NamedList("Created list",new ArrayList<NamedList>());
+        this.boughtLists = new NamedList("Bought Lists",new ArrayList<NamedList>());
         
         allLists.add(new NamedList("All products",handler.getProducts()));
+
         allLists.add(new NamedList("Newest",new ArrayList<Product>()));
         allLists.add(new NamedList("Recommended",new ArrayList<Product>()));
         allLists.add(new NamedList("Favourite",new ArrayList<Product>()));
-        allLists.add(createdLists);
+        allLists.add(boughtLists);
         allProducts = getList("All products");
         newest = getList("Newest");
         recommended = getList("Recommended");
         favourite = getList("Favourite");
+
     }
     
     public static Lists getInstance(){
-        return lists;
+
+        return instance;
     }
     
     /*
@@ -96,20 +98,27 @@ public class Lists {
         }
         return recommended;
     }
-    
-   public boolean creatNewList(String listName){
-        if(listExists(listName)){
-            allLists.add(new NamedList(listName));
-            return true;
+   
+   public List<Product> createNewList(String listName){
+        if(!listExists(listName)){
+            NamedList<Product> newList = new NamedList(listName, new ArrayList());
+            allLists.add(newList);
+            return newList;
         }
-        return false;
+        return null;
    }
    
     public void addToList(String listName,List<Product> p){
         if(listExists(listName)){
             getList(listName).addAll(p);
+        } else {
+            createNewList(listName);
+            
+            getList(listName).addAll(p);
         }
     }
+    
+    
     
     private boolean listExists(String listName){
         for(NamedList list : allLists){
@@ -122,16 +131,25 @@ public class Lists {
     
     public List<Product> getList(String listName){
         for(NamedList list: allLists){
+            //System.out.println(list.getName());
             if(list.getName().equals(listName)){
-
+                System.out.println("test i getList");
                 return list;
             }
         }
         return null;
     }
     
-    public List<Product> getFavourit(){
+    public List<Product> getFavourites(){
         return favourite;
+    }
+    
+    public NamedList<NamedList> getBoughtLists(){
+        return boughtLists;
+    }
+    
+    public List<Product> search(String search){
+        return handler.findProducts(search);
     }
     
     public void addFavourite(Product p){
@@ -146,6 +164,10 @@ public class Lists {
         System.out.println("Removed favourite");
     }
     
+    public List<NamedList> getAllLists() {
+        return allLists;
+    }
+    
     private IMatDataHandler handler = IMatDataHandler.getInstance();
 
     private List<NamedList> allLists;
@@ -153,6 +175,6 @@ public class Lists {
     private List<Product> newest;
     private List<Product> recommended;
     private List<Product> favourite;
-    private NamedList<NamedList> createdLists;
+    private NamedList<NamedList> boughtLists;
 }
 

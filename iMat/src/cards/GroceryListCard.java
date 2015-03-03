@@ -6,43 +6,41 @@
 package cards;
 
 import customBackend.Lists;
-import customBackend.NamedList;
 import java.util.ArrayList;
 import java.util.List;
-import panels.timeStampPanel;
-import se.chalmers.ait.dat215.project.IMatDataHandler;
-import se.chalmers.ait.dat215.project.Order;
+import javax.swing.JPanel;
+import panels.ItemPanel;
 import se.chalmers.ait.dat215.project.Product;
-import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
  * @author jesper
  */
-public class HistoryCard extends javax.swing.JPanel {
-    
-    private Lists lists = Lists.getInstance();
-    
-    private IMatDataHandler handler = IMatDataHandler.getInstance();
-    
+public class GroceryListCard extends javax.swing.JPanel {
+    Lists lists;
+    List<Product> groceryList = null; 
+    //List<ItemPanel> itemPanels = new ArrayList();
     /**
-     * Creates new form HistoryCard
+     * Creates new form ItemCard
      */
-    public HistoryCard() {
+    public GroceryListCard(String listName) {
+        lists = Lists.getInstance();
+        groceryList = lists.getList(listName);
         initComponents();
-        System.out.print("HeJ");
         createPanels();
     }
-
-    public void createPanels(){
-        if(!handler.getOrders().isEmpty()){
-            System.out.print("Hej");
-            for(Order l : handler.getOrders()){
-                timeStampPanel newPanel = new timeStampPanel(l.getItems());
-                gridPanel.add(newPanel);
-            }
+    
+    private void createPanels(){
+        gridPanel.removeAll();
+        if(groceryList != null){
+            for(Product p: groceryList){
+                ItemPanel panel = new ItemPanel(p);
+                panel.setSize(376, 200);
+                gridPanel.add(panel);
+            } 
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,36 +50,45 @@ public class HistoryCard extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        itemPanel2 = new panels.ItemPanel();
+        itemPanel1 = new panels.ItemPanel();
+        itemPanel6 = new panels.ItemPanel();
+        itemPanel3 = new panels.ItemPanel();
+        itemPanel4 = new panels.ItemPanel();
+        itemPanel8 = new panels.ItemPanel();
+        itemPanel10 = new panels.ItemPanel();
+        itemPanel9 = new panels.ItemPanel();
+        itemPanel5 = new panels.ItemPanel();
+        itemPanel7 = new panels.ItemPanel();
+        itemPanel11 = new panels.ItemPanel();
+        itemPanel13 = new panels.ItemPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
         sizePanel = new javax.swing.JPanel();
         gridPanel = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(775, 1079));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Köp Historik");
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        mainPanel.setBackground(new java.awt.Color(102, 102, 255));
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        sizePanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        gridPanel.setLayout(new java.awt.GridLayout(0, 1));
+        gridPanel.setBackground(new java.awt.Color(102, 102, 255));
+        gridPanel.setLayout(new java.awt.GridLayout(0, 2, 5, 5));
 
         javax.swing.GroupLayout sizePanelLayout = new javax.swing.GroupLayout(sizePanel);
         sizePanel.setLayout(sizePanelLayout);
         sizePanelLayout.setHorizontalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
-            .addGroup(sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE))
+            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
         );
         sizePanelLayout.setVerticalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 27, Short.MAX_VALUE)
-            .addGroup(sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -94,41 +101,40 @@ public class HistoryCard extends javax.swing.JPanel {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 475, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(mainPanel);
+
+        jScrollPane2.getVerticalScrollBar().setUnitIncrement(10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2)))
-                .addContainerGap())
+            .addComponent(jScrollPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jScrollPane2)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel gridPanel;
-    private javax.swing.JLabel jLabel1;
+    private panels.ItemPanel itemPanel1;
+    private panels.ItemPanel itemPanel10;
+    private panels.ItemPanel itemPanel11;
+    private panels.ItemPanel itemPanel13;
+    private panels.ItemPanel itemPanel2;
+    private panels.ItemPanel itemPanel3;
+    private panels.ItemPanel itemPanel4;
+    private panels.ItemPanel itemPanel5;
+    private panels.ItemPanel itemPanel6;
+    private panels.ItemPanel itemPanel7;
+    private panels.ItemPanel itemPanel8;
+    private panels.ItemPanel itemPanel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel sizePanel;

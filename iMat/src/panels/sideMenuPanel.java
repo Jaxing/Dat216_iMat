@@ -5,13 +5,15 @@
  */
 
 package panels;
-import customBackend.Observer;
-import customBackend.Observable;
+import customBackend.EventHandler;
+import customBackend.EventListener;
 import javax.swing.ImageIcon;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 /**
  *
@@ -19,20 +21,31 @@ import javax.swing.tree.TreeSelectionModel;
  */
 public class sideMenuPanel extends javax.swing.JPanel {
 
-    private Observer observer = Observer.getInstance();
-    private Observable observable;
+    private EventHandler observer = EventHandler.getInstance();
+    private EventListener observable;
+    private DefaultMutableTreeNode groceryListNode;
+    private DefaultTreeModel thisModel;
     /**
      * Creates new form sideMenuPanel
      */
     public sideMenuPanel() {
         initComponents();
         setIcons();
-        
+        thisModel = (DefaultTreeModel)MenuTree.getModel();
         MenuTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-        
+        groceryListNode = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 5);
     }
     
-    public void setIcons(){
+    private int index = 0;
+    public void addMenuItem(String name){
+        DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(name);
+        
+        thisModel.insertNodeInto(newNode, groceryListNode, index);
+        MenuTree.updateUI();
+        index++;
+    }
+    
+    private void setIcons(){
         renderer = new DefaultTreeCellRenderer();
         renderer.setLeafIcon(null);
         renderer.setClosedIcon(null);
@@ -122,22 +135,41 @@ public class sideMenuPanel extends javax.swing.JPanel {
     private void MenuTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_MenuTreeValueChanged
         //Returns the last path element of the selection.
         //This method is useful only when the selection model allows a single selection.
-        DefaultMutableTreeNode node = (DefaultMutableTreeNode) MenuTree.getLastSelectedPathComponent();
+        node = (DefaultMutableTreeNode) MenuTree.getLastSelectedPathComponent();
 
         if (node == null)
         //Nothing is selected.  
         return;
 
         Object nodeInfo = node.getUserObject();
-
+        
+        if(nodeInfo.toString().equals("Varor") || nodeInfo.toString().equals("Recept")){
+            TreePath path = evt.getPath();
+            if(MenuTree.isCollapsed(path)){
+                openNode(path);
+            } else {
+                closeNode(path);
+            }
+        } else if(groceryListNode.isNodeChild(node)){
+            System.out.println("Testing");
+            observer.getObserver().grocerySubNodeSelected(nodeInfo.toString());
+        }
         if (node.isLeaf()) {
             //bad coding level 9000
             selectedItem = nodeInfo.toString();
             notifyObserver();
         }
     }//GEN-LAST:event_MenuTreeValueChanged
- 
-    public void notifyObserver(){
+    
+    private void openNode(TreePath path){
+        MenuTree.expandPath(path);
+    }
+    
+    private void closeNode(TreePath path){
+        MenuTree.collapsePath(path);
+    }
+    
+    private void notifyObserver(){
         observable= observer.getObserver();
         observable.update(selectedItem);
     }
@@ -147,8 +179,8 @@ public class sideMenuPanel extends javax.swing.JPanel {
     private javax.swing.JTree MenuTree;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-    DefaultTreeCellRenderer renderer;
+    private DefaultTreeCellRenderer renderer;
     private String selectedItem;
-
+    private DefaultMutableTreeNode node;
     //Observer observer = new IMatFrame();
 }
