@@ -305,7 +305,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         createGroceryList();
         addToSideMenu(name);
         addToComboBox(name);
-        viewNewGroceryList(name);
+        grocerylistBox.setSelectedItem(name);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
@@ -319,22 +319,6 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     private void grocerylistBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grocerylistBoxActionPerformed
         
     }//GEN-LAST:event_grocerylistBoxActionPerformed
-    
-    private void viewNewGroceryList(String name){
-        listModel.clear();
-        grocerylistBox.setSelectedItem(name);
-        List<ShoppingItem> items = handler.getShoppingCart().getItems();
-        
-        int i = 0;
-        for(ShoppingItem item: items){
-            listModel.add(i, item.getProduct().getName());
-            i++;
-        }
-        
-        listView.setModel(listModel);
-        listNameLabel.setText(name);
-        listLayout.show(cardPanel, "oldList");
-    }
     
     private void viewGroceryList(String name){
         listModel.clear();
