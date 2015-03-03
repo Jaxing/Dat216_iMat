@@ -10,7 +10,10 @@ import customBackend.NamedList;
 import java.util.ArrayList;
 import java.util.List;
 import panels.timeStampPanel;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
@@ -19,28 +22,23 @@ import se.chalmers.ait.dat215.project.Product;
 public class HistoryCard extends javax.swing.JPanel {
     
     private Lists lists = Lists.getInstance();
-    private List<NamedList> history = new ArrayList<NamedList>();
+    
+    private IMatDataHandler handler = IMatDataHandler.getInstance();
     
     /**
      * Creates new form HistoryCard
      */
     public HistoryCard() {
         initComponents();
-        
+        System.out.print("HeJ");
         createPanels();
     }
 
     public void createPanels(){
-        for(NamedList l : lists.getAllLists()){
-            if(l.getName().matches("[0-9]{3}[-][0-9]{2}[-][0-9]d{2}")){
-                System.out.print("Hej igen");
-                history.add(l);
-            }
-        }
-        if(!history.isEmpty()){
+        if(!handler.getOrders().isEmpty()){
             System.out.print("Hej");
-            for(NamedList l : history){
-                timeStampPanel newPanel = new timeStampPanel(l);
+            for(Order l : handler.getOrders()){
+                timeStampPanel newPanel = new timeStampPanel(l.getItems());
                 gridPanel.add(newPanel);
             }
         }

@@ -8,6 +8,8 @@ package panels;
 import customBackend.NamedList;
 import java.util.ArrayList;
 import java.util.List;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -19,17 +21,18 @@ public class timeStampPanel extends javax.swing.JPanel {
 
     private List<ShoppingItem> siList;
     private double totalPrice;
+    private IMatDataHandler handler = IMatDataHandler.getInstance();
     /**
      * Creates new form timeStampPanel
      */
-    public timeStampPanel(NamedList<Product> productList) {
+    public timeStampPanel(List<ShoppingItem> shoppingList) {
         initComponents();
         jPanel1.setVisible(false);
         siList = new ArrayList<ShoppingItem>();
-        if(productList != null){
-            for(Product p : productList){
+        if(shoppingList.isEmpty()){
+            for(ShoppingItem p : shoppingList){
                 if(!siList.contains(p)){
-                    siList.add(new ShoppingItem(p));
+                    siList.add(p);
                 }else{
                     ShoppingItem si =siList.get(siList.indexOf(p));
                     si.setAmount(si.getAmount()+1);
@@ -39,7 +42,7 @@ public class timeStampPanel extends javax.swing.JPanel {
         for(ShoppingItem i : siList){
             totalPrice += i.getTotal();
         }
-        dateLabel.setText(productList.getName());
+        dateLabel.setText("2015-03-03");
         priceLabel.setText(totalPrice+"");
     }
 

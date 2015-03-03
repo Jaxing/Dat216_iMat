@@ -7,6 +7,7 @@ package panels;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -18,6 +19,7 @@ public class CartItem extends javax.swing.JPanel {
 
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private ShoppingItem item;
+    private IMatDataHandler handler = IMatDataHandler.getInstance();
     /**
      * Creates new form cartItem
      */
@@ -103,7 +105,8 @@ public class CartItem extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        pcs.fireIndexedPropertyChange("deleted", 0, null, this);
+        handler.getShoppingCart().removeItem(item);
+        //pcs.fireIndexedPropertyChange("deleted", 0, null, this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void increseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increseButtonActionPerformed

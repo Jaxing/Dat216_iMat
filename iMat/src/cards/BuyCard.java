@@ -12,8 +12,10 @@ import customBackend.Profile;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -270,14 +272,10 @@ public class BuyCard extends javax.swing.JPanel {
     }//GEN-LAST:event_registerCancelButton1ActionPerformed
 
     private void registerAcceptButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAcceptButton1ActionPerformed
-
-       String listName = Date.valueOf(LocalDate.MAX).toString();
-       lists.addToList(listName,new ArrayList<Product>());
-       List<Product> lp = lists.getList(listName);
-       System.out.print(listName);
-       for(ShoppingItem item : handler.getShoppingCart().getItems()){
-           lp.add(item.getProduct());
-       }           
+       List<ShoppingItem> items = handler.getShoppingCart().getItems();
+       Order o = new Order();
+       o.setItems(items);
+       handler.getOrders().add(o);
        handler.getShoppingCart().clear();
        eventHandler.getObserver().update("Hem");
     }//GEN-LAST:event_registerAcceptButton1ActionPerformed
