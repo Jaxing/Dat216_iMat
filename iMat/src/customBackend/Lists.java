@@ -21,14 +21,14 @@ public class Lists {
     
     private Lists() {
         this.allLists = new ArrayList();
-        this.createdLists = new NamedList("Created list",new ArrayList<NamedList>());
+        this.boughtLists = new NamedList("Bought Lists",new ArrayList<NamedList>());
         
         allLists.add(new NamedList("All products",handler.getProducts()));
 
         allLists.add(new NamedList("Newest",new ArrayList<Product>()));
         allLists.add(new NamedList("Recommended",new ArrayList<Product>()));
         allLists.add(new NamedList("Favourite",new ArrayList<Product>()));
-        allLists.add(createdLists);
+        allLists.add(boughtLists);
         allProducts = getList("All products");
         newest = getList("Newest");
         recommended = getList("Recommended");
@@ -144,6 +144,10 @@ public class Lists {
         return favourite;
     }
     
+    public NamedList<NamedList> getBoughtLists(){
+        return boughtLists;
+    }
+    
     public List<Product> search(String search){
         return handler.findProducts(search);
     }
@@ -160,6 +164,10 @@ public class Lists {
         System.out.println("Removed favourite");
     }
     
+    public List<NamedList> getAllLists() {
+        return allLists;
+    }
+    
     private IMatDataHandler handler = IMatDataHandler.getInstance();
 
     private List<NamedList> allLists;
@@ -167,6 +175,6 @@ public class Lists {
     private List<Product> newest;
     private List<Product> recommended;
     private List<Product> favourite;
-    private NamedList<NamedList> createdLists;
+    private NamedList<NamedList> boughtLists;
 }
 

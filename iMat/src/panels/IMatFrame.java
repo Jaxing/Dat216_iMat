@@ -7,6 +7,7 @@ import cards.CartCard;
 
 
 import cards.FavouriteCard;
+import cards.HistoryCard;
 import customBackend.Lists;
 
 import java.awt.CardLayout;
@@ -303,7 +304,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
                         break;
             case("Mina inköpslistor"): switchCard("listCard");
                         break;
-            case("Mina köp"): switchCard("historyCard");
+            case("Mina köp"): createHistory();
                         break;
             case("Favoritprodukter"): createFavourite();
                         break;
@@ -317,6 +318,18 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
                 break;
         }
     }
+    private void createHistory(){
+        if(historyCard1 != null){
+            mainCardlayout.removeLayoutComponent(historyCard1);
+            MainpagePanel.remove(historyCard1);
+        }
+        historyCard1 = new HistoryCard();
+        MainpagePanel.add(historyCard1);
+        mainCardlayout.addLayoutComponent("historyCard", historyCard1);
+        mainCardlayout.show(MainpagePanel, "historyCard");
+        previousCards.add("historyCard");
+    }
+    
     
     private void createFavourite(){
         if(favouriteCard != null){
