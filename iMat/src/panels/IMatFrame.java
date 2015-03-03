@@ -7,7 +7,11 @@ import cards.CartCard;
 
 
 import cards.FavouriteCard;
+<<<<<<< HEAD
 import cards.HistoryCard;
+=======
+import cards.GroceryListCard;
+>>>>>>> Erik
 import customBackend.Lists;
 
 import java.awt.CardLayout;
@@ -381,5 +385,13 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
     @Override
     public void addToSideMenu(String name) {
         sideMenuPanel1.addMenuItem(name);
+    }
+
+    @Override
+    public void grocerySubNodeSelected(String selectedItem) {
+        GroceryListCard groceryListCard = new GroceryListCard(selectedItem);
+        MainpagePanel.add(groceryListCard);
+        mainCardlayout.addLayoutComponent(groceryListCard, selectedItem);
+        switchCard(selectedItem);
     }
 }

@@ -23,25 +23,24 @@ public class sideMenuPanel extends javax.swing.JPanel {
 
     private EventHandler observer = EventHandler.getInstance();
     private EventListener observable;
+    private DefaultMutableTreeNode groceryListNode;
+    private DefaultTreeModel thisModel;
     /**
      * Creates new form sideMenuPanel
      */
     public sideMenuPanel() {
         initComponents();
         setIcons();
-        
+        thisModel = (DefaultTreeModel)MenuTree.getModel();
         MenuTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-        
+        groceryListNode = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 5);
     }
     
     private int index = 0;
     public void addMenuItem(String name){
         DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(name);
-        DefaultTreeModel thisModel = (DefaultTreeModel)MenuTree.getModel();
-        DefaultMutableTreeNode parent = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 5);
-        System.out.println(newNode);
-        System.out.println(parent);
-        thisModel.insertNodeInto(newNode, parent, index);
+        
+        thisModel.insertNodeInto(newNode, groceryListNode, index);
         MenuTree.updateUI();
         index++;
     }
@@ -151,6 +150,9 @@ public class sideMenuPanel extends javax.swing.JPanel {
             } else {
                 closeNode(path);
             }
+        } else if(groceryListNode.isNodeChild(node)){
+            System.out.println("Testing");
+            observer.getObserver().grocerySubNodeSelected(nodeInfo.toString());
         }
         if (node.isLeaf()) {
             //bad coding level 9000
