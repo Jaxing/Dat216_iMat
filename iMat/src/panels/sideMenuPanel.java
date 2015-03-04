@@ -1,10 +1,12 @@
-/*
+package panels;
+
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-package panels;
+//package panels;
 import customBackend.EventHandler;
 import customBackend.EventListener;
 import javax.swing.ImageIcon;
@@ -25,6 +27,7 @@ public class sideMenuPanel extends javax.swing.JPanel {
     private EventListener observable;
     private DefaultMutableTreeNode groceryListNode;
     private DefaultTreeModel thisModel;
+    private DefaultMutableTreeNode categoryNode;
     /**
      * Creates new form sideMenuPanel
      */
@@ -32,8 +35,10 @@ public class sideMenuPanel extends javax.swing.JPanel {
         initComponents();
         setIcons();
         thisModel = (DefaultTreeModel)MenuTree.getModel();
+        
         MenuTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         groceryListNode = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 5);
+        categoryNode = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 1);
     }
     
     private int index = 0;
@@ -75,41 +80,35 @@ public class sideMenuPanel extends javax.swing.JPanel {
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Hem");
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Kategorier");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Bröd");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Baljväxter");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Bröd");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Bär");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Kål");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Frukter");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Kalla drycker");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Mjölkprodukter");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Drycker");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Fisk");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Mjöl, socker & salt");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Frukter");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Örter");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Grönsaker");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Kött");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Varma drycker");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Mjöl, socker & salt");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Meloner");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Mjölkprodukter");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Nötter och frön");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Pasta");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Baljväxter");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Potatis & Ris");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Sötsaker");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Potatis & Ris");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Grönsaker");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Örter");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Recept");
@@ -171,9 +170,12 @@ public class sideMenuPanel extends javax.swing.JPanel {
                 closeNode(path);
             }
         } else if(groceryListNode.isNodeChild(node)){
-            System.out.println("Testing");
             observer.getObserver().grocerySubNodeSelected(nodeInfo.toString());
+        }else if(categoryNode.isNodeChild(node)){
+            System.out.println("test");
+            observer.getObserver().categorySubNodeSelected(nodeInfo.toString());
         }
+        
         if (node.isLeaf()) {
             //bad coding level 9000
             selectedItem = nodeInfo.toString();
