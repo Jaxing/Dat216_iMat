@@ -27,7 +27,7 @@ public class ItemCard extends javax.swing.JPanel {
         lists = Lists.getInstance();
         initComponents();
         this.category = category;
-        nameLabel.setText(name);
+        searchtextLabel.setText(name);
         checkCategory();
     }
     
@@ -74,6 +74,7 @@ public class ItemCard extends javax.swing.JPanel {
             }
             gridPanel.setSize(gridPanel.getWidth(), size*200 + 20);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,7 +97,7 @@ public class ItemCard extends javax.swing.JPanel {
         itemPanel11 = new panels.ItemPanel();
         itemPanel13 = new panels.ItemPanel();
         jPanel2 = new javax.swing.JPanel();
-        nameLabel = new javax.swing.JLabel();
+        searchtextLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         gridPanel = new javax.swing.JPanel();
 
@@ -106,8 +107,8 @@ public class ItemCard extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        nameLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        nameLabel.setText("Namn på lista");
+        searchtextLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        searchtextLabel.setText("Namn på lista");
 
         jScrollPane2.setBackground(new java.awt.Color(102, 102, 255));
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -123,7 +124,7 @@ public class ItemCard extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nameLabel)
+                .addComponent(searchtextLabel)
                 .addContainerGap(640, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE))
@@ -132,7 +133,7 @@ public class ItemCard extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchtextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(616, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -172,6 +173,6 @@ public class ItemCard extends javax.swing.JPanel {
     private panels.ItemPanel itemPanel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel searchtextLabel;
     // End of variables declaration//GEN-END:variables
 }
