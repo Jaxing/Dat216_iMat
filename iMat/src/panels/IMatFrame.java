@@ -446,11 +446,21 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         MainpagePanel.add(groceryListCard);
         mainCardlayout.addLayoutComponent(groceryListCard, selectedItem);
         switchCard(selectedItem);
+    }   
+    
+    @Override
+    public void categorySubNodeSelected(String selectedItem) {
+        ItemPanel categoryCard = new ItemPanel();
+        MainpagePanel.add(categoryCard);
+        mainCardlayout.addLayoutComponent(categoryCard, selectedItem);
+        switchCard(selectedItem);
     }
-
+    
     @Override
     public void shoppingCartChanged(CartEvent ce) {
         System.out.print("HEJ");
         priceLabel.setText((""+handler.getShoppingCart().getTotal()));
     }
+
+    
 }
