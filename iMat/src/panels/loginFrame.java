@@ -21,8 +21,8 @@ public class loginFrame extends javax.swing.JFrame {
     public loginFrame() {
         initComponents(); 
         profile = Profile.getInstance();
-        profile.setPassword("0000");
-        profile.setUsername("Jesper Jaxing");
+        profile.setPassword("0");
+        profile.setUsername("J");
         
         cardLayout = (CardLayout)mainPanel.getLayout();
     }
