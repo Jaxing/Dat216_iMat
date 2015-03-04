@@ -133,7 +133,7 @@ public class Lists {
         for(NamedList list: allLists){
             //System.out.println(list.getName());
             if(list.getName().equals(listName)){
-                System.out.println("test i getList");
+                
                 return list;
             }
         }
@@ -155,13 +155,13 @@ public class Lists {
     public void addFavourite(Product p){
         handler.addFavorite(p);
         favourite.add(p);
-        System.out.println("Added favourite");
+        
     }
     
     public void removeFavourite(Product p){
         handler.removeFavorite(p);
         favourite.remove(p);
-        System.out.println("Removed favourite");
+        
     }
     
     public List<NamedList> getAllLists() {
