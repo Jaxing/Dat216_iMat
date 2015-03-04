@@ -116,7 +116,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     }//GEN-LAST:event_increseButtonActionPerformed
 
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
-        if(item.getAmount()>0){
+        if(item.getAmount()>1){
             item.setAmount(item.getAmount()-1);
             amountLabel.setText(item.getAmount()+"");
         }

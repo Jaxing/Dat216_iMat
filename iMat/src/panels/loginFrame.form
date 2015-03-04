@@ -160,6 +160,9 @@
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="loginPasswordField">
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="loginPasswordFieldKeyPressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="errorLabel">
             </Component>

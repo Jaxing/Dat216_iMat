@@ -4,8 +4,10 @@ package panels;
 
 
 
+import com.sun.glass.events.KeyEvent;
 import customBackend.Profile;
 import java.awt.CardLayout;
+import java.awt.event.KeyListener;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.User;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
@@ -135,6 +137,12 @@ public class loginFrame extends javax.swing.JFrame {
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtonActionPerformed(evt);
+            }
+        });
+
+        loginPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                loginPasswordFieldKeyPressed(evt);
             }
         });
 
@@ -769,6 +777,11 @@ public class loginFrame extends javax.swing.JFrame {
         new IMatFrame().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void loginPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginPasswordFieldKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+            checkData();
+    }//GEN-LAST:event_loginPasswordFieldKeyPressed
     
     private void printInfo(){
         
@@ -938,6 +951,8 @@ public class loginFrame extends javax.swing.JFrame {
     private String username;
     private Profile profile;
     private CardLayout cardLayout;
+
+   
 
     
 }
