@@ -1,22 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cards;
+
+
 
 import customBackend.Lists;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JPanel;
 import panels.ItemPanel;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
  *
  * @author jesper
  */
 public class SearchCard extends javax.swing.JPanel {
+
     Lists lists;
     List<Product> searched = null; 
     List<ItemPanel> itemPanels = new ArrayList();
@@ -26,7 +25,7 @@ public class SearchCard extends javax.swing.JPanel {
     public SearchCard() {
         lists = Lists.getInstance();
         initComponents();
-        createPanels();
+        //createPanels();
     }
     
     public void setSearchList(List<Product> searchedList){
@@ -34,8 +33,13 @@ public class SearchCard extends javax.swing.JPanel {
         createPanels();
     }
     
+    public void setSearchLabel(String searchText){
+        searchtextLabel.setText(searchText);
+    }
+    
     private void createPanels(){
         gridPanel.removeAll();
+        gridPanel.setSize(gridPanel.getWidth(), 200*searched.size());
         if(searched != null){
             for(Product p: searched){
                 ItemPanel panel = new ItemPanel(p);
@@ -43,6 +47,7 @@ public class SearchCard extends javax.swing.JPanel {
                 gridPanel.add(panel);
             } 
         }
+        
     }
 
     /**
@@ -66,49 +71,47 @@ public class SearchCard extends javax.swing.JPanel {
         itemPanel7 = new panels.ItemPanel();
         itemPanel11 = new panels.ItemPanel();
         itemPanel13 = new panels.ItemPanel();
+        jPanel2 = new javax.swing.JPanel();
+        searchtextLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        mainPanel = new javax.swing.JPanel();
-        sizePanel = new javax.swing.JPanel();
         gridPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(775, 1079));
 
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        searchtextLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        searchtextLabel.setText("Namn på lista");
+
+        jScrollPane2.setBackground(new java.awt.Color(102, 102, 255));
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        mainPanel.setBackground(new java.awt.Color(102, 102, 255));
-
-        sizePanel.setBackground(new java.awt.Color(255, 255, 255));
-
         gridPanel.setBackground(new java.awt.Color(102, 102, 255));
         gridPanel.setLayout(new java.awt.GridLayout(0, 2, 5, 5));
+        jScrollPane2.setViewportView(gridPanel);
 
-        javax.swing.GroupLayout sizePanelLayout = new javax.swing.GroupLayout(sizePanel);
-        sizePanel.setLayout(sizePanelLayout);
-        sizePanelLayout.setHorizontalGroup(
-            sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(searchtextLabel)
+                .addContainerGap(641, Short.MAX_VALUE))
+            .addComponent(jScrollPane2)
         );
-        sizePanelLayout.setVerticalGroup(
-            sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(searchtextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sizePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jScrollPane2.setViewportView(mainPanel);
 
         jScrollPane2.getVerticalScrollBar().setUnitIncrement(10);
 
@@ -116,11 +119,11 @@ public class SearchCard extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -139,8 +142,8 @@ public class SearchCard extends javax.swing.JPanel {
     private panels.ItemPanel itemPanel7;
     private panels.ItemPanel itemPanel8;
     private panels.ItemPanel itemPanel9;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JPanel sizePanel;
+    private javax.swing.JLabel searchtextLabel;
     // End of variables declaration//GEN-END:variables
 }

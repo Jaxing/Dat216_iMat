@@ -31,6 +31,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         amountLabel.setText(item.getAmount()+"");
         nameLabel.setText(item.getProduct().getName());
         pcs.addPropertyChangeListener(pcl);
+        handler.getShoppingCart().addShoppingCartListener(this);
     }
 
     /**
@@ -111,12 +112,11 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void increseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increseButtonActionPerformed
-        item.setAmount(item.getAmount()+1);
-        amountLabel.setText(item.getAmount()+"");
+        increse();
     }//GEN-LAST:event_increseButtonActionPerformed
 
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
-        if(item.getAmount()>0){
+        if(item.getAmount()>1){
             item.setAmount(item.getAmount()-1);
             amountLabel.setText(item.getAmount()+"");
         }
@@ -125,6 +125,12 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     private void delete(){
         handler.getShoppingCart().removeItem(item);
         pcs.fireIndexedPropertyChange("deleted", 0, null, this);
+    }
+    
+    private void increse(){
+        item.setAmount(item.getAmount()+1);
+        amountLabel.setText(item.getAmount()+"");
+        pcs.fireIndexedPropertyChange("increse", 0, null, null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -138,9 +144,13 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
 
     @Override
     public void shoppingCartChanged(CartEvent ce) {
+        System.out.print(" not incresed ");
         if(!ce.isAddEvent()){
             if(ce.getShoppingItem().equals(item))
                 delete();
+        }else {
+            System.out.print(" incresed ");
+            amountLabel.setText(ce.getShoppingItem().getAmount()+"");
         }
     }
 }
