@@ -7,15 +7,17 @@ package panels;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingCartListener;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
  * @author jesper
  */
-public class CartItem extends javax.swing.JPanel {
+public class CartItem extends javax.swing.JPanel implements ShoppingCartListener{
 
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private ShoppingItem item;
@@ -105,8 +107,7 @@ public class CartItem extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        handler.getShoppingCart().removeItem(item);
-        //pcs.fireIndexedPropertyChange("deleted", 0, null, this);
+        delete();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void increseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increseButtonActionPerformed
@@ -115,10 +116,16 @@ public class CartItem extends javax.swing.JPanel {
     }//GEN-LAST:event_increseButtonActionPerformed
 
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
-        item.setAmount(item.getAmount()-1);
-        amountLabel.setText(item.getAmount()+"");
+        if(item.getAmount()>0){
+            item.setAmount(item.getAmount()-1);
+            amountLabel.setText(item.getAmount()+"");
+        }
     }//GEN-LAST:event_decreseButtonActionPerformed
-
+    
+    private void delete(){
+        handler.getShoppingCart().removeItem(item);
+        pcs.fireIndexedPropertyChange("deleted", 0, null, this);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel amountLabel;
@@ -128,4 +135,12 @@ public class CartItem extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void shoppingCartChanged(CartEvent ce) {
+        if(!ce.isAddEvent()){
+            if(ce.getShoppingItem().equals(item))
+                delete();
+        }
+    }
 }
