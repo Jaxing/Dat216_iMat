@@ -4,8 +4,10 @@ package panels;
 
 
 
+import com.sun.glass.events.KeyEvent;
 import customBackend.Profile;
 import java.awt.CardLayout;
+import java.awt.event.KeyListener;
 import se.chalmers.ait.dat215.project.Customer;
 import se.chalmers.ait.dat215.project.User;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
@@ -47,7 +49,6 @@ public class loginFrame extends javax.swing.JFrame {
         registerButton = new javax.swing.JButton();
         loginPasswordField = new javax.swing.JPasswordField();
         errorLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         registerPanel = new javax.swing.JPanel();
         newUserLabel = new javax.swing.JLabel();
         registerUsernameTextField = new javax.swing.JTextField();
@@ -138,10 +139,9 @@ public class loginFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Logga in senare");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        loginPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                loginPasswordFieldKeyPressed(evt);
             }
         });
 
@@ -165,8 +165,7 @@ public class loginFrame extends javax.swing.JFrame {
                             .addComponent(logoLabel)
                             .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(loginUsernameTextField)
-                                .addComponent(loginPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1))))
+                                .addComponent(loginPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -188,8 +187,7 @@ public class loginFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(registerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(registerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         mainPanel.add(loginPanel, "loginCard");
@@ -765,10 +763,10 @@ public class loginFrame extends javax.swing.JFrame {
         openLoginCard();
     }//GEN-LAST:event_jLabel16MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new IMatFrame().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void loginPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginPasswordFieldKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+            checkData();
+    }//GEN-LAST:event_loginPasswordFieldKeyPressed
     
     private void printInfo(){
         
@@ -883,7 +881,6 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox expireDateDayCombobox;
     private javax.swing.JComboBox expireDateMonthComobox;
     private javax.swing.JList infoList;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -938,6 +935,8 @@ public class loginFrame extends javax.swing.JFrame {
     private String username;
     private Profile profile;
     private CardLayout cardLayout;
+
+   
 
     
 }
