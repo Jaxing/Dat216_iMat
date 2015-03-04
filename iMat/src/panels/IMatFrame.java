@@ -118,7 +118,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
             }
         });
 
-        profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon.png"))); // NOI18N
+        profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/newprofileicon.png"))); // NOI18N
         profileButton.setContentAreaFilled(false);
         profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
