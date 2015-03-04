@@ -17,21 +17,20 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  *
  * @author jesper
  */
-public class CartItem extends javax.swing.JPanel implements ShoppingCartListener{
+public class GroceryItem extends javax.swing.JPanel {
 
-    private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+   
     private ShoppingItem item;
     private IMatDataHandler handler = IMatDataHandler.getInstance();
     /**
      * Creates new form cartItem
      */
-    public CartItem(ShoppingItem item, PropertyChangeListener pcl) {
+    public GroceryItem(ShoppingItem item) {
         initComponents();
         this.item = item;
         amountLabel.setText(item.getAmount()+"");
         nameLabel.setText(item.getProduct().getName());
-        pcs.addPropertyChangeListener(pcl);
-        handler.getShoppingCart().addShoppingCartListener(this);
+       
     }
 
     /**
@@ -114,18 +113,15 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         if(item.getAmount()>1){
             item.setAmount(item.getAmount()-1);
             amountLabel.setText(item.getAmount()+"");
-        }
+        } 
     }//GEN-LAST:event_decreseButtonActionPerformed
     
     private void delete(){
-        handler.getShoppingCart().removeItem(item);
-        pcs.fireIndexedPropertyChange("deleted", 0, null, this);
+        //handler.getShoppingCart().removeItem(item);
     }
     
     private void increse(){
         item.setAmount(item.getAmount()+1);
-        amountLabel.setText(item.getAmount()+"");
-        pcs.fireIndexedPropertyChange("increse", 0, null, null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -136,15 +132,4 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void shoppingCartChanged(CartEvent ce) {
-        System.out.print(" not incresed ");
-        if(!ce.isAddEvent()){
-            if(ce.getShoppingItem().equals(item))
-                delete();
-        }else {
-            System.out.print(" incresed ");
-            amountLabel.setText(ce.getShoppingItem().getAmount()+"");
-        }
-    }
 }

@@ -62,66 +62,91 @@ public class GroceryListCard extends javax.swing.JPanel {
         itemPanel7 = new panels.ItemPanel();
         itemPanel11 = new panels.ItemPanel();
         itemPanel13 = new panels.ItemPanel();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        mainPanel = new javax.swing.JPanel();
+        fullPanel = new javax.swing.JPanel();
         sizePanel = new javax.swing.JPanel();
         gridPanel = new javax.swing.JPanel();
+        listName = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(775, 1079));
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        mainPanel.setBackground(new java.awt.Color(102, 102, 255));
+        fullPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        sizePanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        gridPanel.setBackground(new java.awt.Color(102, 102, 255));
-        gridPanel.setLayout(new java.awt.GridLayout(0, 2, 5, 5));
+        gridPanel.setBackground(new java.awt.Color(255, 255, 255));
+        gridPanel.setLayout(new java.awt.GridLayout(0, 1));
 
         javax.swing.GroupLayout sizePanelLayout = new javax.swing.GroupLayout(sizePanel);
         sizePanel.setLayout(sizePanelLayout);
         sizePanelLayout.setHorizontalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
+            .addGroup(sizePanelLayout.createSequentialGroup()
+                .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
+                .addContainerGap())
         );
         sizePanelLayout.setVerticalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sizePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout fullPanelLayout = new javax.swing.GroupLayout(fullPanel);
+        fullPanel.setLayout(fullPanelLayout);
+        fullPanelLayout.setHorizontalGroup(
+            fullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fullPanelLayout.createSequentialGroup()
                 .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+        fullPanelLayout.setVerticalGroup(
+            fullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fullPanelLayout.createSequentialGroup()
+                .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 960, Short.MAX_VALUE))
+        );
 
-        jScrollPane2.setViewportView(mainPanel);
+        jScrollPane2.setViewportView(fullPanel);
 
-        jScrollPane2.getVerticalScrollBar().setUnitIncrement(10);
+        listName.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(listName)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(listName)
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel fullPanel;
     private javax.swing.JPanel gridPanel;
     private panels.ItemPanel itemPanel1;
     private panels.ItemPanel itemPanel10;
@@ -135,8 +160,9 @@ public class GroceryListCard extends javax.swing.JPanel {
     private panels.ItemPanel itemPanel7;
     private panels.ItemPanel itemPanel8;
     private panels.ItemPanel itemPanel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel listName;
     private javax.swing.JPanel sizePanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -130,7 +130,9 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         sizePanel.setLayout(sizePanelLayout);
         sizePanelLayout.setHorizontalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+            .addGroup(sizePanelLayout.createSequentialGroup()
+                .addComponent(gridPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 33, Short.MAX_VALUE))
         );
         sizePanelLayout.setVerticalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
