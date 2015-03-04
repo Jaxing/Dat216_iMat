@@ -18,6 +18,7 @@ import cards.GroceryListCard;
 
 import cards.HistoryCard;
 import cards.GroceryListCard;
+import cards.ItemCard;
 
 
 import customBackend.Lists;
@@ -30,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.ProductCategory;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
 
 /*
@@ -80,14 +82,12 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         MainpagePanel = new javax.swing.JPanel();
         homeCard2 = new cards.HomeCard();
         recipeCard1 = new cards.RecipeCard();
-        itemCard1 = new cards.ItemCard();
         historyCard1 = new cards.HistoryCard();
         listCard1 = new cards.ListCard();
         offersCard1 = new cards.OffersCard();
         searchCard1 = new cards.SearchCard();
         cartCard1 = new cards.CartCard();
         buyCard1 = new cards.BuyCard();
-        itemCard2 = new cards.ItemCard();
         profileCard1 = new cards.ProfileCard();
         profileChangeCard1 = new cards.ProfileChangeCard();
         priceLabel = new javax.swing.JLabel();
@@ -162,7 +162,6 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         );
 
         MainpagePanel.add(recipeCard1, "recipeCard");
-        MainpagePanel.add(itemCard1, "itemCard");
 
         javax.swing.GroupLayout historyCard1Layout = new javax.swing.GroupLayout(historyCard1);
         historyCard1.setLayout(historyCard1Layout);
@@ -193,7 +192,6 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         MainpagePanel.add(searchCard1, "searchCard");
         MainpagePanel.add(cartCard1, "cartCard");
         MainpagePanel.add(buyCard1, "buyCard");
-        MainpagePanel.add(itemCard2, "meatCard");
         MainpagePanel.add(profileCard1, "profileCard");
         MainpagePanel.add(profileChangeCard1, "profileChangeCard");
 
@@ -257,7 +255,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 692, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 708, Short.MAX_VALUE)
         );
 
         pack();
@@ -343,8 +341,6 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         switch(listSelected){
             case("Hem"): switchCard("homeCard");
                         break;
-            case("Kött"): switchCard("meatCard");
-                        break;
             case("Erbjudande"): switchCard("offersCard");
                         break;
             case("Recept"): switchCard("recipeCard");
@@ -367,7 +363,6 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
             case("profileChangeCard"):
                     switchCard("profileChangeCard");
                     break;
-                
         }
     }
     private void createHistory(){
@@ -381,7 +376,6 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         mainCardlayout.show(MainpagePanel, "historyCard");
         previousCards.add("historyCard");
     }
-    
     
     private void createFavourite(){
         if(favouriteCard != null){
@@ -399,6 +393,42 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         mainCardlayout.show(MainpagePanel, card);
         previousCards.add(card);
     }
+    
+    private ProductCategory chooseCategory(String selectedItem){
+        switch(selectedItem){
+            case("Baljväxter"):
+                return ProductCategory.POD;
+            case("Bröd"):
+                return ProductCategory.BREAD;
+            case("Bär"):
+                return ProductCategory.BERRY;
+            case("Drycker"):
+                return ProductCategory.COLD_DRINKS;
+            case("Fisk"):
+                return ProductCategory.FISH;
+            case("Frukter"):
+                return ProductCategory.FRUIT;
+            case("Grönsaker"):
+                return ProductCategory.VEGETABLE_FRUIT;
+            case("Kött"):
+                return ProductCategory.MEAT;
+            case("Mjöl,socker & salt"):
+                return ProductCategory.FLOUR_SUGAR_SALT;
+            case("Mjölkprodukter"):
+                return ProductCategory.DAIRIES;
+            case("Nötter och frön"):
+                return ProductCategory.NUTS_AND_SEEDS;
+            case("Pasta"):
+                return ProductCategory.PASTA;
+            case("Potatis & Ris"):
+                return ProductCategory.POTATO_RICE;
+            case("Sötsaker"):
+                return ProductCategory.SWEET;
+            case("Örter"):
+                return ProductCategory.HERB;
+        }   
+        return ProductCategory.BERRY;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainpagePanel;
@@ -408,8 +438,6 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
     private cards.CartCard cartCard1;
     private cards.HistoryCard historyCard1;
     private cards.HomeCard homeCard2;
-    private cards.ItemCard itemCard1;
-    private cards.ItemCard itemCard2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JToggleButton jToggleButton1;
     private cards.ListCard listCard1;
@@ -450,7 +478,8 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
     
     @Override
     public void categorySubNodeSelected(String selectedItem) {
-        ItemPanel categoryCard = new ItemPanel();
+        ProductCategory category = chooseCategory(selectedItem);
+        ItemCard categoryCard = new ItemCard(category,selectedItem);
         MainpagePanel.add(categoryCard);
         mainCardlayout.addLayoutComponent(categoryCard, selectedItem);
         switchCard(selectedItem);
@@ -461,6 +490,4 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         System.out.print("HEJ");
         priceLabel.setText((""+handler.getShoppingCart().getTotal()));
     }
-
-    
 }
