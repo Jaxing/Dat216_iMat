@@ -85,6 +85,8 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
         cartCard1 = new cards.CartCard();
         buyCard1 = new cards.BuyCard();
         itemCard2 = new cards.ItemCard();
+        profileCard1 = new cards.ProfileCard();
+        profileChangeCard1 = new cards.ProfileChangeCard();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -116,6 +118,11 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
         profileButton.setContentAreaFilled(false);
         profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
+        profileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileButtonActionPerformed(evt);
+            }
+        });
 
         cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/cart.png"))); // NOI18N
         cartButton.setContentAreaFilled(false);
@@ -182,6 +189,8 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
         MainpagePanel.add(cartCard1, "cartCard");
         MainpagePanel.add(buyCard1, "buyCard");
         MainpagePanel.add(itemCard2, "meatCard");
+        MainpagePanel.add(profileCard1, "profileCard");
+        MainpagePanel.add(profileChangeCard1, "profileChangeCard");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -232,7 +241,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 692, Short.MAX_VALUE)
         );
 
         pack();
@@ -258,6 +267,10 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
             previousCard();
         }
     }//GEN-LAST:event_cartButtonActionPerformed
+
+    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
+        switchCard("profileCard");
+    }//GEN-LAST:event_profileButtonActionPerformed
     
     private void previousCard(){
         if(previousCards.size() > 1){
@@ -335,6 +348,10 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
                     this.setVisible(false);
                 }
                 break;
+            case("profileChangeCard"):
+                    switchCard("profileChangeCard");
+                    break;
+                
         }
     }
     private void createHistory(){
@@ -381,6 +398,8 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
     private cards.ListCard listCard1;
     private cards.OffersCard offersCard1;
     private javax.swing.JButton profileButton;
+    private cards.ProfileCard profileCard1;
+    private cards.ProfileChangeCard profileChangeCard1;
     private cards.RecipeCard recipeCard1;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton searchButton;

@@ -148,6 +148,9 @@
               <Image iconType="3" name="/imat/images/profile-icon2.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profileButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cartButton">
           <Properties>
@@ -288,6 +291,20 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                   <CardConstraints cardName="meatCard"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="cards.ProfileCard" name="profileCard1">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="profileCard"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="cards.ProfileChangeCard" name="profileChangeCard1">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="profileChangeCard"/>
                 </Constraint>
               </Constraints>
             </Component>
