@@ -50,14 +50,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane2" pref="775" max="32767" attributes="0"/>
+          <Component id="jScrollPane2" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jScrollPane2" alignment="0" pref="530" max="32767" attributes="0"/>
-
-
       </Group>
     </DimensionLayout>
   </Layout>
@@ -80,90 +78,46 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="itemPanel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemPanel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemPanel20" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemPanel21" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemPanel22" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="itemPanel17" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="itemPanel14" max="32767" attributes="0"/>
-                              <Component id="itemPanel12" max="32767" attributes="0"/>
-                              <Component id="itemPanel15" alignment="0" max="32767" attributes="0"/>
-                              <Component id="itemPanel16" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="sizePanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="756" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="itemPanel18" pref="150" max="32767" attributes="0"/>
-                          <Component id="itemPanel12" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="itemPanel19" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="itemPanel14" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="itemPanel15" pref="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="itemPanel20" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="itemPanel16" pref="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="itemPanel21" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="itemPanel17" pref="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="itemPanel22" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="624" max="-2" attributes="0"/>
+                      <Component id="sizePanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="1194" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="panels.ItemPanel" name="itemPanel18">
-            </Component>
-            <Component class="panels.ItemPanel" name="itemPanel19">
-            </Component>
-            <Component class="panels.ItemPanel" name="itemPanel20">
-            </Component>
-            <Component class="panels.ItemPanel" name="itemPanel21">
-            </Component>
-            <Component class="panels.ItemPanel" name="itemPanel22">
-            </Component>
-            <Component class="panels.ItemPanel" name="itemPanel12">
-            </Component>
-            <Component class="panels.ItemPanel" name="itemPanel14">
-            </Component>
-            <Component class="panels.ItemPanel" name="itemPanel15">
-            </Component>
-            <Component class="panels.ItemPanel" name="itemPanel16">
-            </Component>
-            <Component class="panels.ItemPanel" name="itemPanel17">
-            </Component>
+            <Container class="javax.swing.JPanel" name="sizePanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="gridPanel" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="gridPanel" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="gridPanel">
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                    <Property name="columns" type="int" value="2"/>
+                    <Property name="rows" type="int" value="0"/>
+                  </Layout>
+                </Container>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>

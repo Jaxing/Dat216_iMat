@@ -20,6 +20,7 @@ import customBackend.EventHandler;
 import customBackend.Profile;
 import java.util.ArrayList;
 import java.util.List;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -36,6 +37,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
     private static EventHandler observer = EventHandler.getInstance();
     private Profile profile = Profile.getInstance();
     CardLayout mainCardlayout;
+    private IMatDataHandler handler = IMatDataHandler.getInstance();
     /**
      * Creates new form IMatFrame
      */
@@ -74,6 +76,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
         searchCard1 = new cards.SearchCard();
         cartCard1 = new cards.CartCard();
         buyCard1 = new cards.BuyCard();
+        itemCard2 = new cards.ItemCard();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -170,6 +173,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
         MainpagePanel.add(searchCard1, "searchCard");
         MainpagePanel.add(cartCard1, "cartCard");
         MainpagePanel.add(buyCard1, "buyCard");
+        MainpagePanel.add(itemCard2, "meatCard");
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
@@ -220,7 +224,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 692, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
         );
 
         pack();
@@ -302,6 +306,8 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
         switch(listSelected){
             case("Hem"): switchCard("homeCard");
                         break;
+            case("Kött"): switchCard("meatCard");
+                        break;
             case("Erbjudande"): switchCard("offersCard");
                         break;
             case("Recept"): switchCard("recipeCard");
@@ -316,6 +322,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
                 if(profile.isLoggedIn()){
                     switchCard("buyCard");
                 }else{
+                    handler.shutDown();
                     new loginFrame().setVisible(true);
                     this.setVisible(false);
                 }
@@ -361,6 +368,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener{
     private cards.HistoryCard historyCard1;
     private cards.HomeCard homeCard2;
     private cards.ItemCard itemCard1;
+    private cards.ItemCard itemCard2;
     private javax.swing.JToggleButton jToggleButton1;
     private cards.ListCard listCard1;
     private cards.OffersCard offersCard1;
