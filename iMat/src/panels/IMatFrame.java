@@ -46,7 +46,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
     
     private static EventHandler observer = EventHandler.getInstance();
     private Profile profile = Profile.getInstance();
-    CardLayout mainCardlayout;
+    private CardLayout mainCardlayout;
     private IMatDataHandler handler = IMatDataHandler.getInstance();
     /**
      * Creates new form IMatFrame
@@ -57,7 +57,8 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         observer.setObserver(this);
         mainCardlayout = (CardLayout)MainpagePanel.getLayout();
         previousCards.add("homeCard");
-       handler.getShoppingCart().addShoppingCartListener(this);
+        handler.getShoppingCart().addShoppingCartListener(this);
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
