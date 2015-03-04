@@ -463,7 +463,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
 
     @Override
     public void shoppingCartChanged(CartEvent ce) {
-        System.out.print("HEJ");
+        
         priceLabel.setText((""+handler.getShoppingCart().getTotal()));
     }
 }
