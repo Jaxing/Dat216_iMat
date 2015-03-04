@@ -12,6 +12,10 @@ import cards.HistoryCard;
 
 import cards.GroceryListCard;
 
+
+import cards.HistoryCard;
+import cards.GroceryListCard;
+
 import customBackend.Lists;
 
 import java.awt.CardLayout;
