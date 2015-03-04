@@ -222,12 +222,21 @@ public class ItemPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addToButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToButtonActionPerformed
-        System.out.print("debugg");
+       
 
 
         ShoppingItem item = new ShoppingItem(product,(int)amountSpinner.getValue());
-
-        handler.getShoppingCart().addItem(item);
+        for(ShoppingItem i : handler.getShoppingCart().getItems()){
+            if(i.getProduct().equals(product)){
+                handler.getShoppingCart().getItems().remove(i);
+                i.setAmount(i.getAmount()+item.getAmount());
+                handler.getShoppingCart().getItems().add(i);
+                item = i;
+            }
+        }
+        if(!handler.getShoppingCart().getItems().contains(item)){
+            handler.getShoppingCart().addItem(item);
+        }
         
     }//GEN-LAST:event_addToButtonActionPerformed
 

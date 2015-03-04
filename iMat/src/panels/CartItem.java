@@ -126,6 +126,12 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         handler.getShoppingCart().removeItem(item);
         pcs.fireIndexedPropertyChange("deleted", 0, null, this);
     }
+    
+    private void increse(){
+        item.setAmount(item.getAmount()+1);
+        amountLabel.setText(item.getAmount()+"");
+        pcs.fireIndexedPropertyChange("increse", 0, null, null);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel amountLabel;
