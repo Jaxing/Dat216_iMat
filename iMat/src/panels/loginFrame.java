@@ -118,6 +118,12 @@ public class loginFrame extends javax.swing.JFrame {
         logoLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         logoLabel.setText("iMat");
 
+        loginUsernameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                loginUsernameTextFieldKeyPressed(evt);
+            }
+        });
+
         usernameLabel.setText("Användarnamn:");
 
         passwordLabel.setText("Lösenord:");
@@ -135,6 +141,12 @@ public class loginFrame extends javax.swing.JFrame {
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtonActionPerformed(evt);
+            }
+        });
+
+        loginPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                loginPasswordFieldKeyPressed(evt);
             }
         });
 
@@ -769,6 +781,14 @@ public class loginFrame extends javax.swing.JFrame {
         new IMatFrame().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void loginUsernameTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginUsernameTextFieldKeyPressed
+        checkData();
+    }//GEN-LAST:event_loginUsernameTextFieldKeyPressed
+
+    private void loginPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginPasswordFieldKeyPressed
+        checkData();
+    }//GEN-LAST:event_loginPasswordFieldKeyPressed
     
     private void printInfo(){
         
