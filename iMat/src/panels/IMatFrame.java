@@ -304,7 +304,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
     
     private void search(){
         searchCard1.setSearchList(lists.search(searchField.getText()));
-        searchCard1.setSearchLabel(searchField.getText());
+        //searchCard1.setSearchLabel(searchField.getText());
         switchCard("searchCard");
     }
     
