@@ -402,6 +402,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     // End of variables declaration//GEN-END:variables
     private DefaultListModel listModel;
     private CardLayout listLayout;
+    private List<CartItem> cl = new ArrayList();
     
     @Override
     public void shoppingCartChanged(CartEvent ce) {
@@ -409,8 +410,10 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         if(ce.isAddEvent()){
             ShoppingItem item =ce.getShoppingItem();
             Product p = item.getProduct();
+            CartItem cartItem = new CartItem(item,this);
+            cl.add(cartItem);
             productList.add(p);
-            gridPanel.add(new CartItem(item,this));
+            gridPanel.add(cartItem);
         }else{
             gridPanel.removeAll();
             List<ShoppingItem> list = handler.getShoppingCart().getItems();
