@@ -40,6 +40,7 @@ public class loginFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel18 = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
         loginPanel = new javax.swing.JPanel();
         logoLabel = new javax.swing.JLabel();
@@ -50,6 +51,7 @@ public class loginFrame extends javax.swing.JFrame {
         registerButton = new javax.swing.JButton();
         loginPasswordField = new javax.swing.JPasswordField();
         errorLabel = new javax.swing.JLabel();
+        errorLabel1 = new javax.swing.JLabel();
         registerPanel = new javax.swing.JPanel();
         newUserLabel = new javax.swing.JLabel();
         registerUsernameTextField = new javax.swing.JTextField();
@@ -109,6 +111,8 @@ public class loginFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         infoList = new javax.swing.JList();
 
+        jLabel18.setText("jLabel18");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -119,6 +123,12 @@ public class loginFrame extends javax.swing.JFrame {
 
         logoLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         logoLabel.setText("iMat");
+
+        loginUsernameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                loginUsernameTextFieldKeyPressed(evt);
+            }
+        });
 
         usernameLabel.setText("Användarnamn:");
 
@@ -710,7 +720,6 @@ public class loginFrame extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         checkData();
-        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void registerCancelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCancelButton1ActionPerformed
@@ -763,6 +772,17 @@ public class loginFrame extends javax.swing.JFrame {
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         openLoginCard();
     }//GEN-LAST:event_jLabel16MouseClicked
+
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new IMatFrame().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void loginUsernameTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginUsernameTextFieldKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+            checkData();
+    }//GEN-LAST:event_loginUsernameTextFieldKeyPressed
 
     private void loginPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginPasswordFieldKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)
@@ -879,6 +899,7 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel errorLabel;
+    private javax.swing.JLabel errorLabel1;
     private javax.swing.JComboBox expireDateDayCombobox;
     private javax.swing.JComboBox expireDateMonthComobox;
     private javax.swing.JList infoList;
@@ -891,6 +912,7 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

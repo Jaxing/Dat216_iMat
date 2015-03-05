@@ -44,7 +44,6 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         listPanel.setVisible(false);
         lists = Lists.getInstance();
         listModel = new DefaultListModel();
-
     }
 
     /**
@@ -74,10 +73,11 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         nameTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         listView = new javax.swing.JList();
-        jButton2 = new javax.swing.JButton();
+        addGroceryButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setFocusCycleRoot(true);
 
         closeLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -212,10 +212,10 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
 
         jScrollPane1.setViewportView(listView);
 
-        jButton2.setText("Lägg till");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        addGroceryButton.setText("Lägg till");
+        addGroceryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                addGroceryButtonActionPerformed(evt);
             }
         });
 
@@ -227,7 +227,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
             .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(addGroceryButton)
                 .addContainerGap())
         );
         listPanelLayout.setVerticalGroup(
@@ -237,7 +237,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(addGroceryButton)
                 .addGap(7, 7, 7))
         );
 
@@ -258,16 +258,17 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(listPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1)
-                            .addComponent(priceLabel)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(priceLabel))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(grocerylistBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(clearButton))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -275,7 +276,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
             .addGroup(layout.createSequentialGroup()
                 .addComponent(closeLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(grocerylistBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -301,13 +302,18 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         changeList();
     }//GEN-LAST:event_grocerylistBoxItemStateChanged
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String name = nameTextField.getText();
-        createGroceryList();
-        addToSideMenu(name);
-        addToComboBox(name);
-        grocerylistBox.setSelectedItem(name);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void addGroceryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGroceryButtonActionPerformed
+        if(grocerylistBox.getSelectedItem().equals("Ny inköpslista")){
+            String name = nameTextField.getText();
+            createGroceryList();
+            addToSideMenu(name);
+            addToComboBox(name);
+            grocerylistBox.setSelectedItem(name);
+        } else{
+            incrementGroceryList();
+        }
+        
+    }//GEN-LAST:event_addGroceryButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         handler.getShoppingCart().clear();
@@ -345,6 +351,16 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         observer.getObserver().addToSideMenu(name);
     }
     
+    private void incrementGroceryList(){
+            List<Product> oldList = lists.getList((String)grocerylistBox.getSelectedItem());
+            List<ShoppingItem> items = handler.getShoppingCart().getItems();
+            System.out.println("Hej");
+            for(ShoppingItem item: items){
+                oldList.add(item.getProduct());
+            }
+            changeList();
+    }
+    
     private void createGroceryList(){
         //List<Product> newList = lists.createNewList(nameTextField.getText());
         List<Product> newList = new ArrayList();
@@ -379,6 +395,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     
     private List<Product> productList = new ArrayList();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addGroceryButton;
     private javax.swing.JPanel cardPanel;
     private javax.swing.JButton clearButton;
     private javax.swing.JLabel closeLabel;
@@ -386,7 +403,6 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     private javax.swing.JPanel gridPanel;
     private javax.swing.JComboBox grocerylistBox;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
@@ -402,6 +418,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     // End of variables declaration//GEN-END:variables
     private DefaultListModel listModel;
     private CardLayout listLayout;
+    private List<CartItem> cl = new ArrayList();
     
     @Override
     public void shoppingCartChanged(CartEvent ce) {
@@ -409,17 +426,18 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         if(ce.isAddEvent()){
             ShoppingItem item =ce.getShoppingItem();
             Product p = item.getProduct();
-            if(!productList.contains(p)){
-                productList.add(p);
-                gridPanel.add(new CartItem(item,this));
-            }
+            CartItem cartItem = new CartItem(item,this);
+            cl.add(cartItem);
+            productList.add(p);
+            gridPanel.add(cartItem);
+
         }else{
             gridPanel.removeAll();
-            productList.removeAll(productList);
+            //productList.removeAll(productList);
             List<ShoppingItem> list = handler.getShoppingCart().getItems();
             for(ShoppingItem item : list){
                 gridPanel.add(new CartItem(item,this));
-                productList.add(item.getProduct());
+                //productList.add(item.getProduct());
             }
         }
         setPrice();
@@ -429,9 +447,9 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         Object src = evt.getSource();
-        if(evt.getPropertyName().equals("delete")){
+        //if(evt.getPropertyName().equals("delete")){
             gridPanel.remove((Component)src);
-        }
+        //}
         setPrice();
         this.repaint();
         

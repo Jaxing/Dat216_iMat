@@ -72,12 +72,16 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="profileButton" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+
+                          <EmptySpace max="-2" attributes="0"/>
+
                           <Component id="cartButton" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="priceLabel" min="-2" pref="51" max="-2" attributes="0"/>
+
+                          <Component id="priceLabel" min="-2" pref="50" max="-2" attributes="0"/>
+
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -88,24 +92,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cartButton" alignment="1" max="32767" attributes="0"/>
-                          <Component id="profileButton" alignment="1" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="searchField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="searchButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="searchField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="searchButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="returnButton" min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="priceLabel" min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="2" attributes="0">
+                              <Component id="jLabel2" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="priceLabel" alignment="2" min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="cartButton" alignment="2" max="32767" attributes="0"/>
+                              <Component id="profileButton" alignment="2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="MainpagePanel" min="-2" pref="642" max="-2" attributes="0"/>
                       <Component id="sideMenuPanel1" max="32767" attributes="0"/>
