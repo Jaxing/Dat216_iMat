@@ -139,7 +139,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
             }
         });
 
-        cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/cart.png"))); // NOI18N
+        cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/newCart.png"))); // NOI18N
         cartButton.setContentAreaFilled(false);
         cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cartButton.addActionListener(new java.awt.event.ActionListener() {
@@ -230,21 +230,18 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
                     .addGroup(backgroundPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-
                         .addContainerGap())))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
                     .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(searchButton))
@@ -257,7 +254,6 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
                             .addComponent(cartButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(profileButton))))
                 .addGap(21, 21, 21)
-
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -510,7 +506,20 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
     public void shoppingCartChanged(CartEvent ce) {
         
         priceLabel.setText((""+handler.getShoppingCart().getTotal()));
+        
+        if (ce.isAddEvent()) {
+                    new Thread(
+            new Runnable() {
+                public void run() {
+                    try {
+                        cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/addedCart.png")));
+                        Thread.sleep(200);
+                        cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/newCart.png")));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
     }
-
-    
 }
