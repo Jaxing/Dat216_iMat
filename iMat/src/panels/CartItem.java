@@ -155,7 +155,6 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
             if(ce.getShoppingItem().equals(item))
                 delete();
         }else {
-            
             amountLabel.setText(ce.getShoppingItem().getAmount()+"");
         }
     }

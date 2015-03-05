@@ -427,7 +427,6 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         if(ce.isAddEvent()){
             ShoppingItem item =ce.getShoppingItem();
             Product p = item.getProduct();
-
             CartItem cartItem = new CartItem(item,this);
             cl.add(cartItem);
             productList.add(p);
