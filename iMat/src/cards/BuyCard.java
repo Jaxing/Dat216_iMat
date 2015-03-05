@@ -272,10 +272,16 @@ public class BuyCard extends javax.swing.JPanel {
     }//GEN-LAST:event_registerCancelButton1ActionPerformed
 
     private void registerAcceptButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAcceptButton1ActionPerformed
-       List<ShoppingItem> items = handler.getShoppingCart().getItems();
+       List<ShoppingItem> items = new ArrayList(handler.getShoppingCart().getItems());
+       
        Order o = new Order();
+       System.out.println(o);
        o.setItems(items);
-       handler.getOrders().add(o);
+       System.out.println(items.size());
+       System.out.println(items.isEmpty());
+       System.out.println(handler.getOrders().add(o));
+      
+      
        handler.getShoppingCart().clear();
        eventHandler.getObserver().update("Hem");
     }//GEN-LAST:event_registerAcceptButton1ActionPerformed

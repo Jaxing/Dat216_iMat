@@ -30,16 +30,17 @@ public class HistoryCard extends javax.swing.JPanel {
      */
     public HistoryCard() {
         initComponents();
-        System.out.print("HeJ");
         createPanels();
     }
 
     public void createPanels(){
         if(!handler.getOrders().isEmpty()){
-            System.out.print("Hej");
-            for(Order l : handler.getOrders()){
-                timeStampPanel newPanel = new timeStampPanel(l.getItems());
-                gridPanel.add(newPanel);
+           for(Order l : handler.getOrders()){
+               System.out.print(l);
+               if(!l.getItems().isEmpty()){
+                    timeStampPanel newPanel = new timeStampPanel(l.getItems());
+                    gridPanel.add(newPanel);
+               }
             }
         }
     }
@@ -63,9 +64,10 @@ public class HistoryCard extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Köp Historik");
 
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setAutoscrolls(true);
 
         gridPanel.setLayout(new java.awt.GridLayout(0, 1));
 
