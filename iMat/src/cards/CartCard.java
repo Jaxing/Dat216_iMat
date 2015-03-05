@@ -44,7 +44,6 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         listPanel.setVisible(false);
         lists = Lists.getInstance();
         listModel = new DefaultListModel();
-
     }
 
     /**
@@ -434,11 +433,11 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
 
         }else{
             gridPanel.removeAll();
-            productList.removeAll(productList);
+            //productList.removeAll(productList);
             List<ShoppingItem> list = handler.getShoppingCart().getItems();
             for(ShoppingItem item : list){
                 gridPanel.add(new CartItem(item,this));
-                productList.add(item.getProduct());
+                //productList.add(item.getProduct());
             }
         }
         setPrice();
@@ -448,9 +447,9 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         Object src = evt.getSource();
-        if(evt.getPropertyName().equals("delete")){
+        //if(evt.getPropertyName().equals("delete")){
             gridPanel.remove((Component)src);
-        }
+        //}
         setPrice();
         this.repaint();
         
