@@ -28,11 +28,19 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     public CartItem(ShoppingItem item, PropertyChangeListener pcl) {
         initComponents();
         this.item = item;
-        amountLabel.setText(item.getAmount()+"");
+        amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
         nameLabel.setText(item.getProduct().getName());
         pcs.addPropertyChangeListener(pcl);
     }
-
+    
+    public void setItemMarked(boolean b){
+        jCheckBox1.setSelected(b);
+    }
+    
+    public boolean isItemMarked(){
+        return jCheckBox1.isSelected();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,11 +50,16 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+
+        jLabel1 = new javax.swing.JLabel();
         amountLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         decreseButton = new javax.swing.JButton();
         increseButton = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
+
+        jLabel1.setText("X");
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -71,16 +84,26 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
             }
         });
 
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
+                .addComponent(jCheckBox1)
+                .addGap(12, 12, 12)
+                .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(increseButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(decreseButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(increseButton)
@@ -96,7 +119,8 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
                     .addComponent(decreseButton)
                     .addComponent(increseButton)
                     .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(amountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(amountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCheckBox1))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -112,9 +136,13 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
         if(item.getAmount()>1){
             item.setAmount(item.getAmount()-1);
-            amountLabel.setText(item.getAmount()+"");
+            amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
         }
     }//GEN-LAST:event_decreseButtonActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
     
     private void delete(){
         handler.getShoppingCart().removeItem(item);
@@ -122,9 +150,9 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     }
     
 
-    private void increse(){
+    public void increse(){
         item.setAmount(item.getAmount()+1);
-        amountLabel.setText(item.getAmount()+"");
+        amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
         //pcs.fireIndexedPropertyChange("increse", 0, null, null);
     }
     
@@ -138,6 +166,8 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     private javax.swing.JButton decreseButton;
     private javax.swing.JButton increseButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
 
@@ -148,7 +178,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
             if(ce.getShoppingItem().equals(item))
                 delete();
         }else {
-            amountLabel.setText(ce.getShoppingItem().getAmount()+"");
+            amountLabel.setText(ce.getShoppingItem().getAmount()+" "+ce.getShoppingItem().getProduct().getUnitSuffix());
         }
     }
 }

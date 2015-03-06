@@ -299,6 +299,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
     }//GEN-LAST:event_searchFieldKeyPressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        handler.getShoppingCart().clear();
         handler.shutDown();
     }//GEN-LAST:event_formWindowClosing
     
