@@ -36,7 +36,7 @@ public class RecipeCard extends javax.swing.JPanel{
         this.recipeNameLabel.setVisible(false);
         this.recipeServingsLabel.setVisible(false);
         this.recipeServingsSpinner.setVisible(false);
-        
+        System.out.println("Hej");
     }
     
     public void loadRecipes(){
