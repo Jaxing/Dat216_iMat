@@ -61,10 +61,13 @@
                       <Component id="addToButton" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="amountLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="favouriteButton" alignment="1" pref="0" max="32767" attributes="0"/>
-                              <Component id="amountSpinner" alignment="1" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="favouriteButton" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="amountSpinner" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -155,12 +158,14 @@
                       <Component id="jSeparator2" max="32767" attributes="0"/>
                       <Component id="nameLabel" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="miscLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="priceLabel" min="-2" pref="60" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="iconLabel" min="-2" pref="260" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="miscLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="priceLabel" min="-2" pref="81" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="iconLabel" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>

@@ -31,7 +31,6 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         amountLabel.setText(item.getAmount()+"");
         nameLabel.setText(item.getProduct().getName());
         pcs.addPropertyChangeListener(pcl);
-        handler.getShoppingCart().addShoppingCartListener(this);
     }
 
     /**
@@ -122,10 +121,16 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         pcs.fireIndexedPropertyChange("deleted", 0, null, this);
     }
     
+
     private void increse(){
         item.setAmount(item.getAmount()+1);
         amountLabel.setText(item.getAmount()+"");
-        pcs.fireIndexedPropertyChange("increse", 0, null, null);
+        //pcs.fireIndexedPropertyChange("increse", 0, null, null);
+    }
+    
+    public ShoppingItem getShoppingItem(){
+        return item;
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -138,12 +143,11 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
 
     @Override
     public void shoppingCartChanged(CartEvent ce) {
-        System.out.print(" not incresed ");
+        
         if(!ce.isAddEvent()){
             if(ce.getShoppingItem().equals(item))
                 delete();
         }else {
-            System.out.print(" incresed ");
             amountLabel.setText(ce.getShoppingItem().getAmount()+"");
         }
     }
