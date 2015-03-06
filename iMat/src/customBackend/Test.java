@@ -14,12 +14,6 @@ import se.chalmers.ait.dat215.project.ProductCategory;
  */
 public class Test {
      public static void main(String args[]){
-        
-        Lists lists = Lists.getInstance();
-        List<Product> allProducts = lists.getAllProducts();
-        
-        List<Product> recommended = lists.getRecommended();
-        
-        System.out.println(allProducts.get(allProducts.size() -1).getCategory());
+        //
     }
 }
