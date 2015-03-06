@@ -100,7 +100,13 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("iMat");
         setBackground(new java.awt.Color(204, 204, 255));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         backgroundPanel.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -304,6 +310,10 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
             search();
 
     }//GEN-LAST:event_searchFieldKeyPressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        handler.shutDown();
+    }//GEN-LAST:event_formWindowClosing
     
     private void search(){
         searchCard1.setSearchList(lists.search(searchField.getText()));
