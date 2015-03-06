@@ -101,19 +101,19 @@
             <Property name="rows" type="int" value="7"/>
           </Layout>
           <SubComponents>
-            <Component class="panels.RecipeItemPanel" name="recipeItemPanel7">
+            <Component class="panels.RecipeItem" name="recipeItem1">
             </Component>
-            <Component class="panels.RecipeItemPanel" name="recipeItemPanel6">
+            <Component class="panels.RecipeItem" name="recipeItem7">
             </Component>
-            <Component class="panels.RecipeItemPanel" name="recipeItemPanel5">
+            <Component class="panels.RecipeItem" name="recipeItem6">
             </Component>
-            <Component class="panels.RecipeItemPanel" name="recipeItemPanel4">
+            <Component class="panels.RecipeItem" name="recipeItem5">
             </Component>
-            <Component class="panels.RecipeItemPanel" name="recipeItemPanel1">
+            <Component class="panels.RecipeItem" name="recipeItem4">
             </Component>
-            <Component class="panels.RecipeItemPanel" name="recipeItemPanel2">
+            <Component class="panels.RecipeItem" name="recipeItem2">
             </Component>
-            <Component class="panels.RecipeItemPanel" name="recipeItemPanel3">
+            <Component class="panels.RecipeItem" name="recipeItem3">
             </Component>
           </SubComponents>
         </Container>

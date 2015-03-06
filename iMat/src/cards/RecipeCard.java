@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
+import panels.RecipeItem;
 import panels.RecipeItemPanel;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -48,17 +49,17 @@ public class RecipeCard extends javax.swing.JPanel{
         
         recipeItemPanels = new ArrayList<>();
         // <editor-fold defaultstate="collapsed" desc="Add RecipeItemPanels to recipeItemPanels">
-        recipeItemPanels.add(this.recipeItemPanel1);
-        recipeItemPanels.add(this.recipeItemPanel2);
-        recipeItemPanels.add(this.recipeItemPanel3);
-        recipeItemPanels.add(this.recipeItemPanel4);
-        recipeItemPanels.add(this.recipeItemPanel5);
-        recipeItemPanels.add(this.recipeItemPanel6);
-        recipeItemPanels.add(this.recipeItemPanel7);
+        recipeItemPanels.add(this.recipeItem1);
+        recipeItemPanels.add(this.recipeItem2);
+        recipeItemPanels.add(this.recipeItem3);
+        recipeItemPanels.add(this.recipeItem4);
+        recipeItemPanels.add(this.recipeItem5);
+        recipeItemPanels.add(this.recipeItem6);
+        recipeItemPanels.add(this.recipeItem7);
         // </editor-fold>
         
         int i = 0;
-        for (RecipeItemPanel rip : recipeItemPanels) {
+        for (RecipeItem rip : recipeItemPanels) {
             rip.loadRecipe(this, recipes.get(i % recipes.size()));
             i++;
         }
@@ -102,13 +103,13 @@ public class RecipeCard extends javax.swing.JPanel{
 
         jScrollPane1 = new javax.swing.JScrollPane();
         recipeListPanel = new javax.swing.JPanel();
-        recipeItemPanel7 = new panels.RecipeItemPanel();
-        recipeItemPanel6 = new panels.RecipeItemPanel();
-        recipeItemPanel5 = new panels.RecipeItemPanel();
-        recipeItemPanel4 = new panels.RecipeItemPanel();
-        recipeItemPanel1 = new panels.RecipeItemPanel();
-        recipeItemPanel2 = new panels.RecipeItemPanel();
-        recipeItemPanel3 = new panels.RecipeItemPanel();
+        recipeItem1 = new panels.RecipeItem();
+        recipeItem7 = new panels.RecipeItem();
+        recipeItem6 = new panels.RecipeItem();
+        recipeItem5 = new panels.RecipeItem();
+        recipeItem4 = new panels.RecipeItem();
+        recipeItem2 = new panels.RecipeItem();
+        recipeItem3 = new panels.RecipeItem();
         recipeNameLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         recipeIngredientsTextArea = new javax.swing.JTextArea();
@@ -124,13 +125,13 @@ public class RecipeCard extends javax.swing.JPanel{
         recipeListPanel.setMaximumSize(new java.awt.Dimension(280, 1050));
         recipeListPanel.setMinimumSize(new java.awt.Dimension(280, 1050));
         recipeListPanel.setLayout(new java.awt.GridLayout(7, 1));
-        recipeListPanel.add(recipeItemPanel7);
-        recipeListPanel.add(recipeItemPanel6);
-        recipeListPanel.add(recipeItemPanel5);
-        recipeListPanel.add(recipeItemPanel4);
-        recipeListPanel.add(recipeItemPanel1);
-        recipeListPanel.add(recipeItemPanel2);
-        recipeListPanel.add(recipeItemPanel3);
+        recipeListPanel.add(recipeItem1);
+        recipeListPanel.add(recipeItem7);
+        recipeListPanel.add(recipeItem6);
+        recipeListPanel.add(recipeItem5);
+        recipeListPanel.add(recipeItem4);
+        recipeListPanel.add(recipeItem2);
+        recipeListPanel.add(recipeItem3);
 
         jScrollPane1.setViewportView(recipeListPanel);
 
@@ -237,19 +238,19 @@ public class RecipeCard extends javax.swing.JPanel{
     private javax.swing.JTextArea recipeDescriptionTextArea;
     private javax.swing.JLabel recipeIconLabel;
     private javax.swing.JTextArea recipeIngredientsTextArea;
-    private panels.RecipeItemPanel recipeItemPanel1;
-    private panels.RecipeItemPanel recipeItemPanel2;
-    private panels.RecipeItemPanel recipeItemPanel3;
-    private panels.RecipeItemPanel recipeItemPanel4;
-    private panels.RecipeItemPanel recipeItemPanel5;
-    private panels.RecipeItemPanel recipeItemPanel6;
-    private panels.RecipeItemPanel recipeItemPanel7;
+    private panels.RecipeItem recipeItem1;
+    private panels.RecipeItem recipeItem2;
+    private panels.RecipeItem recipeItem3;
+    private panels.RecipeItem recipeItem4;
+    private panels.RecipeItem recipeItem5;
+    private panels.RecipeItem recipeItem6;
+    private panels.RecipeItem recipeItem7;
     private javax.swing.JPanel recipeListPanel;
     private javax.swing.JLabel recipeNameLabel;
     private javax.swing.JLabel recipeServingsLabel;
     private javax.swing.JSpinner recipeServingsSpinner;
     // End of variables declaration//GEN-END:variables
-    private List<RecipeItemPanel> recipeItemPanels;
+    private List<RecipeItem> recipeItemPanels;
     private Recipe currentRecipe;
     
 }
