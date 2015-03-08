@@ -7,6 +7,7 @@ package customBackend;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 
@@ -89,12 +90,11 @@ public class Lists {
                 } catch (IndexOutOfBoundsException e){};
             }
         }
-        int i = 0;
         while(recommended.size() < 10){
-            if(!recommended.contains(allProducts.get(i))){
-                recommended.add(allProducts.get(i));
+            Random intrand = new Random();
+            if(!recommended.contains(allProducts.get(intrand.nextInt(100)))){
+                recommended.add(allProducts.get(intrand.nextInt(100)));
             }
-            i++;
         }
         return recommended;
     }
