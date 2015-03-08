@@ -14,7 +14,10 @@ import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 import se.chalmers.ait.dat215.project.Product;
@@ -43,7 +46,7 @@ public class bannerJPanel extends javax.swing.JPanel {
         initComponents();
         startBannerSlider();
         allProducts = lists.getAllProducts();
-        initBanner1(allProducts.get(32)); 
+        initBanners(); 
     }
     
     public void startBannerSlider(){
@@ -62,11 +65,26 @@ public class bannerJPanel extends javax.swing.JPanel {
         }
     };
     
-    public void initBanner1(Product p){
-        Image image = handler.getImageIcon(p).getImage();
-        Image rezized = rezize(image);
-        ImageIcon newImage = new ImageIcon(rezized);
-        backGround.setIcon(newImage);
+    public void initBanners(){
+        try{
+            Image imgBanner1 = ImageIO.read(new File("C:\\Users\\Erik\\Documents\\GitHub\\Dat216_iMat\\iMat\\src\\imat\\images\\banner1.jpg"));
+            Image rezized = rezize(imgBanner1);
+            ImageIcon newImage = new ImageIcon(rezized);
+            backGround.setIcon(newImage);
+            
+            Image imgBanner2 = ImageIO.read(new File("C:\\Users\\Erik\\Documents\\GitHub\\Dat216_iMat\\iMat\\src\\imat\\images\\banner2.jpg"));
+            Image banner2Rezized = rezize(imgBanner2);
+            ImageIcon newImageBanner2 = new ImageIcon(banner2Rezized);
+            backGround1.setIcon(newImageBanner2);
+            
+            Image imgBanner3 = ImageIO.read(new File("C:\\Users\\Erik\\Documents\\GitHub\\Dat216_iMat\\iMat\\src\\imat\\images\\banner3.jpg"));
+            Image banner3Rezized = rezize(imgBanner3);
+            ImageIcon newImageBanner3 = new ImageIcon(banner3Rezized);
+            backGround2.setIcon(newImageBanner3);
+        } catch (IOException e){
+            System.out.println("Hi");
+        }
+        
     }
     
    private Image rezize(Image image) {
@@ -104,16 +122,16 @@ public class bannerJPanel extends javax.swing.JPanel {
         showOfferPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         backGround = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        showOfferPanel2 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        showOfferPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        bannerPanel2 = new ImagePanel();
+        jPanel4 = new javax.swing.JPanel();
+        showOfferPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        backGround1 = new javax.swing.JLabel();
+        bannerPanel3 = new ImagePanel();
+        jPanel5 = new javax.swing.JPanel();
+        showOfferPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        backGround2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -199,160 +217,191 @@ public class bannerJPanel extends javax.swing.JPanel {
 
         cardLayoutPanel.add(bannerPanel1, "card2");
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel3.setPreferredSize(new java.awt.Dimension(750, 200));
+        bannerPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        bannerPanel2.setPreferredSize(new java.awt.Dimension(750, 0));
+        bannerPanel2.setLayout(new java.awt.GridBagLayout());
 
-        showOfferPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        showOfferPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        showOfferPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        showOfferPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel4.setOpaque(false);
+
+        showOfferPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        showOfferPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        showOfferPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        showOfferPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                showOfferPanelMouseEntered(evt);
+                showOfferPanel3showOfferPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                showOfferPanelMouseExited(evt);
+                showOfferPanel3showOfferPanelMouseExited(evt);
             }
         });
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel23.setText("Visa erbjudande");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("Visa erbjudande");
 
-        javax.swing.GroupLayout showOfferPanel2Layout = new javax.swing.GroupLayout(showOfferPanel2);
-        showOfferPanel2.setLayout(showOfferPanel2Layout);
-        showOfferPanel2Layout.setHorizontalGroup(
-            showOfferPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(showOfferPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        showOfferPanel2Layout.setVerticalGroup(
-            showOfferPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(showOfferPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel24.setText("Glass");
-
-        jLabel25.setText("pic here");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout showOfferPanel3Layout = new javax.swing.GroupLayout(showOfferPanel3);
+        showOfferPanel3.setLayout(showOfferPanel3Layout);
+        showOfferPanel3Layout.setHorizontalGroup(
+            showOfferPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showOfferPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(showOfferPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel24))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jLabel25)))
-                .addContainerGap(441, Short.MAX_VALUE))
+                .addComponent(jLabel5)
+                .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addComponent(jLabel25)
-                .addGap(0, 0, 0)
-                .addComponent(showOfferPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        showOfferPanel3Layout.setVerticalGroup(
+            showOfferPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showOfferPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addContainerGap())
         );
 
-        cardLayoutPanel.add(jPanel3, "card2");
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(592, Short.MAX_VALUE)
+                .addComponent(showOfferPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(143, Short.MAX_VALUE)
+                .addComponent(showOfferPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel2.setToolTipText("Scroll banners");
-        jPanel2.setPreferredSize(new java.awt.Dimension(750, 200));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 578;
+        gridBagConstraints.ipady = 112;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        bannerPanel2.add(jPanel4, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 13, 0);
+        bannerPanel2.add(backGround1, gridBagConstraints);
 
-        showOfferPanel.setBackground(new java.awt.Color(255, 255, 255));
-        showOfferPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        showOfferPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        showOfferPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        cardLayoutPanel.add(bannerPanel2, "card2");
+
+        bannerPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        bannerPanel3.setPreferredSize(new java.awt.Dimension(750, 0));
+        bannerPanel3.setLayout(new java.awt.GridBagLayout());
+
+        jPanel5.setOpaque(false);
+
+        showOfferPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        showOfferPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        showOfferPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        showOfferPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                showOfferPanelMouseEntered(evt);
+                showOfferPanel4showOfferPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                showOfferPanelMouseExited(evt);
+                showOfferPanel4showOfferPanelMouseExited(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Visa erbjudande");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Visa erbjudande");
 
-        javax.swing.GroupLayout showOfferPanelLayout = new javax.swing.GroupLayout(showOfferPanel);
-        showOfferPanel.setLayout(showOfferPanelLayout);
-        showOfferPanelLayout.setHorizontalGroup(
-            showOfferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(showOfferPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout showOfferPanel4Layout = new javax.swing.GroupLayout(showOfferPanel4);
+        showOfferPanel4.setLayout(showOfferPanel4Layout);
+        showOfferPanel4Layout.setHorizontalGroup(
+            showOfferPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showOfferPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addContainerGap())
         );
-        showOfferPanelLayout.setVerticalGroup(
-            showOfferPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(showOfferPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Bananer och pyjamasar");
-        jLabel1.setPreferredSize(null);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/grönsaker.jpg"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 306, Short.MAX_VALUE)
-                .addComponent(showOfferPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 101, Short.MAX_VALUE)
-                        .addComponent(showOfferPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        showOfferPanel4Layout.setVerticalGroup(
+            showOfferPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showOfferPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addContainerGap())
         );
 
-        cardLayoutPanel.add(jPanel2, "card2");
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(592, Short.MAX_VALUE)
+                .addComponent(showOfferPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(143, Short.MAX_VALUE)
+                .addComponent(showOfferPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 578;
+        gridBagConstraints.ipady = 112;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        bannerPanel3.add(jPanel5, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 13, 0);
+        bannerPanel3.add(backGround2, gridBagConstraints);
+
+        cardLayoutPanel.add(bannerPanel3, "card2");
 
         add(cardLayoutPanel);
     }// </editor-fold>//GEN-END:initComponents
 
     private void showOfferPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanelMouseEntered
         Color red = new Color(255,102,102);
-        showOfferPanel.setBackground(red);
+        showOfferPanel3.setBackground(red);
         showOfferPanel1.setBackground(red);
-        showOfferPanel2.setBackground(red);
+        showOfferPanel4.setBackground(red);
     }//GEN-LAST:event_showOfferPanelMouseEntered
 
     private void showOfferPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanelMouseExited
-        showOfferPanel.setBackground(Color.white);
+        showOfferPanel3.setBackground(Color.white);
         showOfferPanel1.setBackground(Color.white);
-        showOfferPanel2.setBackground(Color.white);
+        showOfferPanel4.setBackground(Color.white);
     }//GEN-LAST:event_showOfferPanelMouseExited
+
+    private void showOfferPanel3showOfferPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel3showOfferPanelMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showOfferPanel3showOfferPanelMouseEntered
+
+    private void showOfferPanel3showOfferPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel3showOfferPanelMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showOfferPanel3showOfferPanelMouseExited
+
+    private void showOfferPanel4showOfferPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel4showOfferPanelMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showOfferPanel4showOfferPanelMouseEntered
+
+    private void showOfferPanel4showOfferPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel4showOfferPanelMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showOfferPanel4showOfferPanelMouseExited
     
     public int getBannerValue(){
         return bannerValue;
@@ -363,21 +412,21 @@ public class bannerJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backGround;
+    private javax.swing.JLabel backGround1;
+    private javax.swing.JLabel backGround2;
     private javax.swing.JPanel bannerPanel1;
+    private javax.swing.JPanel bannerPanel2;
+    private javax.swing.JPanel bannerPanel3;
     private javax.swing.JPanel cardLayoutPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel showOfferPanel;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel showOfferPanel1;
-    private javax.swing.JPanel showOfferPanel2;
+    private javax.swing.JPanel showOfferPanel3;
+    private javax.swing.JPanel showOfferPanel4;
     // End of variables declaration//GEN-END:variables
     int bannerValue;
     Timer timer;
