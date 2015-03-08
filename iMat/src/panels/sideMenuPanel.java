@@ -109,7 +109,7 @@ public class sideMenuPanel extends javax.swing.JPanel {
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Recept");
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Erbjudande");
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Rekommenderade");
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Favoritprodukter");
         treeNode1.add(treeNode2);
@@ -144,10 +144,14 @@ public class sideMenuPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuTreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuTreeMouseClicked
-    
+        openCard();
     }//GEN-LAST:event_MenuTreeMouseClicked
 
     private void MenuTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_MenuTreeValueChanged
+        openCard();
+    }//GEN-LAST:event_MenuTreeValueChanged
+    
+    private void openCard(){
         //Returns the last path element of the selection.
         //This method is useful only when the selection model allows a single selection.
         node = (DefaultMutableTreeNode) MenuTree.getLastSelectedPathComponent();
@@ -158,8 +162,8 @@ public class sideMenuPanel extends javax.swing.JPanel {
 
         Object nodeInfo = node.getUserObject();
         
-        if(nodeInfo.toString().equals("Varor") || nodeInfo.toString().equals("Recept")){
-            TreePath path = evt.getPath();
+        if(nodeInfo.toString().equals("Kategorier") || nodeInfo.toString().equals("Mina inköpslistor")){
+            TreePath path = MenuTree.getSelectionPath();
             if(MenuTree.isCollapsed(path)){
                 openNode(path);
             } else {
@@ -177,7 +181,8 @@ public class sideMenuPanel extends javax.swing.JPanel {
             selectedItem = nodeInfo.toString();
             notifyObserver();
         }
-    }//GEN-LAST:event_MenuTreeValueChanged
+    
+    }
     
     private void openNode(TreePath path){
         MenuTree.expandPath(path);

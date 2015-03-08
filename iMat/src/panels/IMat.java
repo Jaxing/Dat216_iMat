@@ -22,6 +22,7 @@ import cards.HistoryCard;
 import cards.GroceryListCard;
 import cards.ItemCard;
 import cards.RecipeCard;
+import cards.RecommendedCard;
 import cards.SearchCard;
 
 
@@ -88,7 +89,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         homeCard2 = new cards.HomeCard();
         historyCard1 = new cards.HistoryCard();
         listCard1 = new cards.ListCard();
-        offersCard1 = new cards.OffersCard();
         searchCard1 = new cards.SearchCard();
         cartCard1 = new cards.CartCard();
         buyCard1 = new cards.BuyCard();
@@ -191,7 +191,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         );
 
         MainpagePanel.add(listCard1, "listCard");
-        MainpagePanel.add(offersCard1, "offersCard");
         MainpagePanel.add(searchCard1, "searchCard");
         MainpagePanel.add(cartCard1, "cartCard");
         MainpagePanel.add(buyCard1, "buyCard");
@@ -363,7 +362,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         switch(listSelected){
             case("Hem"): switchCard("homeCard");
                         break;
-            case("Erbjudande"): switchCard("offersCard");
+            case("Rekommenderade"): createRecommended();
                         break;
             case("Mina inköpslistor"): switchCard("listCard");
                         break;
@@ -380,16 +379,27 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         }
     }
     
+    private void createRecommended(){
+        if(recommendedCard != null){
+                mainCardlayout.removeLayoutComponent(recommendedCard);
+                MainpagePanel.remove(recommendedCard);
+        }
+        recommendedCard = new RecommendedCard();
+        MainpagePanel.add(recommendedCard);
+        mainCardlayout.addLayoutComponent("recommendedCard", recommendedCard);
+        mainCardlayout.show(MainpagePanel, "recommendedCard");
+        previousCards.add("recommendedCard");
+    }
+    
     private void createRecipe(){
         if(recipeCard1 == null){
             recipeCard1 = new RecipeCard();
             recipeCard1.loadRecipes();
             MainpagePanel.add(recipeCard1);
             mainCardlayout.addLayoutComponent("recipeCard", recipeCard1);
-            mainCardlayout.show(MainpagePanel, "recipeCard");
-            previousCards.add("recipeCard");
         }
-        
+        mainCardlayout.show(MainpagePanel, "recipeCard");
+        previousCards.add("recipeCard");
     }
     
     private void createHistory(){
@@ -468,7 +478,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private javax.swing.JLabel jLabel2;
     private javax.swing.JToggleButton jToggleButton1;
     private cards.ListCard listCard1;
-    private cards.OffersCard offersCard1;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JButton profileButton;
     private cards.ProfileCard profileCard1;
@@ -480,7 +489,8 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
     private RecipeCard recipeCard1;
-            
+    private RecommendedCard recommendedCard;
+    
     List<String> previousCards = new ArrayList();
     FavouriteCard favouriteCard; 
     Lists lists = Lists.getInstance();
