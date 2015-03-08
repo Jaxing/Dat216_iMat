@@ -17,30 +17,22 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  *
  * @author jesper
  */
-public class CartItem extends javax.swing.JPanel implements ShoppingCartListener{
+public class GroceryItem extends javax.swing.JPanel {
 
-    private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+   
     private ShoppingItem item;
     private IMatDataHandler handler = IMatDataHandler.getInstance();
     /**
      * Creates new form cartItem
      */
-    public CartItem(ShoppingItem item, PropertyChangeListener pcl) {
+    public GroceryItem(ShoppingItem item) {
         initComponents();
         this.item = item;
-        amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
+        amountLabel.setText(item.getAmount()+"");
         nameLabel.setText(item.getProduct().getName());
-        pcs.addPropertyChangeListener(pcl);
+       
     }
-    
-    public void setItemMarked(boolean b){
-        jCheckBox1.setSelected(b);
-    }
-    
-    public boolean isItemMarked(){
-        return jCheckBox1.isSelected();
-    }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,16 +42,11 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-
-        jLabel1 = new javax.swing.JLabel();
         amountLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         decreseButton = new javax.swing.JButton();
         increseButton = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-
-        jLabel1.setText("X");
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -84,26 +71,16 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
             }
         });
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCheckBox1)
-                .addGap(12, 12, 12)
-                .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(8, 8, 8)
+                .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(increseButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                 .addComponent(decreseButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(increseButton)
@@ -119,8 +96,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
                     .addComponent(decreseButton)
                     .addComponent(increseButton)
                     .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(amountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox1))
+                    .addComponent(amountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -136,29 +112,16 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
         if(item.getAmount()>1){
             item.setAmount(item.getAmount()-1);
-            amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
-        }
+            amountLabel.setText(item.getAmount()+"");
+        } 
     }//GEN-LAST:event_decreseButtonActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
     
     private void delete(){
-        handler.getShoppingCart().removeItem(item);
-        pcs.fireIndexedPropertyChange("deleted", 0, null, this);
+        //handler.getShoppingCart().removeItem(item);
     }
     
-
-    public void increse(){
+    private void increse(){
         item.setAmount(item.getAmount()+1);
-        amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
-        //pcs.fireIndexedPropertyChange("increse", 0, null, null);
-    }
-    
-    public ShoppingItem getShoppingItem(){
-        return item;
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -166,19 +129,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     private javax.swing.JButton decreseButton;
     private javax.swing.JButton increseButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void shoppingCartChanged(CartEvent ce) {
-        
-        if(!ce.isAddEvent()){
-            if(ce.getShoppingItem().equals(item))
-                delete();
-        }else {
-            amountLabel.setText(ce.getShoppingItem().getAmount()+" "+ce.getShoppingItem().getProduct().getUnitSuffix());
-        }
-    }
 }

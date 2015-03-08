@@ -21,6 +21,7 @@ import cards.GroceryListCard;
 import cards.HistoryCard;
 import cards.GroceryListCard;
 import cards.ItemCard;
+import cards.RecipeCard;
 import cards.SearchCard;
 
 
@@ -85,7 +86,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         sideMenuPanel1 = new panels.sideMenuPanel();
         MainpagePanel = new javax.swing.JPanel();
         homeCard2 = new cards.HomeCard();
-        recipeCard1 = new cards.RecipeCard();
         historyCard1 = new cards.HistoryCard();
         listCard1 = new cards.ListCard();
         offersCard1 = new cards.OffersCard();
@@ -145,7 +145,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
             }
         });
 
-        cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/cart.png"))); // NOI18N
+        cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/newCart.png"))); // NOI18N
         cartButton.setContentAreaFilled(false);
         cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cartButton.addActionListener(new java.awt.event.ActionListener() {
@@ -165,19 +165,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
 
         homeCard2.setBackground(new java.awt.Color(204, 204, 255));
         MainpagePanel.add(homeCard2, "homeCard");
-
-        javax.swing.GroupLayout recipeCard1Layout = new javax.swing.GroupLayout(recipeCard1);
-        recipeCard1.setLayout(recipeCard1Layout);
-        recipeCard1Layout.setHorizontalGroup(
-            recipeCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 775, Short.MAX_VALUE)
-        );
-        recipeCard1Layout.setVerticalGroup(
-            recipeCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        MainpagePanel.add(recipeCard1, "recipeCard");
 
         javax.swing.GroupLayout historyCard1Layout = new javax.swing.GroupLayout(historyCard1);
         historyCard1.setLayout(historyCard1Layout);
@@ -378,8 +365,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
                         break;
             case("Erbjudande"): switchCard("offersCard");
                         break;
-            case("Recept"): switchCard("recipeCard");
-                        break;
             case("Mina inköpslistor"): switchCard("listCard");
                         break;
             case("Mina köp"): createHistory();
@@ -387,12 +372,26 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
             case("Favoritprodukter"): createFavourite();
                         break;
             case("buyCard"): switchCard("buyCard");
-                break;
-            case("profileChangeCard"):
-                    switchCard("profileChangeCard");
-                    break;
+                        break;
+            case("profileChangeCard"): switchCard("profileChangeCard");
+                        break;
+            case("Recept"): createRecipe();
+                        break;
         }
     }
+    
+    private void createRecipe(){
+        if(recipeCard1 == null){
+            recipeCard1 = new RecipeCard();
+            recipeCard1.loadRecipes();
+            MainpagePanel.add(recipeCard1);
+            mainCardlayout.addLayoutComponent("recipeCard", recipeCard1);
+            mainCardlayout.show(MainpagePanel, "recipeCard");
+            previousCards.add("recipeCard");
+        }
+        
+    }
+    
     private void createHistory(){
         if(historyCard1 != null){
             mainCardlayout.removeLayoutComponent(historyCard1);
@@ -474,14 +473,14 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private javax.swing.JButton profileButton;
     private cards.ProfileCard profileCard1;
     private cards.ProfileChangeCard profileChangeCard1;
-    private cards.RecipeCard recipeCard1;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton searchButton;
     private cards.SearchCard searchCard1;
     private javax.swing.JTextField searchField;
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
-    
+    private RecipeCard recipeCard1;
+            
     List<String> previousCards = new ArrayList();
     FavouriteCard favouriteCard; 
     Lists lists = Lists.getInstance();
@@ -517,7 +516,20 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     public void shoppingCartChanged(CartEvent ce) {
         
         priceLabel.setText((""+handler.getShoppingCart().getTotal()));
+        
+        if (ce.isAddEvent()) {
+                    new Thread(
+            new Runnable() {
+                public void run() {
+                    try {
+                        cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/addedCart.png")));
+                        Thread.sleep(200);
+                        cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/newCart.png")));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
     }
-
-    
 }
