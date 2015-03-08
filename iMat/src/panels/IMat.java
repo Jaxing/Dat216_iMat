@@ -48,7 +48,7 @@ import se.chalmers.ait.dat215.project.ShoppingCartListener;
  *
  * @author jesper
  */
-public class IMatFrame extends javax.swing.JFrame implements EventListener,ShoppingCartListener{
+public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCartListener{
     
     private static EventHandler observer = EventHandler.getInstance();
     private Profile profile = Profile.getInstance();
@@ -57,7 +57,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
     /**
      * Creates new form IMatFrame
      */
-    public IMatFrame() {
+    public IMat() {
 
         initComponents();
         observer.setObserver(this);
@@ -274,7 +274,7 @@ public class IMatFrame extends javax.swing.JFrame implements EventListener,Shopp
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 708, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
         );
 
         pack();
