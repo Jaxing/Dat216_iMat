@@ -4,7 +4,9 @@ package panels;
 
 import customBackend.Lists;
 import java.util.List;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
  *
@@ -15,6 +17,7 @@ public class tabbedPanels extends javax.swing.JPanel {
     private List<Product> recommended;
     private List<Product> newProducts;
     private static Lists lists;
+    private IMatDataHandler handler = IMatDataHandler.getInstance();
     /**
      * Creates new form tabbedPanels
      */
@@ -26,13 +29,24 @@ public class tabbedPanels extends javax.swing.JPanel {
         //List<Product> random = lists.getRecommended();
         fillSeasonPanels();
         fillNewest();
+        fillRecommended();
+    }
+    
+    private void fillRecommended(){
+        recommendedPanel1.fill(recommended.get(0));
+        recommendedPanel2.fill(recommended.get(1));
+        recommendedPanel3.fill(recommended.get(2));
+        recommendedPanel4.fill(recommended.get(3));
+        
     }
     
     private void fillSeasonPanels(){
-        seasonPanel1.fill(recommended.get(0));
-        seasonPanel2.fill(recommended.get(1));
-        seasonPanel3.fill(recommended.get(2));
-        seasonPanel4.fill(recommended.get(3));
+        ProductCategory fruit = ProductCategory.FRUIT;
+        List<Product> season = handler.getProducts(fruit);
+        seasonPanel1.fill(season.get(0));
+        seasonPanel2.fill(season.get(1));
+        seasonPanel3.fill(season.get(2));
+        seasonPanel4.fill(season.get(3));
     }
     
     private void fillNewest(){
@@ -63,10 +77,10 @@ public class tabbedPanels extends javax.swing.JPanel {
         newPanel3 = new panels.ItemPanel();
         newPanel4 = new panels.ItemPanel();
         jPanel3 = new javax.swing.JPanel();
-        itemPanel9 = new panels.ItemPanel();
-        itemPanel10 = new panels.ItemPanel();
-        itemPanel11 = new panels.ItemPanel();
-        itemPanel12 = new panels.ItemPanel();
+        recommendedPanel1 = new panels.ItemPanel();
+        recommendedPanel2 = new panels.ItemPanel();
+        recommendedPanel3 = new panels.ItemPanel();
+        recommendedPanel4 = new panels.ItemPanel();
 
         setBackground(new java.awt.Color(102, 102, 255));
 
@@ -151,24 +165,24 @@ public class tabbedPanels extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(itemPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(recommendedPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(recommendedPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(itemPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(recommendedPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(recommendedPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                    .addComponent(itemPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(recommendedPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(recommendedPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(itemPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 189, Short.MAX_VALUE)
-                    .addComponent(itemPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(recommendedPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, Short.MAX_VALUE)
+                    .addComponent(recommendedPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Rekommenderas", jPanel3);
@@ -189,10 +203,6 @@ public class tabbedPanels extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private panels.ItemPanel itemPanel10;
-    private panels.ItemPanel itemPanel11;
-    private panels.ItemPanel itemPanel12;
-    private panels.ItemPanel itemPanel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -202,6 +212,10 @@ public class tabbedPanels extends javax.swing.JPanel {
     private panels.ItemPanel newPanel2;
     private panels.ItemPanel newPanel3;
     private panels.ItemPanel newPanel4;
+    private panels.ItemPanel recommendedPanel1;
+    private panels.ItemPanel recommendedPanel2;
+    private panels.ItemPanel recommendedPanel3;
+    private panels.ItemPanel recommendedPanel4;
     private panels.ItemPanel seasonPanel1;
     private panels.ItemPanel seasonPanel2;
     private panels.ItemPanel seasonPanel3;

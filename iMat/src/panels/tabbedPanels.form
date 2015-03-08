@@ -199,13 +199,13 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="itemPanel9" max="32767" attributes="0"/>
-                          <Component id="itemPanel11" max="32767" attributes="0"/>
+                          <Component id="recommendedPanel1" max="32767" attributes="0"/>
+                          <Component id="recommendedPanel3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="itemPanel10" max="32767" attributes="0"/>
-                          <Component id="itemPanel12" max="32767" attributes="0"/>
+                          <Component id="recommendedPanel2" max="32767" attributes="0"/>
+                          <Component id="recommendedPanel4" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -215,26 +215,26 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="itemPanel9" pref="193" max="32767" attributes="0"/>
-                          <Component id="itemPanel10" max="32767" attributes="0"/>
+                          <Component id="recommendedPanel1" pref="193" max="32767" attributes="0"/>
+                          <Component id="recommendedPanel2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="itemPanel12" pref="189" max="32767" attributes="0"/>
-                          <Component id="itemPanel11" pref="0" max="32767" attributes="0"/>
+                          <Component id="recommendedPanel4" pref="189" max="32767" attributes="0"/>
+                          <Component id="recommendedPanel3" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="panels.ItemPanel" name="itemPanel9">
+            <Component class="panels.ItemPanel" name="recommendedPanel1">
             </Component>
-            <Component class="panels.ItemPanel" name="itemPanel10">
+            <Component class="panels.ItemPanel" name="recommendedPanel2">
             </Component>
-            <Component class="panels.ItemPanel" name="itemPanel11">
+            <Component class="panels.ItemPanel" name="recommendedPanel3">
             </Component>
-            <Component class="panels.ItemPanel" name="itemPanel12">
+            <Component class="panels.ItemPanel" name="recommendedPanel4">
             </Component>
           </SubComponents>
         </Container>
