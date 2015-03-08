@@ -775,7 +775,7 @@ public class loginFrame extends javax.swing.JFrame {
 
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new IMatFrame().setVisible(true);
+        new IMat().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -819,7 +819,7 @@ public class loginFrame extends javax.swing.JFrame {
     private void checkData(){
         if(loginUsernameTextField.getText().equals(profile.getUsername()) && loginPasswordField.getText().equals(profile.getPassword())){
             errorLabel.setText("Correct!");
-            new IMatFrame().setVisible(true);
+            new IMat().setVisible(true);
             this.setVisible(false);
             profile.setLoggedIn(true);
         } else {
