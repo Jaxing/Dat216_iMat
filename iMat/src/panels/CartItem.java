@@ -50,6 +50,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+
         jLabel1 = new javax.swing.JLabel();
         amountLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
@@ -60,7 +61,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
 
         jLabel1.setText("X");
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Ta bort");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +105,8 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
                 .addComponent(increseButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(decreseButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(increseButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1))
         );
