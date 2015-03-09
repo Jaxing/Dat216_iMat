@@ -48,7 +48,7 @@ public class GroceryItem extends javax.swing.JPanel {
         decreseButton = new javax.swing.JButton();
         increseButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
 
         jButton1.setText("Ta bort");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
