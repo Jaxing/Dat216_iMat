@@ -69,15 +69,15 @@ public class GroceryListCard extends javax.swing.JPanel {
         gridPanel = new javax.swing.JPanel();
         listName = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(775, 1079));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        fullPanel.setBackground(new java.awt.Color(255, 255, 255));
+        fullPanel.setBackground(new java.awt.Color(153, 153, 255));
 
-        gridPanel.setBackground(new java.awt.Color(255, 255, 255));
+        gridPanel.setBackground(new java.awt.Color(153, 153, 255));
         gridPanel.setLayout(new java.awt.GridLayout(0, 1));
 
         javax.swing.GroupLayout sizePanelLayout = new javax.swing.GroupLayout(sizePanel);
@@ -116,7 +116,7 @@ public class GroceryListCard extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(listName)

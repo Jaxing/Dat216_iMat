@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cards;
+
+
+
 
 import customBackend.*;
 
@@ -71,6 +69,8 @@ public class ProfileCard extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         registerCardPanel.setBackground(new java.awt.Color(255, 255, 255));
 

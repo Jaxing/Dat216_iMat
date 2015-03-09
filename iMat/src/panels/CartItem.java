@@ -60,7 +60,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
 
         jLabel1.setText("X");
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
 
         jButton1.setText("Ta bort");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

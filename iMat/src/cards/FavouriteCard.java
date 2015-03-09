@@ -67,14 +67,15 @@ public class FavouriteCard extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(775, 1079));
 
+        jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        mainPanel.setBackground(new java.awt.Color(102, 102, 255));
+        mainPanel.setBackground(new java.awt.Color(153, 153, 255));
 
         sizePanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        gridPanel.setBackground(new java.awt.Color(102, 102, 255));
+        gridPanel.setBackground(new java.awt.Color(153, 153, 255));
         gridPanel.setLayout(new java.awt.GridLayout(0, 2, 5, 5));
 
         javax.swing.GroupLayout sizePanelLayout = new javax.swing.GroupLayout(sizePanel);
@@ -98,7 +99,7 @@ public class FavouriteCard extends javax.swing.JPanel {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 911, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(mainPanel);

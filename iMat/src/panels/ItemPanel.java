@@ -48,6 +48,8 @@ public class ItemPanel extends javax.swing.JPanel {
         miscLabel2.setText(product.getCategory().toString());
         amountLabel.setText(product.getUnitSuffix()+":");
         this.product= product;
+        validateFavoriteIcon(product);
+        validateRolloverFavoriteIcon(product);
         
         if(handler.hasImage(product)){
             Image image = handler.getImageIcon(product).getImage();
@@ -74,6 +76,22 @@ public class ItemPanel extends javax.swing.JPanel {
 
 
         return resizedImage;
+    }
+    
+    private void validateFavoriteIcon(Product product) {
+        if (handler.isFavorite(product) == true) {
+            favouriteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/goldStar.png")));
+        }   else {
+            favouriteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/star.png")));
+        }
+    }
+    
+    private void validateRolloverFavoriteIcon(Product product) {
+        if (handler.isFavorite(product) == true) {
+            favouriteButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/star.png")));
+        }   else {
+            favouriteButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/goldStar.png")));
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,11 +134,9 @@ public class ItemPanel extends javax.swing.JPanel {
 
         amountSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
-        favouriteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/star.png"))); // NOI18N
         favouriteButton.setToolTipText("Klick för att favoritmarkera vara");
         favouriteButton.setContentAreaFilled(false);
         favouriteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        favouriteButton.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/goldStar.png"))); // NOI18N
         favouriteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 favouriteButtonActionPerformed(evt);
@@ -243,9 +259,10 @@ public class ItemPanel extends javax.swing.JPanel {
         } else {
             lists.addFavourite(product);
         }
+        
+        validateFavoriteIcon(product);
+        validateRolloverFavoriteIcon(product);        
     }//GEN-LAST:event_favouriteButtonActionPerformed
-
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToButton;
