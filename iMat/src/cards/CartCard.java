@@ -160,7 +160,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                 .addGap(7, 7, 7))
         );
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setFocusCycleRoot(true);
 
@@ -203,9 +203,9 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
             }
         });
 
-        fullPanel.setBackground(new java.awt.Color(255, 255, 255));
+        fullPanel.setBackground(new java.awt.Color(153, 153, 255));
 
-        gridPanel.setBackground(new java.awt.Color(255, 255, 255));
+        gridPanel.setBackground(new java.awt.Color(153, 153, 255));
         gridPanel.setLayout(new java.awt.GridLayout(0, 1));
 
         javax.swing.GroupLayout sizePanelLayout = new javax.swing.GroupLayout(sizePanel);
