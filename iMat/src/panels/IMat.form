@@ -270,17 +270,17 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="cards.ProfileCard" name="profileCard1">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="profileCard"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="cards.ProfileChangeCard" name="profileChangeCard1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                   <CardConstraints cardName="profileChangeCard"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="cards.ProfileCard" name="profileCard1">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="profileCard"/>
                 </Constraint>
               </Constraints>
             </Component>

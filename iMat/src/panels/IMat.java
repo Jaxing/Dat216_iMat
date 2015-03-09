@@ -92,8 +92,8 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         searchCard1 = new cards.SearchCard();
         cartCard1 = new cards.CartCard();
         buyCard1 = new cards.BuyCard();
-        profileCard1 = new cards.ProfileCard();
         profileChangeCard1 = new cards.ProfileChangeCard();
+        profileCard1 = new cards.ProfileCard();
         priceLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -194,8 +194,8 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         MainpagePanel.add(searchCard1, "searchCard");
         MainpagePanel.add(cartCard1, "cartCard");
         MainpagePanel.add(buyCard1, "buyCard");
-        MainpagePanel.add(profileCard1, "profileCard");
         MainpagePanel.add(profileChangeCard1, "profileChangeCard");
+        MainpagePanel.add(profileCard1, "profileCard");
 
         priceLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -260,7 +260,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 708, Short.MAX_VALUE)
         );
 
         pack();
@@ -287,6 +287,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     }//GEN-LAST:event_cartButtonActionPerformed
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
+        profileCard1.openCard();
         switchCard("profileCard");
     }//GEN-LAST:event_profileButtonActionPerformed
 
@@ -355,6 +356,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     }
     
     public void update(){
+        profileCard1.openCard();
         previousCard();
     }
     

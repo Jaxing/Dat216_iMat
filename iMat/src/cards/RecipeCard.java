@@ -15,7 +15,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
 import panels.RecipeItem;
-import panels.RecipeItemPanel;
+//import panels.RecipeItemPanel;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
