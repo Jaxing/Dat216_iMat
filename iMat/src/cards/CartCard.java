@@ -204,16 +204,16 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
             }
         });
 
-        fullPanel.setBackground(new java.awt.Color(153, 153, 255));
+        fullPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        gridPanel.setBackground(new java.awt.Color(153, 153, 255));
+        gridPanel.setBackground(new java.awt.Color(255, 255, 255));
         gridPanel.setLayout(new java.awt.GridLayout(0, 1));
 
         javax.swing.GroupLayout sizePanelLayout = new javax.swing.GroupLayout(sizePanel);
         sizePanel.setLayout(sizePanelLayout);
         sizePanelLayout.setHorizontalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
         );
         sizePanelLayout.setVerticalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,8 +225,8 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         fullPanelLayout.setHorizontalGroup(
             fullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fullPanelLayout.createSequentialGroup()
-                .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(sizePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         fullPanelLayout.setVerticalGroup(
             fullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,7 +356,8 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         listNameLabel.setText(name);
         listLayout.show(cardPanel, "oldList");
     }
-        
+    
+ 
     private void addToComboBox(String name){
         grocerylistBox.addItem(name);
     }
@@ -434,10 +435,10 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     private DefaultListModel listModel;
     private CardLayout listLayout;
     private List<CartItem> cl = new ArrayList();
-    
+    private int nmbrOfCartItems = 0;
     @Override
     public void shoppingCartChanged(CartEvent ce) {
-
+        
         if(ce.isAddEvent()){
             ShoppingItem item =ce.getShoppingItem();
             Product p = item.getProduct();
@@ -447,18 +448,29 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                     if(i.getShoppingItem().getProduct().equals(p)){
                         for(int k = 0 ; k < item.getAmount(); k++)
                                 i.increse();
-                        this.repaint();
+                        if(i.isDark()){
+                            this.repaint();
+                            i.setColorDark();
+                            System.out.println("Hej");
+                        } else {
+                            this.repaint();
+                        }
                         handler.getShoppingCart().removeItem(item);
                     }
                 }
             }else{
                 CartItem cartItem = new CartItem(item,this);
+                if(nmbrOfCartItems%2==0){
+                    cartItem.setColorDark();
+                }
                 cl.add(cartItem);
                 productList.add(p);
                 gridPanel.add(cartItem);
+                nmbrOfCartItems++;
             }
 
         }else{
+            nmbrOfCartItems=0;
             gridPanel.removeAll();
             productList.removeAll(productList);
             List<ShoppingItem> list = handler.getShoppingCart().getItems();

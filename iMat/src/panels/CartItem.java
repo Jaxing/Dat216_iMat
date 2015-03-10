@@ -5,6 +5,7 @@
  */
 package panels;
 
+import java.awt.Color;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import se.chalmers.ait.dat215.project.CartEvent;
@@ -41,6 +42,19 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         return jCheckBox1.isSelected();
     }
     
+    public void setColorDark(){
+        this.setBackground(Color.LIGHT_GRAY);
+    }
+    
+    public boolean isDark(){
+        if(this.getBackground().equals(Color.LIGHT_GRAY)){
+            return true;
+        }
+        
+        return false;
+    }
+   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,7 +74,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
 
         jLabel1.setText("X");
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Ta bort");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +114,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
                 .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 554, Short.MAX_VALUE)
                 .addComponent(increseButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(decreseButton)
