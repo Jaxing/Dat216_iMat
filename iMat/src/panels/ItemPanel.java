@@ -133,6 +133,7 @@ public class ItemPanel extends javax.swing.JPanel {
         amountLabel.setText("Antal:");
 
         amountSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        amountSpinner.setToolTipText("Ändra antalet varor du vill köpa");
 
         favouriteButton.setToolTipText("Klick för att favoritmarkera vara");
         favouriteButton.setContentAreaFilled(false);

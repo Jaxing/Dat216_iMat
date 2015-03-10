@@ -115,6 +115,7 @@
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="&#xc4;ndra antalet varor du vill k&#xf6;pa"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="favouriteButton">

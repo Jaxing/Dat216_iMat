@@ -128,6 +128,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imat/images/backIcon.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att g&#xe5; ett steg bak&#xe5;t"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -144,6 +145,7 @@
         <Component class="javax.swing.JButton" name="searchButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="S&#xf6;k"/>
+            <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att s&#xf6;ka"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchButtonActionPerformed"/>
@@ -154,6 +156,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imat/images/newprofileicon.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att se din profil"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Handmark&#xf6;r"/>
@@ -171,6 +174,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imat/images/newCart.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att komma till kassan"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Handmark&#xf6;r"/>
