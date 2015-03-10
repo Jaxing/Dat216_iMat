@@ -34,11 +34,11 @@ import se.chalmers.ait.dat215.project.IMatDataHandler;
  * @author Erik
  */
 public class bannerJPanel extends javax.swing.JPanel {
-    int imgWidth = 800;
-    int imgHeight = 200;
-    IMatDataHandler handler = IMatDataHandler.getInstance();
-    Lists lists = Lists.getInstance();
-    List<Product> allProducts;
+    private int imgWidth = 800;
+    private int imgHeight = 200;
+    private IMatDataHandler handler = IMatDataHandler.getInstance();
+    private Lists lists = Lists.getInstance();
+    private List<Product> allProducts;
     /**
      * Creates new form banneJpanel
      */
@@ -228,10 +228,10 @@ public class bannerJPanel extends javax.swing.JPanel {
         showOfferPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         showOfferPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                showOfferPanel3showOfferPanelMouseEntered(evt);
+                showOfferPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                showOfferPanel3showOfferPanelMouseExited(evt);
+                showOfferPanelMouseExited(evt);
             }
         });
 
@@ -305,10 +305,10 @@ public class bannerJPanel extends javax.swing.JPanel {
         showOfferPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         showOfferPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                showOfferPanel4showOfferPanelMouseEntered(evt);
+                showOfferPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                showOfferPanel4showOfferPanelMouseExited(evt);
+                showOfferPanelMouseExited(evt);
             }
         });
 
@@ -376,32 +376,16 @@ public class bannerJPanel extends javax.swing.JPanel {
 
     private void showOfferPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanelMouseEntered
         Color red = new Color(255,102,102);
-        showOfferPanel3.setBackground(red);
         showOfferPanel1.setBackground(red);
         showOfferPanel4.setBackground(red);
+        showOfferPanel3.setBackground(red);
     }//GEN-LAST:event_showOfferPanelMouseEntered
 
     private void showOfferPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanelMouseExited
-        showOfferPanel3.setBackground(Color.white);
         showOfferPanel1.setBackground(Color.white);
         showOfferPanel4.setBackground(Color.white);
+        showOfferPanel3.setBackground(Color.white);
     }//GEN-LAST:event_showOfferPanelMouseExited
-
-    private void showOfferPanel3showOfferPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel3showOfferPanelMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_showOfferPanel3showOfferPanelMouseEntered
-
-    private void showOfferPanel3showOfferPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel3showOfferPanelMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_showOfferPanel3showOfferPanelMouseExited
-
-    private void showOfferPanel4showOfferPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel4showOfferPanelMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_showOfferPanel4showOfferPanelMouseEntered
-
-    private void showOfferPanel4showOfferPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel4showOfferPanelMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_showOfferPanel4showOfferPanelMouseExited
     
     public int getBannerValue(){
         return bannerValue;
