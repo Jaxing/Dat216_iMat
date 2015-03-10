@@ -9,8 +9,10 @@ import customBackend.Lists;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
+import panels.GroceryItem;
 import panels.ItemPanel;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
@@ -18,29 +20,40 @@ import se.chalmers.ait.dat215.project.Product;
  */
 public class GroceryListCard extends javax.swing.JPanel {
     Lists lists;
-    List<Product> groceryList = null; 
+    List<ShoppingItem> groceryList = null; 
     //List<ItemPanel> itemPanels = new ArrayList();
     /**
      * Creates new form ItemCard
      */
-    public GroceryListCard(String listName) {
+    public GroceryListCard(String listName, List<ShoppingItem> theList) {
         lists = Lists.getInstance();
-        groceryList = lists.getList(listName);
+        groceryList = theList;
         initComponents();
         createPanels();
+        this.listName.setText(listName);
     }
     
     private void createPanels(){
         gridPanel.removeAll();
+        int nmbrOfItems = 0;
         if(groceryList != null){
-            for(Product p: groceryList){
-                ItemPanel panel = new ItemPanel(p);
-                panel.setSize(376, 200);
-                gridPanel.add(panel);
+            for(ShoppingItem i: groceryList){
+                GroceryItem item = new GroceryItem(i,this);
+                if(nmbrOfItems%2 == 0){
+                    item.setColorDark();
+                }
+                gridPanel.add(item);
+                nmbrOfItems++;
             } 
         }
     }
-
+    
+    public void removeFromList(ShoppingItem item, GroceryItem source){
+        if(groceryList.contains(item)){
+            groceryList.remove(item);
+            gridPanel.remove(source);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,18 +88,18 @@ public class GroceryListCard extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        fullPanel.setBackground(new java.awt.Color(153, 153, 255));
+        fullPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        gridPanel.setBackground(new java.awt.Color(153, 153, 255));
+        sizePanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        gridPanel.setBackground(new java.awt.Color(255, 255, 255));
         gridPanel.setLayout(new java.awt.GridLayout(0, 1));
 
         javax.swing.GroupLayout sizePanelLayout = new javax.swing.GroupLayout(sizePanel);
         sizePanel.setLayout(sizePanelLayout);
         sizePanelLayout.setHorizontalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sizePanelLayout.createSequentialGroup()
-                .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
         );
         sizePanelLayout.setVerticalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,8 +111,8 @@ public class GroceryListCard extends javax.swing.JPanel {
         fullPanelLayout.setHorizontalGroup(
             fullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fullPanelLayout.createSequentialGroup()
-                .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(sizePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         fullPanelLayout.setVerticalGroup(
             fullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,6 +123,7 @@ public class GroceryListCard extends javax.swing.JPanel {
 
         jScrollPane2.setViewportView(fullPanel);
 
+        listName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         listName.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -128,8 +142,7 @@ public class GroceryListCard extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(listName)
                 .addGap(25, 25, 25)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -140,9 +153,7 @@ public class GroceryListCard extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

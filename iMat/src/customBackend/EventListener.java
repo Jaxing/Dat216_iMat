@@ -5,6 +5,8 @@
  */
 package customBackend;
 
+import cards.GroceryListCard;
+
 /**
  *
  * @author Erik
@@ -16,5 +18,6 @@ public interface EventListener {
     public void update();
     public void closeCartCard();
     public void addToSideMenu(String name);
+    public void addGroceryCard(String name,GroceryListCard card);
 
 }

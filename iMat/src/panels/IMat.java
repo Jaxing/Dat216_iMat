@@ -509,10 +509,11 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
 
     @Override
     public void grocerySubNodeSelected(String selectedItem) {
-        GroceryListCard groceryListCard = new GroceryListCard(selectedItem);
+        /*GroceryListCard groceryListCard = new GroceryListCard(selectedItem);
         MainpagePanel.add(groceryListCard);
-        mainCardlayout.addLayoutComponent(groceryListCard, selectedItem);
-        switchCard(selectedItem);
+        mainCardlayout.addLayoutComponent(groceryListCard, selectedItem);*/
+        mainCardlayout.show(MainpagePanel, selectedItem);
+        previousCards.add(selectedItem);
     }   
     
     @Override
@@ -543,5 +544,13 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
                 }
             }).start();
         }
+    }
+
+    @Override
+    public void addGroceryCard(String name, GroceryListCard card) {
+        
+        MainpagePanel.add(card);
+        mainCardlayout.addLayoutComponent(name, card);
+        
     }
 }

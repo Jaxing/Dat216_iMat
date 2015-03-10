@@ -5,6 +5,8 @@
  */
 package panels;
 
+import cards.GroceryListCard;
+import java.awt.Color;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import se.chalmers.ait.dat215.project.CartEvent;
@@ -22,17 +24,30 @@ public class GroceryItem extends javax.swing.JPanel {
    
     private ShoppingItem item;
     private IMatDataHandler handler = IMatDataHandler.getInstance();
+    private GroceryListCard parent;
     /**
      * Creates new form cartItem
      */
-    public GroceryItem(ShoppingItem item) {
+    public GroceryItem(ShoppingItem item, GroceryListCard parent) {
         initComponents();
         this.item = item;
         amountLabel.setText(item.getAmount()+"");
         nameLabel.setText(item.getProduct().getName());
-       
+        this.parent = parent;
     }
-
+    
+    public void setColorDark(){
+        this.setBackground(Color.LIGHT_GRAY);
+    }
+    
+    public boolean isDark(){
+        if(this.getBackground().equals(Color.LIGHT_GRAY)){
+            return true;
+        }
+        
+        return false;
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +63,7 @@ public class GroceryItem extends javax.swing.JPanel {
         decreseButton = new javax.swing.JButton();
         increseButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(153, 153, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Ta bort");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -117,11 +132,12 @@ public class GroceryItem extends javax.swing.JPanel {
     }//GEN-LAST:event_decreseButtonActionPerformed
     
     private void delete(){
-        //handler.getShoppingCart().removeItem(item);
+        parent.removeFromList(item, this);
     }
     
     private void increse(){
         item.setAmount(item.getAmount()+1);
+        amountLabel.setText(item.getAmount()+"");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
