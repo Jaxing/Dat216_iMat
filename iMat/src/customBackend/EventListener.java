@@ -19,5 +19,5 @@ public interface EventListener {
     public void closeCartCard();
     public void addToSideMenu(String name);
     public void addGroceryCard(String name,GroceryListCard card);
-
+    public void bannerClicked(int i);
 }

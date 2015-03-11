@@ -1,6 +1,8 @@
 package panels;
 
 
+import customBackend.EventHandler;
+import customBackend.EventListener;
 import customBackend.Lists;
 import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
@@ -39,6 +41,8 @@ public class bannerJPanel extends javax.swing.JPanel {
     private IMatDataHandler handler = IMatDataHandler.getInstance();
     private Lists lists = Lists.getInstance();
     private List<Product> allProducts;
+    private EventHandler ehandler;
+    //private EventListener elistener;
     /**
      * Creates new form banneJpanel
      */
@@ -46,7 +50,9 @@ public class bannerJPanel extends javax.swing.JPanel {
         initComponents();
         startBannerSlider();
         allProducts = lists.getAllProducts();
-        initBanners(); 
+        initBanners();
+        ehandler = EventHandler.getInstance();
+        //elistener = ehandler.getObserver();
     }
     
     public void startBannerSlider(){
@@ -67,17 +73,17 @@ public class bannerJPanel extends javax.swing.JPanel {
     
     public void initBanners(){
         try{
-            Image imgBanner1 = ImageIO.read(new File("C:\\Users\\Erik\\Documents\\GitHub\\Dat216_iMat\\iMat\\src\\imat\\images\\banner1.jpg"));
+            Image imgBanner1 = ImageIO.read(getClass().getResource("/imat/images/banner1.jpg"));
             Image rezized = rezize(imgBanner1);
             ImageIcon newImage = new ImageIcon(rezized);
             backGround.setIcon(newImage);
             
-            Image imgBanner2 = ImageIO.read(new File("C:\\Users\\Erik\\Documents\\GitHub\\Dat216_iMat\\iMat\\src\\imat\\images\\banner2.jpg"));
+            Image imgBanner2 = ImageIO.read(getClass().getResource("/imat/images/banner2.jpg"));
             Image banner2Rezized = rezize(imgBanner2);
             ImageIcon newImageBanner2 = new ImageIcon(banner2Rezized);
             backGround1.setIcon(newImageBanner2);
             
-            Image imgBanner3 = ImageIO.read(new File("C:\\Users\\Erik\\Documents\\GitHub\\Dat216_iMat\\iMat\\src\\imat\\images\\banner3.jpg"));
+            Image imgBanner3 = ImageIO.read(getClass().getResource("/imat/images/banner3.jpg"));
             Image banner3Rezized = rezize(imgBanner3);
             ImageIcon newImageBanner3 = new ImageIcon(banner3Rezized);
             backGround2.setIcon(newImageBanner3);
@@ -150,6 +156,9 @@ public class bannerJPanel extends javax.swing.JPanel {
         showOfferPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         showOfferPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         showOfferPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showOfferPanel1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 showOfferPanelMouseEntered(evt);
             }
@@ -227,6 +236,9 @@ public class bannerJPanel extends javax.swing.JPanel {
         showOfferPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         showOfferPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         showOfferPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showOfferPanel3MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 showOfferPanelMouseEntered(evt);
             }
@@ -304,6 +316,9 @@ public class bannerJPanel extends javax.swing.JPanel {
         showOfferPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         showOfferPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         showOfferPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showOfferPanel4MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 showOfferPanelMouseEntered(evt);
             }
@@ -386,6 +401,18 @@ public class bannerJPanel extends javax.swing.JPanel {
         showOfferPanel4.setBackground(Color.white);
         showOfferPanel3.setBackground(Color.white);
     }//GEN-LAST:event_showOfferPanelMouseExited
+
+    private void showOfferPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel1MouseClicked
+        ehandler.getObserver().bannerClicked(1);
+    }//GEN-LAST:event_showOfferPanel1MouseClicked
+
+    private void showOfferPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel3MouseClicked
+        ehandler.getObserver().bannerClicked(2);
+    }//GEN-LAST:event_showOfferPanel3MouseClicked
+
+    private void showOfferPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showOfferPanel4MouseClicked
+        ehandler.getObserver().bannerClicked(3);
+    }//GEN-LAST:event_showOfferPanel4MouseClicked
     
     public int getBannerValue(){
         return bannerValue;

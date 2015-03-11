@@ -35,6 +35,7 @@ public class sideMenuPanel extends javax.swing.JPanel {
         MenuTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         groceryListNode = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 5);
         categoryNode = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 1);
+        openNode(MenuTree.getPathForRow(1));
     }
     
     private int index = 0;
@@ -148,13 +149,13 @@ public class sideMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_MenuTreeMouseClicked
 
     private void MenuTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_MenuTreeValueChanged
-        openCard();
+        //openCard();
     }//GEN-LAST:event_MenuTreeValueChanged
     
     private void openCard(){
         //Returns the last path element of the selection.
         //This method is useful only when the selection model allows a single selection.
-        node = (DefaultMutableTreeNode) MenuTree.getLastSelectedPathComponent();
+        node = (DefaultMutableTreeNode) MenuTree.getSelectionPath().getLastPathComponent();
 
         if (node == null)
         //Nothing is selected.  
@@ -177,7 +178,6 @@ public class sideMenuPanel extends javax.swing.JPanel {
         }
         
         if (node.isLeaf()) {
-            //bad coding level 9000
             selectedItem = nodeInfo.toString();
             notifyObserver();
         }

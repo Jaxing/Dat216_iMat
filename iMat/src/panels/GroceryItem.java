@@ -66,6 +66,7 @@ public class GroceryItem extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Ta bort");
+        jButton1.setToolTipText("Ta bort vara");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -73,6 +74,7 @@ public class GroceryItem extends javax.swing.JPanel {
         });
 
         decreseButton.setText("-");
+        decreseButton.setToolTipText("Lägg till mängd");
         decreseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decreseButtonActionPerformed(evt);
@@ -80,6 +82,7 @@ public class GroceryItem extends javax.swing.JPanel {
         });
 
         increseButton.setText("+");
+        increseButton.setToolTipText("Ta bort mängd");
         increseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 increseButtonActionPerformed(evt);
@@ -95,12 +98,13 @@ public class GroceryItem extends javax.swing.JPanel {
                 .addComponent(amountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(decreseButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(increseButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

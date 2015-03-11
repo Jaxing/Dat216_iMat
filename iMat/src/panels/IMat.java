@@ -175,7 +175,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         historyCard1.setLayout(historyCard1Layout);
         historyCard1Layout.setHorizontalGroup(
             historyCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 763, Short.MAX_VALUE)
+            .addGap(0, 825, Short.MAX_VALUE)
         );
         historyCard1Layout.setVerticalGroup(
             historyCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +188,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         listCard1.setLayout(listCard1Layout);
         listCard1Layout.setHorizontalGroup(
             listCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 763, Short.MAX_VALUE)
+            .addGap(0, 825, Short.MAX_VALUE)
         );
         listCard1Layout.setVerticalGroup(
             listCard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +236,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))
-                    .addComponent(MainpagePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 763, Short.MAX_VALUE)))
+                    .addComponent(MainpagePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,7 +269,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -296,8 +296,13 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     }//GEN-LAST:event_cartButtonActionPerformed
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
-        profileCard1.openCard();
-        switchCard("profileCard");
+        if(!previousCards.get(previousCards.size()-1).equals("profileCard")){
+            profileCard1.openCard();
+            switchCard("profileCard");
+        }else{
+            previousCard();
+        }
+        
     }//GEN-LAST:event_profileButtonActionPerformed
 
     private void searchFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyPressed
@@ -532,9 +537,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
 
     @Override
     public void grocerySubNodeSelected(String selectedItem) {
-        /*GroceryListCard groceryListCard = new GroceryListCard(selectedItem);
-        MainpagePanel.add(groceryListCard);
-        mainCardlayout.addLayoutComponent(groceryListCard, selectedItem);*/
         mainCardlayout.show(MainpagePanel, selectedItem);
         previousCards.add(selectedItem);
     }   
@@ -571,9 +573,40 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
 
     @Override
     public void addGroceryCard(String name, GroceryListCard card) {
+        if(MainpagePanel.isAncestorOf(card)){
+            MainpagePanel.remove(card);
+            MainpagePanel.add(card);
+            mainCardlayout.removeLayoutComponent(card);
+            mainCardlayout.addLayoutComponent(name, card);
+            System.out.println(card.getItems().get(0).getAmount());
+        } else {
+            MainpagePanel.add(card);
+            mainCardlayout.addLayoutComponent(name, card);
+        }
         
-        MainpagePanel.add(card);
-        mainCardlayout.addLayoutComponent(name, card);
+    }
+
+    @Override
+    public void bannerClicked(int i) {
+        ItemCard bannerCard;
+        String type;
+        switch(i){
+            case 1:
+                type = "Exotiska frukter";
+                bannerCard = new ItemCard(ProductCategory.EXOTIC_FRUIT, type);
+                break;
+            case 2:
+                type = "Fika";
+                bannerCard = new ItemCard(ProductCategory.SWEET, type);
+                break;
+            default:
+                type = "Kryddor";
+                bannerCard = new ItemCard(ProductCategory.HERB,type);
+                break;
+        }  
         
+        MainpagePanel.add(bannerCard);
+        mainCardlayout.addLayoutComponent(bannerCard, type);
+        switchCard(type);
     }
 }

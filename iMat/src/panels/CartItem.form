@@ -69,6 +69,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ta bort varan"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -77,6 +78,7 @@
     <Component class="javax.swing.JButton" name="decreseButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="-"/>
+        <Property name="toolTipText" type="java.lang.String" value="Ta bort m&#xe4;ngd"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="decreseButtonActionPerformed"/>
@@ -85,6 +87,7 @@
     <Component class="javax.swing.JButton" name="increseButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
+        <Property name="toolTipText" type="java.lang.String" value="L&#xe4;gg till m&#xe4;ngd"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="increseButtonActionPerformed"/>
