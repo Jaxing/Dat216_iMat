@@ -18,7 +18,7 @@ import se.chalmers.ait.dat215.project.*;
  *
  * @author jesper
  */
-public class CartCard extends javax.swing.JPanel implements ShoppingCartListener, PropertyChangeListener {
+public class CartCard extends javax.swing.JPanel implements ShoppingCartListener {
     
     private IMatDataHandler handler;
 
@@ -409,9 +409,10 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     }//GEN-LAST:event_grocerylistBoxActionPerformed
 
     private void jCheckBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBox1ItemStateChanged
-    for(CartItem i : cl){
+        for(CartItem i : cl){
            i.setItemMarked(jCheckBox1.isSelected());                   
-       }
+        }
+        repaint();
     }//GEN-LAST:event_jCheckBox1ItemStateChanged
 
     private void listPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listPanelMouseExited
@@ -568,7 +569,6 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     private DefaultListModel listModel;
     private CardLayout listLayout;
     private List<CartItem> cl = new ArrayList();
-    private int nmbrOfCartItems = 0;
     private List<GroceryListCard> groceryListCards = new ArrayList();
     
     @Override
@@ -580,36 +580,32 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
             double amount = item.getAmount();
             
             if(productList.contains(p)){
-                System.out.println("2");
                 for(CartItem i : cl){
                     if(i.getShoppingItem().getProduct().equals(p)){
                         for(int k = 0 ; k < amount ; k++){
                                 i.increse();
                         }
-
-                        this.repaint();
                         if(item!=i.getShoppingItem()){
-
                             handler.getShoppingCart().removeItem(item);
                         }
                     }
                 }
             }else{
-                CartItem cartItem = new CartItem(item,this);
+                CartItem cartItem = new CartItem(item);
                 cl.add(cartItem);
                 productList.add(p);
                 gridPanel.add(cartItem);
-                nmbrOfCartItems++;
+                
             }
 
         }else{
-            nmbrOfCartItems=0;
+            
             gridPanel.removeAll();
             productList.removeAll(productList);
             List<ShoppingItem> list = handler.getShoppingCart().getItems();
-            for(ShoppingItem item : list){
-                gridPanel.add(new CartItem(item,this));
-                productList.add(item.getProduct());
+            for(ShoppingItem o : list){
+                gridPanel.add(new CartItem(o));
+                productList.add(o.getProduct());
             }
             this.repaint();
         }
@@ -618,14 +614,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
 
     }
     
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-      /*Object src = evt.getSource();
-        gridPanel.remove((Component)src);
-        setPrice();
-        this.repaint();*/
-        //this.repaint(); 
-    }
+    
 }
 
     

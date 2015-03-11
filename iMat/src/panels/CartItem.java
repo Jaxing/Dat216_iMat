@@ -18,7 +18,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  *
  * @author jesper
  */
-public class CartItem extends javax.swing.JPanel implements ShoppingCartListener{
+public class CartItem extends javax.swing.JPanel{
     
     private static int nmbrOfPanels = 0;
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
@@ -28,12 +28,12 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     /**
      * Creates new form cartItem
      */
-    public CartItem(ShoppingItem item, PropertyChangeListener pcl) {
+    public CartItem(ShoppingItem item) {
         initComponents();
         this.item = item;
         amountLabel.setText(this.item.getAmount()+" "+this.item.getProduct().getUnitSuffix());
         nameLabel.setText(this.item.getProduct().getName());
-        pcs.addPropertyChangeListener(pcl);
+        //pcs.addPropertyChangeListener(pcl);
         nmbrOfPanels++;
         if(nmbrOfPanels % 2 == 0){
             setColorDark();
@@ -42,6 +42,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     
     public void setItemMarked(boolean b){
         jCheckBox1.setSelected(b);
+        System.out.println(jCheckBox1.isSelected());
     }
     
     public boolean isItemMarked(){
@@ -108,12 +109,6 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
             }
         });
 
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,7 +148,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
 
     private void increseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increseButtonActionPerformed
         increse();
-        handler.getShoppingCart().fireShoppingCartChanged(item, false);
+        handler.getShoppingCart().fireShoppingCartChanged(item, true);
     }//GEN-LAST:event_increseButtonActionPerformed
 
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
@@ -162,10 +157,6 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
             amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
         }
     }//GEN-LAST:event_decreseButtonActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
     
     private void delete(){
         handler.getShoppingCart().removeItem(item);
@@ -194,14 +185,4 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void shoppingCartChanged(CartEvent ce) {
-        
-        if(!ce.isAddEvent()){
-            if(ce.getShoppingItem().equals(item))
-                delete();
-        }else {
-            amountLabel.setText(ce.getShoppingItem().getAmount()+" "+ce.getShoppingItem().getProduct().getUnitSuffix());
-        }
-    }
 }
