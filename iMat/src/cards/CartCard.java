@@ -585,9 +585,9 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                         for(int k = 0 ; k < amount ; k++){
                                 i.increse();
                         }
-                        if(item!=i.getShoppingItem()){
+                        //if(item!=i.getShoppingItem()){
                             handler.getShoppingCart().removeItem(item);
-                        }
+                        //}
                     }
                 }
             }else{
