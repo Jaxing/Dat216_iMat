@@ -438,7 +438,8 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         int i = 0;
         for(ShoppingItem item: items){
             Product theProduct = item.getProduct();
-            listModel.add(i, (item.getAmount() +theProduct.getUnitSuffix()+ "\t" + theProduct.getName()));
+            String s = (item.getAmount() +theProduct.getUnitSuffix()+ "         " + theProduct.getName());
+            listModel.add(i, s);
             i++;
         }
         
@@ -462,12 +463,29 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     
     //Eriks kod
     private void incrementGroceryList(){
-            List<Product> oldList = lists.getList((String)grocerylistBox.getSelectedItem());
-            List<ShoppingItem> items = handler.getShoppingCart().getItems();
-            System.out.println("Hej");
-            for(ShoppingItem item: items){
-                oldList.add(item.getProduct());
+            GroceryListCard thisCard = groceryListCards.get(grocerylistBox.getSelectedIndex() - 2);
+            List<ShoppingItem> oldItems = thisCard.getItems();
+            List<ShoppingItem> newItems = handler.getShoppingCart().getItems();
+            List<ShoppingItem> newList = new ArrayList();
+            
+            for(ShoppingItem newItem: newItems){
+                boolean isAdded = false;
+                for(ShoppingItem oldItem: oldItems){
+                    if(oldItem.getProduct().equals(newItem.getProduct())){
+                        ShoppingItem item = new ShoppingItem(newItem.getProduct());
+                        item.setAmount(newItem.getAmount() + oldItem.getAmount());
+                        newList.add(item);
+                        isAdded = true;
+                    }
+                }
+                if(!isAdded){
+                    newList.add(newItem);
+                }
             }
+            thisCard.setItems(newList);
+            thisCard.update();
+            
+            observer.getObserver().addGroceryCard((String)grocerylistBox.getSelectedItem(), thisCard);
             changeList();
     }
     
