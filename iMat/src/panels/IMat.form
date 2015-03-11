@@ -83,7 +83,7 @@
                           <Component id="priceLabel" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="MainpagePanel" alignment="1" pref="825" max="32767" attributes="0"/>
+                      <Component id="MainpagePanel" alignment="1" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -279,13 +279,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                   <CardConstraints cardName="profileChangeCard"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="cards.ProfileCard" name="profileCard1">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="profileCard"/>
                 </Constraint>
               </Constraints>
             </Component>
