@@ -29,8 +29,8 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     public CartItem(ShoppingItem item, PropertyChangeListener pcl) {
         initComponents();
         this.item = item;
-        amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
-        nameLabel.setText(item.getProduct().getName());
+        amountLabel.setText(this.item.getAmount()+" "+this.item.getProduct().getUnitSuffix());
+        nameLabel.setText(this.item.getProduct().getName());
         pcs.addPropertyChangeListener(pcl);
     }
     
@@ -164,11 +164,11 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     public void increse(){
         item.setAmount(item.getAmount()+1);
         amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
-        //pcs.fireIndexedPropertyChange("increse", 0, null, null);
+        
     }
     
     public ShoppingItem getShoppingItem(){
-        return item;
+        return new ShoppingItem(item.getProduct(),item.getAmount());
 
     }
 
