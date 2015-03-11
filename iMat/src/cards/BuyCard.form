@@ -163,6 +163,7 @@
         <Component class="javax.swing.JButton" name="registerCancelButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Avbryt"/>
+            <Property name="toolTipText" type="java.lang.String" value="Avbryt k&#xf6;pet"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerCancelButton1ActionPerformed"/>
@@ -171,6 +172,7 @@
         <Component class="javax.swing.JButton" name="registerAcceptButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bekr&#xe4;fta"/>
+            <Property name="toolTipText" type="java.lang.String" value="Bekr&#xe4;fta k&#xf6;pet"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerAcceptButton1ActionPerformed"/>

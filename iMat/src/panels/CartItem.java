@@ -77,6 +77,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Ta bort");
+        jButton1.setToolTipText("Ta bort varan");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -84,6 +85,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         });
 
         decreseButton.setText("-");
+        decreseButton.setToolTipText("Ta bort mängd");
         decreseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decreseButtonActionPerformed(evt);
@@ -91,6 +93,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         });
 
         increseButton.setText("+");
+        increseButton.setToolTipText("Lägg till mängd");
         increseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 increseButtonActionPerformed(evt);

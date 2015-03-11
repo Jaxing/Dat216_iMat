@@ -196,6 +196,7 @@
         <Component class="javax.swing.JButton" name="registerCancelButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Avbryt"/>
+            <Property name="toolTipText" type="java.lang.String" value="G&#xe5; tillbaka till f&#xf6;reg&#xe5;ende"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerCancelButton1ActionPerformed"/>
@@ -204,6 +205,7 @@
         <Component class="javax.swing.JButton" name="registerAcceptButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
+            <Property name="toolTipText" type="java.lang.String" value="&#xc4;ndra profilinformationen"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerAcceptButton1ActionPerformed"/>

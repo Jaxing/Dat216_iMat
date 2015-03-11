@@ -76,6 +76,7 @@ public class ProfileCard extends javax.swing.JPanel {
         registerCardPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         registerCancelButton1.setText("Avbryt");
+        registerCancelButton1.setToolTipText("Gå tillbaka till föregående");
         registerCancelButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerCancelButton1ActionPerformed(evt);
@@ -83,6 +84,7 @@ public class ProfileCard extends javax.swing.JPanel {
         });
 
         registerAcceptButton1.setText("Ändra");
+        registerAcceptButton1.setToolTipText("Ändra profilinformationen");
         registerAcceptButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerAcceptButton1ActionPerformed(evt);
