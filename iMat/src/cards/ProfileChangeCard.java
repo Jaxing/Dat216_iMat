@@ -419,7 +419,6 @@ public class ProfileChangeCard extends javax.swing.JPanel {
         registerAcceptButton1.setText("Ändra");
         expireDateMonthComobox.setEnabled(false);
         expireDateYearCombobox.setEnabled(false);
-        eventHandler.getObserver().update();
         }
     }//GEN-LAST:event_registerAcceptButton1ActionPerformed
 
