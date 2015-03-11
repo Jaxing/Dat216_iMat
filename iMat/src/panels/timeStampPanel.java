@@ -28,13 +28,13 @@ public class timeStampPanel extends javax.swing.JPanel {
     public timeStampPanel(List<ShoppingItem> shoppingList) {
         initComponents();
         jPanel1.setVisible(false);
-        siList = new ArrayList<ShoppingItem>();
-        if(!shoppingList.isEmpty()){
+        siList = new ArrayList<ShoppingItem>(shoppingList);
+       /* if(!shoppingList.isEmpty()){
             for(ShoppingItem p : shoppingList){
-                siList.add(p);
+                siList.add(new ShoppingItem(p.getProduct(),p.getAmount()));
                 
             }
-        }
+        }*/
         for(ShoppingItem i : siList){
             totalPrice += i.getTotal();
         }
@@ -188,9 +188,11 @@ public class timeStampPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        for(ShoppingItem e : siList){
-            handler.getShoppingCart().addItem(e);
+        System.out.println("Start spinn");
+        for(ShoppingItem e : new ArrayList<ShoppingItem>(siList)){
+            handler.getShoppingCart().addItem(new ShoppingItem(e.getProduct(),e.getAmount()));
         }
+        System.out.println("End spinn");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -40,8 +40,6 @@ public class loginFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel18 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
         mainPanel = new javax.swing.JPanel();
         loginPanel = new javax.swing.JPanel();
         logoLabel = new javax.swing.JLabel();
@@ -111,10 +109,21 @@ public class loginFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        infoList = new javax.swing.JList();
-
-        jLabel18.setText("jLabel18");
+        jSeparator3 = new javax.swing.JSeparator();
+        userNameLabel = new javax.swing.JLabel();
+        emailLabel2 = new javax.swing.JLabel();
+        myUserNameLabel = new javax.swing.JLabel();
+        myEmailLabel = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        myCardNumberLabel = new javax.swing.JLabel();
+        myCardTypeLabel = new javax.swing.JLabel();
+        myCcvLabel = new javax.swing.JLabel();
+        myAddressLabel = new javax.swing.JLabel();
+        myZippCodeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -643,12 +652,21 @@ public class loginFrame extends javax.swing.JFrame {
             }
         });
 
-        infoList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Användare: ", "Email:", " ", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(infoList);
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        userNameLabel.setText("Användarnamn");
+
+        emailLabel2.setText("Email");
+
+        jLabel23.setText("Kortnummer");
+
+        jLabel24.setText("Korttyp");
+
+        jLabel25.setText("ccv");
+
+        jLabel26.setText("Leveransadress");
+
+        jLabel27.setText("Postnr.");
 
         javax.swing.GroupLayout confirmPanelLayout = new javax.swing.GroupLayout(confirmPanel);
         confirmPanel.setLayout(confirmPanelLayout);
@@ -658,22 +676,55 @@ public class loginFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(confirmPanelLayout.createSequentialGroup()
-                        .addComponent(registerCancelButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(confirmPanelLayout.createSequentialGroup()
+                                .addComponent(registerCancelButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(registerAcceptButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator4)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(confirmUserLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(confirmCardLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(confirmLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                                .addComponent(jLabel16)))
+                        .addContainerGap())
+                    .addGroup(confirmPanelLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(emailLabel2)
+                            .addComponent(userNameLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(myUserNameLabel)
+                            .addComponent(myEmailLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(registerAcceptButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator4)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(confirmUserLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(confirmCardLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(confirmLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                        .addComponent(jLabel16))
-                    .addComponent(jScrollPane2))
-                .addContainerGap())
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(confirmPanelLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel25)))
+                            .addGroup(confirmPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel26))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, confirmPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel27)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(myCardNumberLabel)
+                            .addComponent(myCardTypeLabel)
+                            .addComponent(myCcvLabel)
+                            .addComponent(myAddressLabel)
+                            .addComponent(myZippCodeLabel))
+                        .addGap(188, 188, 188))))
         );
         confirmPanelLayout.setVerticalGroup(
             confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -689,13 +740,46 @@ public class loginFrame extends javax.swing.JFrame {
                             .addComponent(confirmLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(40, 40, 40)
+                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(myCardNumberLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(myUserNameLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(emailLabel2)
+                        .addComponent(myEmailLabel))
+                    .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel25)
+                        .addComponent(myCcvLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(myAddressLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(myZippCodeLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(registerCancelButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(registerAcceptButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(confirmPanelLayout.createSequentialGroup()
+                .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(confirmPanelLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(confirmPanelLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addGroup(confirmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(myCardTypeLabel))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainPanel.add(confirmPanel, "confirmCard");
@@ -875,6 +959,13 @@ public class loginFrame extends javax.swing.JFrame {
     }
     
     private void openConfirmCard() {
+        myUserNameLabel.setText(profile.getUsername());
+        myEmailLabel.setText(profile.getEmail());
+        myCardNumberLabel.setText(profile.getCreditCard());
+        myCardTypeLabel.setText(profile.getCardType());
+        myAddressLabel.setText(profile.getAddress());
+        myZippCodeLabel.setText(profile.getPostCode());
+        myCcvLabel.setText(""+profile.getCCV());
         cardLayout.show(mainPanel, "confirmCard");
     }
     
@@ -939,12 +1030,12 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel emailConfirmLabel;
     private javax.swing.JTextField emailConfirmTextField;
     private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel emailLabel2;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel errorLabel1;
     private javax.swing.JComboBox expireDateMonthComobox;
     private javax.swing.JComboBox expireDateYearCombobox;
-    private javax.swing.JList infoList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -954,8 +1045,12 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -963,11 +1058,10 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JLabel kreditInfoUserCard;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel loginPanel;
@@ -975,6 +1069,13 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JTextField loginUsernameTextField;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel myAddressLabel;
+    private javax.swing.JLabel myCardNumberLabel;
+    private javax.swing.JLabel myCardTypeLabel;
+    private javax.swing.JLabel myCcvLabel;
+    private javax.swing.JLabel myEmailLabel;
+    private javax.swing.JLabel myUserNameLabel;
+    private javax.swing.JLabel myZippCodeLabel;
     private javax.swing.JLabel newUserLabel;
     private javax.swing.JLabel newUserLabel1;
     private javax.swing.JLabel noEmailLabel;
@@ -996,6 +1097,7 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel registerPasswordLabel;
     private javax.swing.JLabel registerUsernameLabel;
     private javax.swing.JTextField registerUsernameTextField;
+    private javax.swing.JLabel userNameLabel;
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JTextField zippCodeTextField;
     // End of variables declaration//GEN-END:variables
