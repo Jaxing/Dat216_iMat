@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import panels.GroceryItem;
 import panels.ItemPanel;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -22,7 +23,8 @@ public class GroceryListCard extends javax.swing.JPanel {
     Lists lists;
     List<ShoppingItem> groceryList = null; 
     String name;
-    //List<ItemPanel> itemPanels = new ArrayList();
+    IMatDataHandler handler = IMatDataHandler.getInstance();
+    
     /**
      * Creates new form ItemCard
      */
@@ -99,12 +101,15 @@ public class GroceryListCard extends javax.swing.JPanel {
         sizePanel = new javax.swing.JPanel();
         gridPanel = new javax.swing.JPanel();
         listName = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(775, 1079));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         fullPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -148,7 +153,7 @@ public class GroceryListCard extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(listName)
@@ -163,17 +168,39 @@ public class GroceryListCard extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jButton1.setText("Lägg i kundvagn");
+        jButton1.setToolTipText("Lägg till hela listan i kundvagnen");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        for(ShoppingItem item: groceryList){
+            handler.getShoppingCart().addItem(item);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -191,6 +218,7 @@ public class GroceryListCard extends javax.swing.JPanel {
     private panels.ItemPanel itemPanel7;
     private panels.ItemPanel itemPanel8;
     private panels.ItemPanel itemPanel9;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel listName;

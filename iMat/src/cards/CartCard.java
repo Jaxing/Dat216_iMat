@@ -568,14 +568,16 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     public void shoppingCartChanged(CartEvent ce) {
         
         if(ce.isAddEvent()){
-            ShoppingItem item =ce.getShoppingItem();
+            ShoppingItem item =new ShoppingItem(ce.getShoppingItem().getProduct(),ce.getShoppingItem().getAmount());
             Product p = item.getProduct();
+            double amount = item.getAmount();
             
             if(productList.contains(p)){
                 for(CartItem i : cl){
                     if(i.getShoppingItem().getProduct().equals(p)){
-                        for(int k = 0 ; k < item.getAmount(); k++)
+                        for(int k = 0 ; k < amount ; k++){
                                 i.increse();
+                        }
                         if(i.isDark()){
                             this.repaint();
                             i.setColorDark();
