@@ -585,12 +585,13 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                         for(int k = 0 ; k < amount ; k++){
                                 i.increse();
                         }
-                        if(!i.isDark()){
+                       /* if(!i.isDark()){
                             i.setColorDark();
                             //this.repaint();
                         } else {
                             this.repaint();
-                        }
+                        }*/
+                        this.repaint();
                         if(item!=i.getShoppingItem()){
                             handler.getShoppingCart().removeItem(item);
                         }
@@ -598,9 +599,6 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                 }
             }else{
                 CartItem cartItem = new CartItem(item,this);
-                if(nmbrOfCartItems%2==0){
-                    cartItem.setColorDark();
-                }
                 cl.add(cartItem);
                 productList.add(p);
                 gridPanel.add(cartItem);

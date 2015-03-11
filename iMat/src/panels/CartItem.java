@@ -19,7 +19,8 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * @author jesper
  */
 public class CartItem extends javax.swing.JPanel implements ShoppingCartListener{
-
+    
+    private static int nmbrOfPanels = 0;
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private ShoppingItem item;
     private IMatDataHandler handler = IMatDataHandler.getInstance();
@@ -32,6 +33,10 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         amountLabel.setText(this.item.getAmount()+" "+this.item.getProduct().getUnitSuffix());
         nameLabel.setText(this.item.getProduct().getName());
         pcs.addPropertyChangeListener(pcl);
+        nmbrOfPanels++;
+        if(nmbrOfPanels % 2 == 0){
+            setColorDark();
+        }
     }
     
     public void setItemMarked(boolean b){
