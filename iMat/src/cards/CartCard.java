@@ -371,6 +371,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     }//GEN-LAST:event_grocerylistBoxItemStateChanged
 
     private void addGroceryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGroceryButtonActionPerformed
+        //Eriks kod
         if(grocerylistBox.getSelectedItem().equals("Ny inköpslista")){
             String name = nameTextField.getText();
             //createGroceryList();
@@ -427,34 +428,39 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         listPanel.setVisible(false);
         grocerylistBox.setSelectedIndex(0);
     }
-        
-    private void viewGroceryList(String name){
+    
+    //Eriks kod
+    private void viewGroceryList(int index){
         listModel.clear();
-        List<Product> products = lists.getList(name);
+        GroceryListCard thisCard = groceryListCards.get(index-2);
+        List<ShoppingItem> items = thisCard.getItems();
         
         int i = 0;
-        for(Product prod: products){
-            listModel.add(i, prod.getName());
+        for(ShoppingItem item: items){
+            Product theProduct = item.getProduct();
+            listModel.add(i, (item.getAmount() +theProduct.getUnitSuffix()+ "\t" + theProduct.getName()));
             i++;
         }
         
         listView.setModel(listModel);
-        listNameLabel.setText(name);
+        listNameLabel.setText(thisCard.getName());
         listLayout.show(cardPanel, "oldList");
         listPanel.setVisible(true);
     }
     
- 
+    //Eriks kod
     private void addToComboBox(String name){
         grocerylistBox.addItem(name);
     }
     
+    //Eriks kod
     private void addToSideMenu(String name, GroceryListCard card){
         EventListener obs = observer.getObserver();
         obs.addToSideMenu(name);
         obs.addGroceryCard(name,card);
     }
     
+    //Eriks kod
     private void incrementGroceryList(){
             List<Product> oldList = lists.getList((String)grocerylistBox.getSelectedItem());
             List<ShoppingItem> items = handler.getShoppingCart().getItems();
@@ -465,6 +471,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
             changeList();
     }
     
+    //Eriks kod
     private void createGroceryList(){
         //List<Product> newList = lists.createNewList(nameTextField.getText());
         List<Product> newList = new ArrayList();
@@ -479,10 +486,12 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
          
     }
     
+    //Eriks kod
     private void createGroceryListCard(){
         List<ShoppingItem> items = handler.getShoppingCart().getItems();
         GroceryListCard card = new GroceryListCard(nameTextField.getText(), items);
         addToSideMenu(nameTextField.getText(),card);
+        groceryListCards.add(card);
     }
     
     private void changeList(){
@@ -497,7 +506,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         } else if(selectedItem.equals("Inköpslista")){
             listPanel.setVisible(false);
         } else{
-            //viewGroceryList(selectedItem);
+            viewGroceryList(grocerylistBox.getSelectedIndex());
         }
     }
     
@@ -535,6 +544,8 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     private CardLayout listLayout;
     private List<CartItem> cl = new ArrayList();
     private int nmbrOfCartItems = 0;
+    private List<GroceryListCard> groceryListCards = new ArrayList();
+    
     @Override
     public void shoppingCartChanged(CartEvent ce) {
         
@@ -589,8 +600,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
             gridPanel.remove((Component)src);
         //}
         setPrice();
-        this.repaint();
-        
+        this.repaint(); 
     }
     
     

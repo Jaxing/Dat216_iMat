@@ -21,6 +21,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 public class GroceryListCard extends javax.swing.JPanel {
     Lists lists;
     List<ShoppingItem> groceryList = null; 
+    String name;
     //List<ItemPanel> itemPanels = new ArrayList();
     /**
      * Creates new form ItemCard
@@ -30,7 +31,8 @@ public class GroceryListCard extends javax.swing.JPanel {
         groceryList = theList;
         initComponents();
         createPanels();
-        this.listName.setText(listName);
+        this.name = listName;
+        this.listName.setText(name);
     }
     
     private void createPanels(){
@@ -53,6 +55,14 @@ public class GroceryListCard extends javax.swing.JPanel {
             groceryList.remove(item);
             gridPanel.remove(source);
         }
+    }
+    
+    public List<ShoppingItem> getItems(){
+        return groceryList;
+    }
+    
+    public String getName(){
+        return name;
     }
     /**
      * This method is called from within the constructor to initialize the form.
