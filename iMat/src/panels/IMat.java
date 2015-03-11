@@ -56,6 +56,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private Profile profile = Profile.getInstance();
     private CardLayout mainCardlayout;
     private IMatDataHandler handler = IMatDataHandler.getInstance();
+    private boolean isBuyMode=false;
     /**
      * Creates new form IMatFrame
      */
@@ -96,6 +97,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         profileCard1 = new cards.ProfileCard();
         priceLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        buyPreformed = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -206,6 +208,8 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Pris:");
 
+        buyPreformed.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
@@ -222,6 +226,9 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
                 .addGap(10, 10, 10)
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buyPreformed)
+                        .addGap(262, 262, 262)
                         .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -236,22 +243,23 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(profileButton)
+                            .addComponent(buyPreformed))
+                        .addGap(6, 6, 6)
+                        .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchButton))
-                    .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profileButton)
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sideMenuPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(searchButton)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,7 +270,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 708, Short.MAX_VALUE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
         );
 
         pack();
@@ -364,7 +372,20 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     
     private void selectCard(String listSelected){
         switch(listSelected){
-            case("Hem"): switchCard("homeCard");
+            case("Hem"):
+                    new Thread(
+            new Runnable() {
+                public void run() {
+                    try {
+                        buyPreformed.setText("Köpet har genomfört");
+                        Thread.sleep(2000);
+                        buyPreformed.setText("");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+                    switchCard("homeCard");
                         break;
             case("Rekommenderade"): createRecommended();
                         break;
@@ -475,6 +496,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private javax.swing.JPanel MainpagePanel;
     private javax.swing.JPanel backgroundPanel;
     private cards.BuyCard buyCard1;
+    private javax.swing.JLabel buyPreformed;
     private javax.swing.JButton cartButton;
     private cards.CartCard cartCard1;
     private cards.HistoryCard historyCard1;

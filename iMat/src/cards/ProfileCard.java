@@ -30,6 +30,7 @@ public class ProfileCard extends javax.swing.JPanel {
             expireDateMonthComobox.setSelectedIndex(profile.getValideYear()-15);
             registerUsernameTextField.setText(profile.getUsername());
             zippCodeTextField.setText(profile.getPostCode());
+            addressTextField.setText(profile.getAddress());
     }
     
     /**
