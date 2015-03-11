@@ -104,7 +104,6 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="K&#xf6;p"/>
-        <Property name="toolTipText" type="java.lang.String" value="G&#xe5; vidare med k&#xf6;pet"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -121,7 +120,6 @@
             <StringItem index="1" value="Ny ink&#xf6;pslista"/>
           </StringArray>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="L&#xe4;gg till i eller skapa en ink&#xf6;pslista"/>
       </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="grocerylistBoxItemStateChanged"/>
@@ -140,7 +138,6 @@
     <Component class="javax.swing.JButton" name="clearButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ta bort markerade"/>
-        <Property name="toolTipText" type="java.lang.String" value="Ta bort de markerade produkterna"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
@@ -158,7 +155,6 @@
     <Component class="javax.swing.JCheckBox" name="jCheckBox1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Markera alla"/>
-        <Property name="toolTipText" type="java.lang.String" value="Markera alla produkter"/>
       </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCheckBox1ItemStateChanged"/>
@@ -365,7 +361,6 @@
             <Component class="javax.swing.JButton" name="addGroceryButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="L&#xe4;gg till"/>
-                <Property name="toolTipText" type="java.lang.String" value="L&#xe4;gg till varor i ink&#xf6;pslistan"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addGroceryButtonActionPerformed"/>
@@ -374,7 +369,6 @@
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="St&#xe4;ng"/>
-                <Property name="toolTipText" type="java.lang.String" value="St&#xe4;ng f&#xf6;nstret"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>

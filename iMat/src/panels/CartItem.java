@@ -18,31 +18,30 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  *
  * @author jesper
  */
-public class CartItem extends javax.swing.JPanel{
-    
-    private static int nmbrOfPanels = 0;
+public class CartItem extends javax.swing.JPanel implements ShoppingCartListener{
+
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private ShoppingItem item;
     private IMatDataHandler handler = IMatDataHandler.getInstance();
     private boolean isDark;
+    private static int nbrOfPanels=0;
     /**
      * Creates new form cartItem
      */
-    public CartItem(ShoppingItem item) {
+    public CartItem(ShoppingItem item, PropertyChangeListener pcl) {
         initComponents();
         this.item = item;
         amountLabel.setText(this.item.getAmount()+" "+this.item.getProduct().getUnitSuffix());
         nameLabel.setText(this.item.getProduct().getName());
-        //pcs.addPropertyChangeListener(pcl);
-        nmbrOfPanels++;
-        if(nmbrOfPanels % 2 == 0){
+        pcs.addPropertyChangeListener(pcl);
+        if(nbrOfPanels%2==0){
             setColorDark();
         }
+        nbrOfPanels++;
     }
     
     public void setItemMarked(boolean b){
         jCheckBox1.setSelected(b);
-        System.out.println(jCheckBox1.isSelected());
     }
     
     public boolean isItemMarked(){
@@ -86,7 +85,6 @@ public class CartItem extends javax.swing.JPanel{
         setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Ta bort");
-        jButton1.setToolTipText("Ta bort varan");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -94,7 +92,6 @@ public class CartItem extends javax.swing.JPanel{
         });
 
         decreseButton.setText("-");
-        decreseButton.setToolTipText("Ta bort mängd");
         decreseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decreseButtonActionPerformed(evt);
@@ -102,10 +99,15 @@ public class CartItem extends javax.swing.JPanel{
         });
 
         increseButton.setText("+");
-        increseButton.setToolTipText("Lägg till mängd");
         increseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 increseButtonActionPerformed(evt);
+            }
+        });
+
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
             }
         });
 
@@ -148,7 +150,7 @@ public class CartItem extends javax.swing.JPanel{
 
     private void increseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increseButtonActionPerformed
         increse();
-       // handler.getShoppingCart().fireShoppingCartChanged(item, true);
+        handler.getShoppingCart().fireShoppingCartChanged(item, false);
     }//GEN-LAST:event_increseButtonActionPerformed
 
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
@@ -157,6 +159,10 @@ public class CartItem extends javax.swing.JPanel{
             amountLabel.setText(item.getAmount()+" "+item.getProduct().getUnitSuffix());
         }
     }//GEN-LAST:event_decreseButtonActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
     
     private void delete(){
         handler.getShoppingCart().removeItem(item);
@@ -185,4 +191,14 @@ public class CartItem extends javax.swing.JPanel{
     private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
 
+    @Override
+    public void shoppingCartChanged(CartEvent ce) {
+        
+        if(!ce.isAddEvent()){
+            if(ce.getShoppingItem().equals(item))
+                delete();
+        }else {
+            amountLabel.setText(ce.getShoppingItem().getAmount()+" "+ce.getShoppingItem().getProduct().getUnitSuffix());
+        }
+    }
 }
