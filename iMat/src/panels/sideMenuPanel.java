@@ -35,6 +35,7 @@ public class sideMenuPanel extends javax.swing.JPanel {
         MenuTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         groceryListNode = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 5);
         categoryNode = (DefaultMutableTreeNode)thisModel.getChild(thisModel.getRoot(), 1);
+        openNode(MenuTree.getPathForRow(1));
     }
     
     private int index = 0;
@@ -177,7 +178,6 @@ public class sideMenuPanel extends javax.swing.JPanel {
         }
         
         if (node.isLeaf()) {
-            //bad coding level 9000
             selectedItem = nodeInfo.toString();
             notifyObserver();
         }
