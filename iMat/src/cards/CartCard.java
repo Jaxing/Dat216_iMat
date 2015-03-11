@@ -585,10 +585,9 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                         for(int k = 0 ; k < amount ; k++){
                                 i.increse();
                         }
-                        if(i.isDark()){
-                            this.repaint();
+                        if(!i.isDark()){
                             i.setColorDark();
-                            System.out.println("Hej");
+                            //this.repaint();
                         } else {
                             this.repaint();
                         }
