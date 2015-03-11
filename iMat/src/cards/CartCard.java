@@ -568,11 +568,13 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     public void shoppingCartChanged(CartEvent ce) {
         
         if(ce.isAddEvent()){
-            ShoppingItem item =new ShoppingItem(ce.getShoppingItem().getProduct(),ce.getShoppingItem().getAmount());
+
+            ShoppingItem item = new ShoppingItem(ce.getShoppingItem().getProduct(),ce.getShoppingItem().getAmount());
             Product p = item.getProduct();
             double amount = item.getAmount();
             
             if(productList.contains(p)){
+                System.out.println("2");
                 for(CartItem i : cl){
                     if(i.getShoppingItem().getProduct().equals(p)){
                         for(int k = 0 ; k < amount ; k++){
@@ -585,7 +587,9 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                         } else {
                             this.repaint();
                         }
-                        handler.getShoppingCart().removeItem(item);
+                        if(item!=i.getShoppingItem()){
+                            handler.getShoppingCart().removeItem(item);
+                        }
                     }
                 }
             }else{
