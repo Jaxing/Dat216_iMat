@@ -97,6 +97,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         });
 
         jButton1.setText("Köp");
+        jButton1.setToolTipText("Gå vidare med köpet");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -105,6 +106,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
 
         grocerylistBox.setBackground(new java.awt.Color(153, 153, 255));
         grocerylistBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inköpslista", "Ny inköpslista" }));
+        grocerylistBox.setToolTipText("Lägg till i eller skapa en inköpslista");
         grocerylistBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 grocerylistBoxItemStateChanged(evt);
@@ -121,6 +123,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         priceLabel.setText("0");
 
         clearButton.setText("Ta bort markerade");
+        clearButton.setToolTipText("Ta bort de markerade produkterna");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
@@ -132,6 +135,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         jLabel4.setText("Pris:");
 
         jCheckBox1.setText("Markera alla");
+        jCheckBox1.setToolTipText("Markera alla produkter");
         jCheckBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckBox1ItemStateChanged(evt);
@@ -203,6 +207,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         jScrollPane1.setViewportView(listView);
 
         addGroceryButton.setText("Lägg till");
+        addGroceryButton.setToolTipText("Lägg till varor i inköpslistan");
         addGroceryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addGroceryButtonActionPerformed(evt);
@@ -210,6 +215,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
         });
 
         jButton2.setText("Stäng");
+        jButton2.setToolTipText("Stäng fönstret");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -529,6 +535,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     }
     
     private void setPrice(){
+        System.out.println("pric changed");
         priceLabel.setText(Double.toString(handler.getShoppingCart().getTotal()));
     }
     
@@ -579,24 +586,18 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                     if(i.getShoppingItem().getProduct().equals(p)){
                         for(int k = 0 ; k < amount ; k++){
                                 i.increse();
+
                         }
-                        if(i.isDark()){
-                            this.repaint();
-                            i.setColorDark();
-                            System.out.println("Hej");
-                        } else {
-                            this.repaint();
-                        }
+
+                        this.repaint();
                         if(item!=i.getShoppingItem()){
+
                             handler.getShoppingCart().removeItem(item);
                         }
                     }
                 }
             }else{
                 CartItem cartItem = new CartItem(item,this);
-                if(nmbrOfCartItems%2==0){
-                    cartItem.setColorDark();
-                }
                 cl.add(cartItem);
                 productList.add(p);
                 gridPanel.add(cartItem);
@@ -612,20 +613,21 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                 gridPanel.add(new CartItem(item,this));
                 productList.add(item.getProduct());
             }
+            this.repaint();
         }
+        System.out.println("Should change price");
         setPrice();
 
     }
     
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        Object src = evt.getSource();
-        //if(evt.getPropertyName().equals("delete")){
-            gridPanel.remove((Component)src);
-        //}
+      /*Object src = evt.getSource();
+        gridPanel.remove((Component)src);
         setPrice();
-        this.repaint(); 
+        this.repaint();*/
+        //this.repaint(); 
     }
-    
-    
 }
+
+    

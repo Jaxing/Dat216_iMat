@@ -19,10 +19,12 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * @author jesper
  */
 public class CartItem extends javax.swing.JPanel implements ShoppingCartListener{
-
+    
+    private static int nmbrOfPanels = 0;
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private ShoppingItem item;
     private IMatDataHandler handler = IMatDataHandler.getInstance();
+    private boolean isDark;
     /**
      * Creates new form cartItem
      */
@@ -32,6 +34,10 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         amountLabel.setText(this.item.getAmount()+" "+this.item.getProduct().getUnitSuffix());
         nameLabel.setText(this.item.getProduct().getName());
         pcs.addPropertyChangeListener(pcl);
+        nmbrOfPanels++;
+        if(nmbrOfPanels % 2 == 0){
+            setColorDark();
+        }
     }
     
     public void setItemMarked(boolean b){
@@ -44,14 +50,16 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     
     public void setColorDark(){
         this.setBackground(Color.LIGHT_GRAY);
+        isDark=true;
     }
     
     public boolean isDark(){
-        if(this.getBackground().equals(Color.LIGHT_GRAY)){
+        /*if(this.getBackground().equals(Color.LIGHT_GRAY)){
             return true;
         }
         
-        return false;
+        return false;*/
+        return isDark;
     }
    
     
@@ -77,6 +85,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Ta bort");
+        jButton1.setToolTipText("Ta bort varan");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -84,6 +93,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         });
 
         decreseButton.setText("-");
+        decreseButton.setToolTipText("Ta bort mängd");
         decreseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decreseButtonActionPerformed(evt);
@@ -91,6 +101,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
         });
 
         increseButton.setText("+");
+        increseButton.setToolTipText("Lägg till mängd");
         increseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 increseButtonActionPerformed(evt);
@@ -142,6 +153,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
 
     private void increseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increseButtonActionPerformed
         increse();
+        handler.getShoppingCart().fireShoppingCartChanged(item, false);
     }//GEN-LAST:event_increseButtonActionPerformed
 
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
@@ -157,7 +169,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     
     private void delete(){
         handler.getShoppingCart().removeItem(item);
-        pcs.fireIndexedPropertyChange("deleted", 0, null, this);
+        //pcs.fireIndexedPropertyChange("deleted", 0, null, this);
     }
     
 

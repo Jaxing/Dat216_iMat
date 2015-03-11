@@ -818,7 +818,11 @@ public class loginFrame extends javax.swing.JFrame {
 
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        checkData();
+        if(checkData()){
+            login();
+        }else{
+            errorLabel.setText("Fel lösenord eller användarnamn");
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void registerCancelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCancelButton1ActionPerformed
@@ -847,7 +851,9 @@ public class loginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_registerAcceptButton1ActionPerformed
 
     private void confirmLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmLabelMouseClicked
-        openConfirmCard();
+        if(checkData()){
+            openConfirmCard();
+        }
     }//GEN-LAST:event_confirmLabelMouseClicked
 
     private void registerAcceptButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAcceptButton2ActionPerformed
@@ -879,12 +885,20 @@ public class loginFrame extends javax.swing.JFrame {
 
     private void loginUsernameTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginUsernameTextFieldKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-            checkData();
+            if(checkData()){
+                login();
+            }else{
+                errorLabel.setText("Fel lösenord eller användarnamn");
+            }
     }//GEN-LAST:event_loginUsernameTextFieldKeyPressed
 
     private void loginPasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginPasswordFieldKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-            checkData();
+            if(checkData()){
+                login();
+            }else{
+                errorLabel.setText("Fel lösenord eller användarnamn");
+            }
     }//GEN-LAST:event_loginPasswordFieldKeyPressed
     
     private void printInfo(){
@@ -935,17 +949,15 @@ public class loginFrame extends javax.swing.JFrame {
         isProfileValide = isUserValide&&isPasswordValide&&isEmailValide;
     }
     
-    private void checkData(){
-        if(loginUsernameTextField.getText().equals(profile.getUsername()) && loginPasswordField.getText().equals(profile.getPassword())){
-            errorLabel.setText("Correct!");
-            new IMat().setVisible(true);
-            this.setVisible(false);
-            profile.setLoggedIn(true);
-        } else {
-            errorLabel.setText("Fel lösenord eller användarnamn");
-        }
-        System.out.println(profile.getUsername());
-        System.out.println(profile.getCreditCard());
+    private boolean checkData(){
+        return loginUsernameTextField.getText().equals(profile.getUsername()) && loginPasswordField.getText().equals(profile.getPassword());
+    }
+    
+    private void login(){
+        errorLabel.setText("Correct!");
+        new IMat().setVisible(true);
+        this.setVisible(false);
+        profile.setLoggedIn(true);
     }
   
     private void openRegisterCard() {

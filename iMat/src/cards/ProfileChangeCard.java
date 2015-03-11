@@ -91,6 +91,7 @@ public class ProfileChangeCard extends javax.swing.JPanel {
         registerCardPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         registerCancelButton1.setText("Avbryt");
+        registerCancelButton1.setToolTipText("Gå tillbaka till profilen utan att ändra");
         registerCancelButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerCancelButton1ActionPerformed(evt);
@@ -98,6 +99,7 @@ public class ProfileChangeCard extends javax.swing.JPanel {
         });
 
         registerAcceptButton1.setText("Spara");
+        registerAcceptButton1.setToolTipText("Spara ändringarna");
         registerAcceptButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerAcceptButton1ActionPerformed(evt);
@@ -107,6 +109,7 @@ public class ProfileChangeCard extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Kortnummer");
 
+        cardNumberTextField.setEditable(false);
         cardNumberTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cardNumberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +117,7 @@ public class ProfileChangeCard extends javax.swing.JPanel {
             }
         });
 
+        ccvTextField.setEditable(false);
         ccvTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -126,34 +130,37 @@ public class ProfileChangeCard extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("CCV");
 
-        expireDateMonthComobox.setEditable(true);
         expireDateMonthComobox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         expireDateMonthComobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("/");
 
-        expireDateYearCombobox.setEditable(true);
         expireDateYearCombobox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         expireDateYearCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Leverans Adress");
 
+        addressTextField.setEditable(false);
         addressTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("Postnummer");
 
+        zippCodeTextField.setEditable(false);
         zippCodeTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        emailTextField.setEditable(false);
         emailTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        registerPasswordField.setEditable(false);
         registerPasswordField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         registerPasswordConfirmLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         registerPasswordConfirmLabel.setText("Lösenord igen:");
 
+        emailConfirmTextField.setEditable(false);
         emailConfirmTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         registerUsernameLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -170,8 +177,10 @@ public class ProfileChangeCard extends javax.swing.JPanel {
         emailConfirmLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         emailConfirmLabel.setText("E-mail igen:");
 
+        registerPasswordConfirmField.setEditable(false);
         registerPasswordConfirmField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        registerUsernameTextField.setEditable(false);
         registerUsernameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -212,12 +221,25 @@ public class ProfileChangeCard extends javax.swing.JPanel {
             registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerCardPanelLayout.createSequentialGroup()
+                .addGap(0, 290, Short.MAX_VALUE)
+                .addComponent(cardTypeLabel)
+                .addGap(502, 502, 502))
+            .addGroup(registerCardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(registerCardPanelLayout.createSequentialGroup()
+                        .addComponent(registerCancelButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(registerAcceptButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(registerCardPanelLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(registerCardPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel12))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, registerCardPanelLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
                         .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(registerUsernameLabel)
                             .addComponent(emailLabel)
@@ -234,18 +256,13 @@ public class ProfileChangeCard extends javax.swing.JPanel {
                             .addComponent(registerPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                         .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(registerCardPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(cardTypeLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(badMatchLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,90 +278,81 @@ public class ProfileChangeCard extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(expireDateYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(zippCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(66, 66, 66))
-            .addGroup(registerCardPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(registerCardPanelLayout.createSequentialGroup()
-                        .addComponent(registerCancelButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(registerAcceptButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerCardPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(badMatchLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(272, 272, 272))
         );
         registerCardPanelLayout.setVerticalGroup(
             registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registerCardPanelLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(25, 25, 25)
+                .addComponent(badMatchLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cardTypeLabel)
+                .addGap(35, 35, 35)
                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(registerCardPanelLayout.createSequentialGroup()
-                        .addComponent(badMatchLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(registerCardPanelLayout.createSequentialGroup()
-                        .addComponent(cardTypeLabel)
-                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(31, 31, 31)
+                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(registerCardPanelLayout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(registerCardPanelLayout.createSequentialGroup()
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                            .addComponent(registerUsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(registerUsernameLabel))
-                                        .addGap(77, 77, 77)
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                            .addComponent(registerPasswordLabel)
-                                            .addComponent(registerPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                            .addComponent(registerPasswordConfirmField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(registerPasswordConfirmLabel)))
-                                    .addGroup(registerCardPanelLayout.createSequentialGroup()
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel1)
-                                            .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(6, 6, 6)
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                            .addComponent(jLabel2)
-                                            .addComponent(cardNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel4)
-                                            .addComponent(expireDateMonthComobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel6)
-                                            .addComponent(expireDateYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(6, 6, 6)
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(ccvTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel10)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, registerCardPanelLayout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(emailLabel))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                            .addComponent(emailConfirmLabel)
-                                            .addComponent(emailConfirmTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(zippCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(154, 154, 154))
-                            .addGroup(registerCardPanelLayout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(registerUsernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(registerUsernameLabel))
+                                .addGap(77, 77, 77)
+                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(registerPasswordLabel)
+                                    .addComponent(registerPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(registerPasswordConfirmField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(registerPasswordConfirmLabel)))
+                            .addGroup(registerCardPanelLayout.createSequentialGroup()
+                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(jLabel2)
+                                    .addComponent(cardNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(registerCancelButton1)
-                                    .addComponent(registerAcceptButton1))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                    .addComponent(jLabel4)
+                                    .addComponent(expireDateMonthComobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(expireDateYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ccvTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, registerCardPanelLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emailLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(emailConfirmLabel)
+                                    .addComponent(emailConfirmTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(zippCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registerCancelButton1)
+                    .addComponent(registerAcceptButton1))
+                .addGap(0, 53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
