@@ -73,6 +73,7 @@ public class GroceryItem extends javax.swing.JPanel {
         });
 
         decreseButton.setText("-");
+        decreseButton.setToolTipText("Lägg till mängd");
         decreseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decreseButtonActionPerformed(evt);
@@ -80,6 +81,7 @@ public class GroceryItem extends javax.swing.JPanel {
         });
 
         increseButton.setText("+");
+        increseButton.setToolTipText("Ta bort mängd");
         increseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 increseButtonActionPerformed(evt);
