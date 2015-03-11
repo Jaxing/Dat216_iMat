@@ -21,6 +21,7 @@ import cards.GroceryListCard;
 import cards.HistoryCard;
 import cards.GroceryListCard;
 import cards.ItemCard;
+import cards.ReceiptCard;
 import cards.RecipeCard;
 import cards.RecommendedCard;
 import cards.SearchCard;
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ProductCategory;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
 
@@ -402,6 +404,8 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
                         break;
             case("Recept"): createRecipe();
                         break;
+            case("Kvitto"): createReceipt();
+                        break;
         }
     }
     
@@ -415,6 +419,18 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         mainCardlayout.addLayoutComponent("recommendedCard", recommendedCard);
         mainCardlayout.show(MainpagePanel, "recommendedCard");
         previousCards.add("recommendedCard");
+    }
+    
+    private void createReceipt() {
+        if(receiptCard == null){
+            receiptCard = new ReceiptCard();
+            MainpagePanel.add(receiptCard);
+            mainCardlayout.addLayoutComponent("receiptCard", receiptCard);
+        }
+        System.out.println(handler.getOrders().size());
+        receiptCard.loadOrder(handler.getOrders().get(handler.getOrders().size()-1));
+        mainCardlayout.show(MainpagePanel, "receiptCard");
+        previousCards.add("receiptCard");
     }
     
     private void createRecipe(){
@@ -515,6 +531,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
     private RecipeCard recipeCard1;
+    private ReceiptCard receiptCard;
     private RecommendedCard recommendedCard;
     
     List<String> previousCards = new ArrayList();

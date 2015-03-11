@@ -286,7 +286,8 @@ public class BuyCard extends javax.swing.JPanel {
       
       
        handler.getShoppingCart().clear();
-       eventHandler.getObserver().update("Hem");
+       eventHandler.getObserver().update("Kvitto");
+       
     }//GEN-LAST:event_registerAcceptButton1ActionPerformed
 
     private void cardNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTextFieldActionPerformed
