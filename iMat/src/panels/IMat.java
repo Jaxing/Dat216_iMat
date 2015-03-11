@@ -61,13 +61,12 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
      * Creates new form IMatFrame
      */
     public IMat() {
-
+        handler.resetFirstRun();
         initComponents();
         observer.setObserver(this);
         mainCardlayout = (CardLayout)MainpagePanel.getLayout();
         previousCards.add("homeCard");
         handler.getShoppingCart().addShoppingCartListener(this);
-        
     }
     /**
      * This method is called from within the constructor to initialize the form.

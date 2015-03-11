@@ -189,7 +189,7 @@ public class timeStampPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.out.println("Start spinn");
-        for(ShoppingItem e : siList){
+        for(ShoppingItem e : new ArrayList<ShoppingItem>(siList)){
             handler.getShoppingCart().addItem(e);
         }
         System.out.println("End spinn");
