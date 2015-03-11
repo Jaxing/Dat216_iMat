@@ -148,13 +148,13 @@ public class sideMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_MenuTreeMouseClicked
 
     private void MenuTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_MenuTreeValueChanged
-        openCard();
+        //openCard();
     }//GEN-LAST:event_MenuTreeValueChanged
     
     private void openCard(){
         //Returns the last path element of the selection.
         //This method is useful only when the selection model allows a single selection.
-        node = (DefaultMutableTreeNode) MenuTree.getLastSelectedPathComponent();
+        node = (DefaultMutableTreeNode) MenuTree.getSelectionPath().getLastPathComponent();
 
         if (node == null)
         //Nothing is selected.  
