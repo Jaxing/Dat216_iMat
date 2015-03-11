@@ -107,6 +107,7 @@ public class ProfileChangeCard extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Kortnummer");
 
+        cardNumberTextField.setEditable(false);
         cardNumberTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cardNumberTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +115,7 @@ public class ProfileChangeCard extends javax.swing.JPanel {
             }
         });
 
+        ccvTextField.setEditable(false);
         ccvTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -126,34 +128,37 @@ public class ProfileChangeCard extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("CCV");
 
-        expireDateMonthComobox.setEditable(true);
         expireDateMonthComobox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         expireDateMonthComobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("/");
 
-        expireDateYearCombobox.setEditable(true);
         expireDateYearCombobox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         expireDateYearCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Leverans Adress");
 
+        addressTextField.setEditable(false);
         addressTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("Postnummer");
 
+        zippCodeTextField.setEditable(false);
         zippCodeTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        emailTextField.setEditable(false);
         emailTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        registerPasswordField.setEditable(false);
         registerPasswordField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         registerPasswordConfirmLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         registerPasswordConfirmLabel.setText("Lösenord igen:");
 
+        emailConfirmTextField.setEditable(false);
         emailConfirmTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         registerUsernameLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -170,8 +175,10 @@ public class ProfileChangeCard extends javax.swing.JPanel {
         emailConfirmLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         emailConfirmLabel.setText("E-mail igen:");
 
+        registerPasswordConfirmField.setEditable(false);
         registerPasswordConfirmField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        registerUsernameTextField.setEditable(false);
         registerUsernameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
