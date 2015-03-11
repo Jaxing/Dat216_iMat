@@ -148,7 +148,7 @@ public class CartItem extends javax.swing.JPanel{
 
     private void increseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increseButtonActionPerformed
         increse();
-        handler.getShoppingCart().fireShoppingCartChanged(item, true);
+       // handler.getShoppingCart().fireShoppingCartChanged(item, true);
     }//GEN-LAST:event_increseButtonActionPerformed
 
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
