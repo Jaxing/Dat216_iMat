@@ -23,6 +23,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private ShoppingItem item;
     private IMatDataHandler handler = IMatDataHandler.getInstance();
+    private boolean isDark;
     /**
      * Creates new form cartItem
      */
@@ -44,14 +45,16 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     
     public void setColorDark(){
         this.setBackground(Color.LIGHT_GRAY);
+        isDark=true;
     }
     
     public boolean isDark(){
-        if(this.getBackground().equals(Color.LIGHT_GRAY)){
+        /*if(this.getBackground().equals(Color.LIGHT_GRAY)){
             return true;
         }
         
-        return false;
+        return false;*/
+        return isDark;
     }
    
     
@@ -142,6 +145,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
 
     private void increseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increseButtonActionPerformed
         increse();
+        handler.getShoppingCart().fireShoppingCartChanged(item, false);
     }//GEN-LAST:event_increseButtonActionPerformed
 
     private void decreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreseButtonActionPerformed
@@ -157,7 +161,7 @@ public class CartItem extends javax.swing.JPanel implements ShoppingCartListener
     
     private void delete(){
         handler.getShoppingCart().removeItem(item);
-        pcs.fireIndexedPropertyChange("deleted", 0, null, this);
+        //pcs.fireIndexedPropertyChange("deleted", 0, null, this);
     }
     
 

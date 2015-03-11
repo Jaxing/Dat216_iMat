@@ -502,6 +502,7 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
     }
     
     private void setPrice(){
+        System.out.println("pric changed");
         priceLabel.setText(Double.toString(handler.getShoppingCart().getTotal()));
     }
     
@@ -553,15 +554,14 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
 
                         }
                         if(i.isDark()){
-                            this.repaint();
                             i.setColorDark();
-                            System.out.println("Hej");
+                            this.repaint();
                         } else {
                             this.repaint();
                         }
-                        if(item!=i.getShoppingItem()){
+                        //if(item!=i.getShoppingItem()){
                             handler.getShoppingCart().removeItem(item);
-                        }
+                        //}
                     }
                 }
             }else{
@@ -584,19 +584,19 @@ public class CartCard extends javax.swing.JPanel implements ShoppingCartListener
                 gridPanel.add(new CartItem(item,this));
                 productList.add(item.getProduct());
             }
+            this.repaint();
         }
+        System.out.println("Should change price");
         setPrice();
 
     }
     
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        Object src = evt.getSource();
-        //if(evt.getPropertyName().equals("delete")){
-            gridPanel.remove((Component)src);
-        //}
+      /*Object src = evt.getSource();
+        gridPanel.remove((Component)src);
         setPrice();
-        this.repaint();
+        this.repaint();*/
         
     }
     
