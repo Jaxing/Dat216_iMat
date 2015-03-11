@@ -550,9 +550,16 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
 
     @Override
     public void addGroceryCard(String name, GroceryListCard card) {
-        
-        MainpagePanel.add(card);
-        mainCardlayout.addLayoutComponent(name, card);
+        if(MainpagePanel.isAncestorOf(card)){
+            MainpagePanel.remove(card);
+            MainpagePanel.add(card);
+            mainCardlayout.removeLayoutComponent(card);
+            mainCardlayout.addLayoutComponent(name, card);
+            System.out.println(card.getItems().get(0).getAmount());
+        } else {
+            MainpagePanel.add(card);
+            mainCardlayout.addLayoutComponent(name, card);
+        }
         
     }
 }

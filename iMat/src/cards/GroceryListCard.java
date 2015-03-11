@@ -64,6 +64,14 @@ public class GroceryListCard extends javax.swing.JPanel {
     public String getName(){
         return name;
     }
+    
+    public void setItems(List<ShoppingItem> items){
+        groceryList = items;
+    }
+    
+    public void update(){
+        createPanels();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,9 +117,7 @@ public class GroceryListCard extends javax.swing.JPanel {
         sizePanel.setLayout(sizePanelLayout);
         sizePanelLayout.setHorizontalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sizePanelLayout.createSequentialGroup()
-                .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(gridPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)
         );
         sizePanelLayout.setVerticalGroup(
             sizePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,8 +129,8 @@ public class GroceryListCard extends javax.swing.JPanel {
         fullPanelLayout.setHorizontalGroup(
             fullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fullPanelLayout.createSequentialGroup()
-                .addComponent(sizePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addComponent(sizePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         fullPanelLayout.setVerticalGroup(
             fullPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
