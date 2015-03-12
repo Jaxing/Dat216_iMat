@@ -97,7 +97,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         profileChangeCard1 = new cards.ProfileChangeCard();
         priceLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        buyPreformed = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -124,7 +123,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         returnButton.setBorder(null);
         returnButton.setBorderPainted(false);
         returnButton.setContentAreaFilled(false);
-        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButtonActionPerformed(evt);
@@ -142,7 +141,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/newprofileicon.png"))); // NOI18N
         profileButton.setToolTipText("Klicka för att se din profil");
         profileButton.setContentAreaFilled(false);
-        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
         profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +152,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/newCart.png"))); // NOI18N
         cartButton.setToolTipText("Klicka för att komma till kassan");
         cartButton.setContentAreaFilled(false);
-        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cartButtonActionPerformed(evt);
@@ -207,8 +206,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Pris:");
 
-        buyPreformed.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
@@ -226,8 +223,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buyPreformed)
-                        .addGap(262, 262, 262)
                         .addComponent(profileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,8 +243,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
                             .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(profileButton)
-                            .addComponent(buyPreformed))
+                            .addComponent(profileButton))
                         .addGap(6, 6, 6)
                         .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(MainpagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -376,18 +370,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private void selectCard(String listSelected){
         switch(listSelected){
             case("Hem"):
-                    new Thread(
-            new Runnable() {
-                public void run() {
-                    try {
-                        buyPreformed.setText("Köpet har genomfört");
-                        Thread.sleep(2000);
-                        buyPreformed.setText("");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }).start();
                     switchCard("homeCard");
                         break;
             case("Rekommenderade"): createRecommended();
@@ -513,7 +495,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private javax.swing.JPanel MainpagePanel;
     private javax.swing.JPanel backgroundPanel;
     private cards.BuyCard buyCard1;
-    private javax.swing.JLabel buyPreformed;
     private javax.swing.JButton cartButton;
     private cards.CartCard cartCard1;
     private cards.HistoryCard historyCard1;
