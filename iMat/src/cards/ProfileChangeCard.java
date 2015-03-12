@@ -354,7 +354,7 @@ public class ProfileChangeCard extends javax.swing.JPanel {
                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerCancelButton1)
                     .addComponent(registerAcceptButton1))
-                .addGap(0, 53, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
