@@ -28,6 +28,7 @@ public class loginFrame extends javax.swing.JFrame {
         profile.setUsername("J");
         
         cardLayout = (CardLayout)mainPanel.getLayout();
+        
     }
 
     
@@ -861,8 +862,9 @@ public class loginFrame extends javax.swing.JFrame {
         setCreditCardValues();
         loginUsernameTextField.setText(profile.getUsername());
         loginPasswordField.setText(profile.getPassword());
-        checkData();
-        openLoginCard();
+        if(checkData()){
+            login();
+        }
     }//GEN-LAST:event_registerAcceptButton2ActionPerformed
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
@@ -971,13 +973,13 @@ public class loginFrame extends javax.swing.JFrame {
     }
     
     private void openConfirmCard() {
-        myUserNameLabel.setText(profile.getUsername());
-        myEmailLabel.setText(profile.getEmail());
-        myCardNumberLabel.setText(profile.getCreditCard());
-        myCardTypeLabel.setText(profile.getCardType());
-        myAddressLabel.setText(profile.getAddress());
-        myZippCodeLabel.setText(profile.getPostCode());
-        myCcvLabel.setText(""+profile.getCCV());
+        myUserNameLabel.setText(registerUsernameTextField.getText());
+        myEmailLabel.setText(emailTextField.getText());
+        myCardNumberLabel.setText(cardNumberTextField.getText());
+        myCardTypeLabel.setText("visa");
+        myAddressLabel.setText(addressTextField.getText());
+        myZippCodeLabel.setText(zippCodeTextField.getText());
+        myCcvLabel.setText(ccvTextField.getText());
         cardLayout.show(mainPanel, "confirmCard");
     }
     
