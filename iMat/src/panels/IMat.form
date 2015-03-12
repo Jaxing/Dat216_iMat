@@ -83,7 +83,7 @@
                           <Component id="priceLabel" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="MainpagePanel" alignment="1" pref="825" max="32767" attributes="0"/>
+                      <Component id="MainpagePanel" alignment="1" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -139,7 +139,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Handmark&#xf6;r"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -163,7 +163,7 @@
             <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att se din profil"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Handmark&#xf6;r"/>
+              <Color id="Default Cursor"/>
             </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imat/images/profile-icon2.png"/>
@@ -181,7 +181,7 @@
             <Property name="toolTipText" type="java.lang.String" value="Klicka f&#xf6;r att komma till kassan"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Handmark&#xf6;r"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -279,13 +279,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                   <CardConstraints cardName="profileChangeCard"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="cards.ProfileCard" name="profileCard1">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="profileCard"/>
                 </Constraint>
               </Constraints>
             </Component>

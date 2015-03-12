@@ -22,7 +22,7 @@ public class RecipeIngredient {
     }
     
     public int getAmount(int servings) {
-        return (int) Math.ceil(this.amountPerServing);
+        return (int) Math.ceil(this.amountPerServing*servings);
     }
     
     public String toString(int servings) {

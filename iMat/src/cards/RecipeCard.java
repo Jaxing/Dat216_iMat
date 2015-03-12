@@ -30,13 +30,6 @@ public class RecipeCard extends javax.swing.JPanel{
      */
     public RecipeCard() {
         initComponents();
-        this.recipeIngredientsTextArea.setVisible(false);
-        this.recipeIngredientsTextArea.setVisible(false);
-        this.recipeAddAllButton.setVisible(false);
-        this.recipeNameLabel.setVisible(false);
-        this.recipeServingsLabel.setVisible(false);
-        this.recipeServingsSpinner.setVisible(false);
-        System.out.println("Hej");
     }
     
     public void loadRecipes(){
@@ -63,30 +56,27 @@ public class RecipeCard extends javax.swing.JPanel{
             rip.loadRecipe(this, recipes.get(i % recipes.size()));
             i++;
         }
-        
+        recipeItemPanels.get(0).open();
         
     }
     
-    public void openRecipe(Recipe r) {
-        this.recipeIngredientsTextArea.setVisible(true);
-        this.recipeIngredientsTextArea.setVisible(true);
-        this.recipeAddAllButton.setVisible(true);
-        this.recipeNameLabel.setVisible(true);
-        this.recipeServingsLabel.setVisible(true);
-        this.recipeServingsSpinner.setVisible(true);
-        
-        this.currentRecipe = r;
+    public void openRecipe(RecipeItem ri) {
+        if (this.currentRecipeItem != null) { 
+            this.currentRecipeItem.close(); 
+        }
+        this.currentRecipeItem = ri;
         
         this.openRecipeIngredients();
-        this.recipeDescriptionTextArea.setText(r.getDescription());
-        this.recipeNameLabel.setText(r.getName());
-        this.recipeIconLabel.setIcon(r.getImageLarge());
+        this.recipeDescriptionTextArea.setText(ri.getRecipe().getDescription());
+        this.recipeNameLabel.setText(ri.getRecipe().getName());
+        this.recipeIconLabel.setIcon(ri.getRecipe().getImageLarge());
         
     }
     
     private void openRecipeIngredients() {
+        int servings = (int)this.recipeServingsSpinner.getValue();
         String message = "Ingredienser: \n";
-        for (RecipeIngredient ri : this.currentRecipe.getIngredients()) {
+        for (RecipeIngredient ri : this.currentRecipeItem.getRecipe().getIngredients()) {
             message += ri.toString((int)this.recipeServingsSpinner.getValue()) + "\n";
         }
         this.recipeIngredientsTextArea.setText(message);
@@ -101,15 +91,16 @@ public class RecipeCard extends javax.swing.JPanel{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         recipeListPanel = new javax.swing.JPanel();
         recipeItem1 = new panels.RecipeItem();
-        recipeItem7 = new panels.RecipeItem();
+        recipeItem2 = new panels.RecipeItem();
         recipeItem6 = new panels.RecipeItem();
+        recipeItem3 = new panels.RecipeItem();
         recipeItem5 = new panels.RecipeItem();
         recipeItem4 = new panels.RecipeItem();
-        recipeItem2 = new panels.RecipeItem();
-        recipeItem3 = new panels.RecipeItem();
+        recipeItem7 = new panels.RecipeItem();
         recipeNameLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         recipeIngredientsTextArea = new javax.swing.JTextArea();
@@ -119,19 +110,24 @@ public class RecipeCard extends javax.swing.JPanel{
         jScrollPane3 = new javax.swing.JScrollPane();
         recipeDescriptionTextArea = new javax.swing.JTextArea();
         recipeIconLabel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
         recipeListPanel.setMaximumSize(new java.awt.Dimension(280, 1050));
         recipeListPanel.setMinimumSize(new java.awt.Dimension(280, 1050));
         recipeListPanel.setLayout(new java.awt.GridLayout(7, 1));
         recipeListPanel.add(recipeItem1);
-        recipeListPanel.add(recipeItem7);
+        recipeListPanel.add(recipeItem2);
         recipeListPanel.add(recipeItem6);
+        recipeListPanel.add(recipeItem3);
         recipeListPanel.add(recipeItem5);
         recipeListPanel.add(recipeItem4);
-        recipeListPanel.add(recipeItem2);
-        recipeListPanel.add(recipeItem3);
+        recipeListPanel.add(recipeItem7);
 
         jScrollPane1.setViewportView(recipeListPanel);
 
@@ -165,63 +161,105 @@ public class RecipeCard extends javax.swing.JPanel{
         recipeDescriptionTextArea.setRows(5);
         jScrollPane3.setViewportView(recipeDescriptionTextArea);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(recipeIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(recipeNameLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 49, Short.MAX_VALUE)
                                 .addComponent(recipeServingsLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(recipeServingsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(recipeAddAllButton))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2)))
                     .addComponent(jScrollPane3))
                 .addContainerGap())
         );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(recipeAddAllButton)
+                            .addComponent(recipeServingsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(recipeServingsLabel)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(recipeNameLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(recipeIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Recept");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(recipeNameLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(recipeIconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(recipeAddAllButton)
-                                    .addComponent(recipeServingsSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(recipeServingsLabel))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void recipeAddAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recipeAddAllButtonActionPerformed
         IMatDataHandler handler = IMatDataHandler.getInstance();
+        int servings = (int)this.recipeServingsSpinner.getValue();
         
-        for (RecipeIngredient ri : currentRecipe.getIngredients()) {
-            ShoppingItem item = new ShoppingItem(ri.getProduct(),ri.getAmount((int)this.recipeServingsSpinner.getValue()));
+        for (RecipeIngredient ri : currentRecipeItem.getRecipe().getIngredients()) {
+            ShoppingItem item = new ShoppingItem(ri.getProduct(),ri.getAmount(servings));
             handler.getShoppingCart().addItem(item);
-        }
+        }   
         
     }//GEN-LAST:event_recipeAddAllButtonActionPerformed
 
@@ -231,9 +269,13 @@ public class RecipeCard extends javax.swing.JPanel{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton recipeAddAllButton;
     private javax.swing.JTextArea recipeDescriptionTextArea;
     private javax.swing.JLabel recipeIconLabel;
@@ -251,6 +293,6 @@ public class RecipeCard extends javax.swing.JPanel{
     private javax.swing.JSpinner recipeServingsSpinner;
     // End of variables declaration//GEN-END:variables
     private List<RecipeItem> recipeItemPanels;
-    private Recipe currentRecipe;
+    private RecipeItem currentRecipeItem;
     
 }

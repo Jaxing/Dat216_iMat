@@ -21,6 +21,7 @@ import cards.GroceryListCard;
 import cards.HistoryCard;
 import cards.GroceryListCard;
 import cards.ItemCard;
+import cards.ReceiptCard;
 import cards.RecipeCard;
 import cards.RecommendedCard;
 import cards.SearchCard;
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
+import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ProductCategory;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
 
@@ -93,7 +95,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         cartCard1 = new cards.CartCard();
         buyCard1 = new cards.BuyCard();
         profileChangeCard1 = new cards.ProfileChangeCard();
-        profileCard1 = new cards.ProfileCard();
         priceLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         buyPreformed = new javax.swing.JLabel();
@@ -200,7 +201,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         MainpagePanel.add(cartCard1, "cartCard");
         MainpagePanel.add(buyCard1, "buyCard");
         MainpagePanel.add(profileChangeCard1, "profileChangeCard");
-        MainpagePanel.add(profileCard1, "profileCard");
 
         priceLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -236,7 +236,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))
-                    .addComponent(MainpagePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)))
+                    .addComponent(MainpagePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,9 +296,9 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     }//GEN-LAST:event_cartButtonActionPerformed
 
     private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
-        if(!previousCards.get(previousCards.size()-1).equals("profileCard")){
-            profileCard1.openCard();
-            switchCard("profileCard");
+        if(!previousCards.get(previousCards.size()-1).equals("profileChangeCard")){
+            profileChangeCard1.openCard();
+            switchCard("profileChangeCard");
         }else{
             previousCard();
         }
@@ -370,7 +370,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     }
     
     public void update(){
-        profileCard1.openCard();
         previousCard();
     }
     
@@ -405,6 +404,8 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
                         break;
             case("Recept"): createRecipe();
                         break;
+            case("Kvitto"): createReceipt();
+                        break;
         }
     }
     
@@ -418,6 +419,18 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         mainCardlayout.addLayoutComponent("recommendedCard", recommendedCard);
         mainCardlayout.show(MainpagePanel, "recommendedCard");
         previousCards.add("recommendedCard");
+    }
+    
+    private void createReceipt() {
+        if(receiptCard == null){
+            receiptCard = new ReceiptCard();
+            MainpagePanel.add(receiptCard);
+            mainCardlayout.addLayoutComponent("receiptCard", receiptCard);
+        }
+        System.out.println(handler.getOrders().size());
+        receiptCard.loadOrder(handler.getOrders().get(handler.getOrders().size()-1));
+        mainCardlayout.show(MainpagePanel, "receiptCard");
+        previousCards.add("receiptCard");
     }
     
     private void createRecipe(){
@@ -510,7 +523,6 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private cards.ListCard listCard1;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JButton profileButton;
-    private cards.ProfileCard profileCard1;
     private cards.ProfileChangeCard profileChangeCard1;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton searchButton;
@@ -519,6 +531,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
     private panels.sideMenuPanel sideMenuPanel1;
     // End of variables declaration//GEN-END:variables
     private RecipeCard recipeCard1;
+    private ReceiptCard receiptCard;
     private RecommendedCard recommendedCard;
     
     List<String> previousCards = new ArrayList();

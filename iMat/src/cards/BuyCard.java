@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cards;
+
+
 
 import customBackend.EventHandler;
 import customBackend.Lists;
@@ -80,6 +77,7 @@ public class BuyCard extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         noCcvLabel = new javax.swing.JLabel();
+        errorLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(775, 1079));
 
@@ -178,7 +176,7 @@ public class BuyCard extends javax.swing.JPanel {
             registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerCardPanelLayout.createSequentialGroup()
-                .addContainerGap(204, Short.MAX_VALUE)
+                .addContainerGap(119, Short.MAX_VALUE)
                 .addComponent(cardTypeLabel)
                 .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,10 +205,11 @@ public class BuyCard extends javax.swing.JPanel {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(expireDateDayCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(expireDateDayCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(errorLabel))
                             .addGap(16, 16, 16)))
                     .addGroup(registerCardPanelLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+                        .addGap(228, 228, 228)
                         .addComponent(noCcvLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(208, 208, 208))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerCardPanelLayout.createSequentialGroup()
@@ -264,7 +263,9 @@ public class BuyCard extends javax.swing.JPanel {
                                     .addComponent(zippCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(cardTypeLabel))
                         .addGap(18, 18, 18)
-                        .addComponent(noCcvLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(noCcvLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(errorLabel))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -287,15 +288,18 @@ public class BuyCard extends javax.swing.JPanel {
     private void registerAcceptButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAcceptButton1ActionPerformed
        /*List<ShoppingItem> items = new ArrayList(handler.getShoppingCart().getItems());
        
-       Order o = new Order();   */    
-       //o.setItems(items);
-        if(!(ccvTextField.getText().isEmpty()||cardNumberTextField.getText().isEmpty()||addressTextField.getText().isEmpty()
-                ||zippCodeTextField.getText().isEmpty())){
+       Order o = new Order();       
+       o.setItems(items);
+       System.out.println(handler.getOrders().add(o));*/
+      
+        if(!(ccvTextField.getText().isEmpty()||cardNumberTextField.getText().isEmpty()||
+               addressTextField.getText().isEmpty()||zippCodeTextField.getText().isEmpty())){
             handler.placeOrder(true);
-            eventHandler.getObserver().update("Hem");
+            eventHandler.getObserver().update("Kvitto");
         }else{
-            noCcvLabel.setText("Fyll i alla fält");
+            errorLabel.setText("Fyll i alla fält");
         }
+       
     }//GEN-LAST:event_registerAcceptButton1ActionPerformed
 
     private void cardNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTextFieldActionPerformed
@@ -309,6 +313,7 @@ public class BuyCard extends javax.swing.JPanel {
     private javax.swing.JLabel cardTypeLabel;
     private javax.swing.JLabel cardTypeName;
     private javax.swing.JTextField ccvTextField;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JComboBox expireDateDayCombobox;
     private javax.swing.JComboBox expireDateMonthComobox;
     private javax.swing.JLabel jLabel1;
@@ -328,3 +333,4 @@ public class BuyCard extends javax.swing.JPanel {
     private javax.swing.JTextField zippCodeTextField;
     // End of variables declaration//GEN-END:variables
 }
+

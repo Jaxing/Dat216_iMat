@@ -7,6 +7,7 @@ package panels;
 
 import cards.RecipeCard;
 import customBackend.Recipe;
+import java.awt.Color;
 
 /**
  *
@@ -14,6 +15,7 @@ import customBackend.Recipe;
  */
 public class RecipeItem extends javax.swing.JPanel {
 
+    private static final Color SELECTED_COLOUR = Color.getColor("", 0xE0E0FF);
     
     
     /**
@@ -52,6 +54,7 @@ public class RecipeItem extends javax.swing.JPanel {
         });
 
         iconLabel.setBackground(new java.awt.Color(255, 255, 255));
+        iconLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -81,9 +84,13 @@ public class RecipeItem extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
-        this.rc.openRecipe(this.recipe);
+        this.open();
     }//GEN-LAST:event_viewButtonActionPerformed
 
+    private void openThisRecipe() {
+        this.rc.openRecipe(this);
+    }
+    
     public void loadRecipe(RecipeCard card, Recipe r) {
         this.rc = card;
         this.recipe = r;
@@ -92,6 +99,20 @@ public class RecipeItem extends javax.swing.JPanel {
         this.iconLabel.setText("");
         this.iconLabel.setIcon(this.recipe.getImageSmall());
     }
+    
+    public void open() {
+        this.openThisRecipe();
+        this.setBackground(SELECTED_COLOUR);
+    }
+    public void close() {
+        this.setBackground(Color.WHITE);
+    }
+    
+    public Recipe getRecipe() {
+        return this.recipe;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel iconLabel;

@@ -34,8 +34,8 @@ public class ProfileChangeCard extends javax.swing.JPanel {
                 emailTextField.setText(profile.getEmail());
                 emailConfirmTextField.setText(profile.getEmail());
             }
-            expireDateYearCombobox.setSelectedIndex(profile.getValideMonth());
-            expireDateMonthComobox.setSelectedIndex(profile.getValideYear()-14);
+            expireDateYearCombobox.setSelectedIndex(profile.getValideYear()-15);
+            expireDateMonthComobox.setSelectedIndex(profile.getValideMonth()-1);
             if(!profile.getUsername().isEmpty()){
                 registerUsernameTextField.setText(profile.getUsername());
             }
@@ -98,7 +98,7 @@ public class ProfileChangeCard extends javax.swing.JPanel {
             }
         });
 
-        registerAcceptButton1.setText("Spara");
+        registerAcceptButton1.setText("Ändra");
         registerAcceptButton1.setToolTipText("Spara ändringarna");
         registerAcceptButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,12 +132,14 @@ public class ProfileChangeCard extends javax.swing.JPanel {
 
         expireDateMonthComobox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         expireDateMonthComobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        expireDateMonthComobox.setEnabled(false);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("/");
 
         expireDateYearCombobox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         expireDateYearCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
+        expireDateYearCombobox.setEnabled(false);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Leverans Adress");
@@ -221,7 +223,7 @@ public class ProfileChangeCard extends javax.swing.JPanel {
             registerCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerCardPanelLayout.createSequentialGroup()
-                .addGap(0, 290, Short.MAX_VALUE)
+                .addGap(0, 293, Short.MAX_VALUE)
                 .addComponent(cardTypeLabel)
                 .addGap(502, 502, 502))
             .addGroup(registerCardPanelLayout.createSequentialGroup()
@@ -376,6 +378,21 @@ public class ProfileChangeCard extends javax.swing.JPanel {
     }//GEN-LAST:event_cardNumberTextFieldActionPerformed
 
     private void registerAcceptButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAcceptButton1ActionPerformed
+        if (changeInformation == false) {
+            registerUsernameTextField.setEditable(true);
+            emailTextField.setEditable(true);
+            emailConfirmTextField.setEditable(true);
+            registerPasswordField.setEditable(true);
+            registerPasswordConfirmField.setEditable(true);
+            cardNumberTextField.setEditable(true);
+            expireDateMonthComobox.setEnabled(true);
+            expireDateYearCombobox.setEnabled(true);
+            ccvTextField.setEditable(true);
+            addressTextField.setEditable(true);
+            zippCodeTextField.setEditable(true);
+            registerAcceptButton1.setText("Spara"); 
+            changeInformation = true;
+        }   else {
         if(!registerUsernameTextField.getText().equals(""))
             profile.setUsername(registerUsernameTextField.getText());
         if(registerPasswordField.getText().equals(registerPasswordConfirmField.getText())){
@@ -398,11 +415,14 @@ public class ProfileChangeCard extends javax.swing.JPanel {
             profile.setCCV(Integer.parseInt(ccvTextField.getText()));
         
         profile.setValidDate(Integer.parseInt((String)expireDateMonthComobox.getSelectedItem()), Integer.parseInt((String)expireDateYearCombobox.getSelectedItem()));
-        
-        eventHandler.getObserver().update();
+        changeInformation = false;
+        registerAcceptButton1.setText("Ändra");
+        expireDateMonthComobox.setEnabled(false);
+        expireDateYearCombobox.setEnabled(false);
+        }
     }//GEN-LAST:event_registerAcceptButton1ActionPerformed
 
-
+    private boolean changeInformation = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressTextField;
     private javax.swing.JLabel badMatchLabel;
