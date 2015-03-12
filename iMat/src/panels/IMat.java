@@ -141,7 +141,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/newprofileicon.png"))); // NOI18N
         profileButton.setToolTipText("Klicka för att se din profil");
         profileButton.setContentAreaFilled(false);
-        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         profileButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/profile-icon2.png"))); // NOI18N
         profileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +152,7 @@ public class IMat extends javax.swing.JFrame implements EventListener,ShoppingCa
         cartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imat/images/newCart.png"))); // NOI18N
         cartButton.setToolTipText("Klicka för att komma till kassan");
         cartButton.setContentAreaFilled(false);
-        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cartButtonActionPerformed(evt);
