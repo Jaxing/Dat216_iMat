@@ -25,10 +25,10 @@ public class timeStampPanel extends javax.swing.JPanel {
     /**
      * Creates new form timeStampPanel
      */
-    public timeStampPanel(List<ShoppingItem> shoppingList) {
+    public timeStampPanel(Order o) {
         initComponents();
         jPanel1.setVisible(false);
-        siList = new ArrayList<ShoppingItem>(shoppingList);
+        siList = new ArrayList<ShoppingItem>(o.getItems());
        /* if(!shoppingList.isEmpty()){
             for(ShoppingItem p : shoppingList){
                 siList.add(new ShoppingItem(p.getProduct(),p.getAmount()));
@@ -38,7 +38,7 @@ public class timeStampPanel extends javax.swing.JPanel {
         for(ShoppingItem i : siList){
             totalPrice += i.getTotal();
         }
-        dateLabel.setText("2015-03-03");
+        dateLabel.setText(o.getDate().toString().substring(0,19));
         priceLabel.setText(totalPrice+"");
         openHistory();
     }
@@ -161,8 +161,8 @@ public class timeStampPanel extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
+                .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)

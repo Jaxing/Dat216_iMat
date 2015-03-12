@@ -87,9 +87,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
-                  <Component id="dateLabel" min="-2" pref="201" max="-2" attributes="0"/>
-                  <EmptySpace pref="243" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="dateLabel" min="-2" pref="247" max="-2" attributes="0"/>
+                  <EmptySpace pref="197" max="32767" attributes="0"/>
                   <Component id="jLabel5" min="-2" pref="54" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="priceLabel" min="-2" pref="114" max="-2" attributes="0"/>

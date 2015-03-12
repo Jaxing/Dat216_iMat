@@ -37,7 +37,7 @@ public class HistoryCard extends javax.swing.JPanel {
         if(!handler.getOrders().isEmpty()){
            for(Order l : handler.getOrders()){
                if(!l.getItems().isEmpty()){
-                    timeStampPanel newPanel = new timeStampPanel(l.getItems());
+                    timeStampPanel newPanel = new timeStampPanel(l);
                     gridPanel.add(newPanel);
                }
             }

@@ -293,7 +293,7 @@ public class BuyCard extends javax.swing.JPanel {
        System.out.println(handler.getOrders().add(o));*/
       
         if(!(ccvTextField.getText().isEmpty()||cardNumberTextField.getText().isEmpty()||
-               addressTextField.getText().isEmpty()||zippCodeTextField.getText().isEmpty())){
+            addressTextField.getText().isEmpty()||zippCodeTextField.getText().isEmpty())){
             handler.placeOrder(true);
             eventHandler.getObserver().update("Kvitto");
         }else{
